@@ -3,152 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Industries — PALRAM AI</title>
-<meta name="description" content="PALRAM AI builds AI agents, workflow automation, custom software, web and mobile apps for startups, SMBs, and enterprises.">
+<title>Industries & Domains — PALRAM AI</title>
+<meta name="description" content="Specialized AI and automation solutions for Healthcare, FinTech, E-Commerce, Real Estate, Logistics, and SaaS enterprise sectors.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/img/favicon-64.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
+
 <div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<!-- STICKY NAVIGATION BAR -->
 <header>
   <nav class="wrap">
-    <a href="index.html" class="logo">
-      <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-      <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+    <a href="index.html" class="logo" id="headerLogo">
+      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+      <div class="logo-text-stack">
+        <span class="brand-title">PALRAM AI</span>
+        <span class="brand-sub">SINCE 2026</span>
+      </div>
     </a>
+
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="ai-solutions.html">AI Solutions</a>
-      <a href="portfolio.html">Portfolio</a>
       <a href="industries.html" class="active">Industries</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="about.html">About</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
     </div>
+
     <div class="nav-actions">
       <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book Free Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book Consultation</a>
       <div class="burger" onclick="toggleMobile()">&#9776;</div>
     </div>
   </nav>
 </header>
 
-<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg); z-index:99; padding:100px 32px 32px;">
-  <div style="display:flex; flex-direction:column; gap:24px; font-size:20px;">
-    <a href="index.html" onclick="toggleMobile()">Home</a>
-    <a href="services.html" onclick="toggleMobile()">Services</a>
-    <a href="ai-solutions.html" onclick="toggleMobile()">AI Solutions</a>
-    <a href="portfolio.html" onclick="toggleMobile()">Portfolio</a>
-    <a href="industries.html" onclick="toggleMobile()">Industries</a>
-    <a href="about.html" onclick="toggleMobile()">About</a>
-    <a href="pricing.html" onclick="toggleMobile()">Pricing</a>
-    <a href="contact.html" onclick="toggleMobile()">Contact</a>
-    <a href="contact.html" class="btn btn-primary" style="justify-content:center" onclick="toggleMobile()">Book Free Consultation</a>
+<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg-dark); z-index:99; padding:100px 32px 32px;">
+  <div style="display:flex; flex-direction:column; gap:20px; font-size:18px;">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="ai-solutions.html">AI Solutions</a>
+    <a href="industries.html">Industries</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
   </div>
-  <div style="position:absolute; top:26px; right:32px; font-size:28px; cursor:pointer;" onclick="toggleMobile()">&#10005;</div>
 </div>
 
-<section class="page-hero">
-  <div class="wrap">
-    <div class="eyebrow reveal in"><span class="dot"></span> Industries</div>
-    <h1 class="reveal in">Built for the sectors that need it most</h1>
-    <p class="reveal in">From clinics to classrooms, our systems are built to fit how each industry actually operates.</p>
+<!-- INDUSTRIES HERO -->
+<section class="hero" style="padding: 40px 0 60px;">
+  <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
+    <div class="eyebrow"><span class="dot"></span> Domain Expertise</div>
+    <h1>Specialized Industry <span class="grad-text">AI Solutions</span></h1>
+    <p class="lead" style="margin: 0 auto;">Tailored AI agents, compliance pipelines, and automated workflows engineered for your industry's specific challenges.</p>
   </div>
 </section>
 
+<!-- INDUSTRIES GRID -->
 <section class="section" style="padding-top:0;">
   <div class="wrap">
-    <div class="chip-cloud reveal">
-      <div class="chip">&#127973; Healthcare</div>
-      <div class="chip">&#128179; Finance</div>
-      <div class="chip">&#127891; Education</div>
-      <div class="chip">&#127968; Real Estate</div>
-      <div class="chip">&#127981; Manufacturing</div>
-      <div class="chip">&#128717;&#65039; Retail</div>
-      <div class="chip">&#9992;&#65039; Travel</div>
-      <div class="chip">&#127976; Hospitality</div>
-      <div class="chip">&#128225; Telecom</div>
-      <div class="chip">&#128274; Cyber Security</div>
-      <div class="chip">&#127963;&#65039; Government</div>
-      <div class="chip">&#128240; Media</div>
+    <div class="grid grid-3">
+      <!-- Industry 1: Healthcare -->
+      <div class="card">
+        <div class="card-icon">🏥</div>
+        <h3>Healthcare & Life Sciences</h3>
+        <p>HIPAA-compliant AI assistants, automated medical document ingestion, diagnostic triage helpers, and electronic health record integrations.</p>
+      </div>
+
+      <!-- Industry 2: FinTech -->
+      <div class="card">
+        <div class="card-icon">💳</div>
+        <h3>FinTech & Banking</h3>
+        <p>Automated fraud detection agents, KYC/AML document verification pipelines, algorithmic trading assistants, and intelligent credit risk scoring.</p>
+      </div>
+
+      <!-- Industry 3: E-Commerce -->
+      <div class="card">
+        <div class="card-icon">🛍️</div>
+        <h3>E-Commerce & Retail</h3>
+        <p>Personalized product recommendation agents, dynamic pricing optimization, automated multi-channel inventory sync, and instant customer support bots.</p>
+      </div>
+
+      <!-- Industry 4: Real Estate -->
+      <div class="card">
+        <div class="card-icon">🏢</div>
+        <h3>Real Estate & PropTech</h3>
+        <p>Automated lead qualification agents, AI property valuation models, virtual tour assistants, and tenant lease agreement document RAG search.</p>
+      </div>
+
+      <!-- Industry 5: Supply Chain -->
+      <div class="card">
+        <div class="card-icon">🚚</div>
+        <h3>Logistics & Supply Chain</h3>
+        <p>Predictive route optimization algorithms, automated warehouse inventory agents, customs documentation automation, and real-time fleet analytics.</p>
+      </div>
+
+      <!-- Industry 6: Legal & Compliance -->
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h3>Legal & Corporate Governance</h3>
+        <p>Automated contract analysis, regulatory compliance audit bots, document summary generation, and high-speed legal precedent vector search.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow"><span class="dot"></span> Testimonials</div>
-      <h2>What clients across industries say</h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card testi-card reveal">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Our support agent now handles most first-response tickets on its own. The team scoped it precisely and shipped ahead of plan."</p>
-        <div class="testi-who"><div class="avatar">RK</div><div><b>Rahul Khanna</b><span>CEO, Startup Founder</span></div></div>
-      </div>
-      <div class="card testi-card reveal">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Rolling out automation across procurement cut our manual processing time dramatically within the first quarter."</p>
-        <div class="testi-who"><div class="avatar">SM</div><div><b>Sara Mathews</b><span>Enterprise Client</span></div></div>
-      </div>
-      <div class="card testi-card reveal">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"The dashboard they built is now how our clinical staff runs the day. Adoption was immediate, no retraining needed."</p>
-        <div class="testi-who"><div class="avatar">DP</div><div><b>Dr. Priya Nair</b><span>Healthcare Company</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="index.html" class="logo" style="margin-bottom:14px;">
-          <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-          <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
+          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+          <div class="logo-text-stack">
+            <span class="brand-title">PALRAM AI</span>
+            <span class="brand-sub">SINCE 2026</span>
+          </div>
         </a>
-        <p style="max-width:260px;">Transforming businesses with AI, automation, and modern software solutions.</p>
-        <div class="social-row">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="GitHub">gh</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="YouTube">yt</a>
-        </div>
+        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">Transforming businesses with AI Agents, Workflow Automation, and Enterprise Software.</p>
       </div>
+
       <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">AI Solutions</a><a href="#">Blog</a></div>
-      <div><h5>Solutions</h5><a href="services.html">Automation</a><a href="portfolio.html">Portfolio</a><a href="industries.html">Industries</a><a href="pricing.html">Pricing</a></div>
-      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-      <div><h5>Contact</h5><p>contact@palramai.in</p><p>palramai.in</p></div>
+      <div><h5>Services</h5><a href="services.html">AI Development</a><a href="services.html">AI Agents</a><a href="services.html">Automation</a><a href="services.html">Web Apps</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Security</a></div>
+      <div><h5>Contact</h5><p style="font-size:0.85rem; color:var(--text-secondary);">contact@palramai.in</p><p style="font-size:0.85rem; color:var(--text-secondary);">https://palramai.in</p></div>
     </div>
+
     <div class="foot-bottom">
       <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>Built for scale</span>
+      <span>Enterprise AI Agency</span>
     </div>
   </div>
 </footer>
 
-<div class="float-stack">
-  <a class="float-btn wa" href="https://wa.me/910000000000" target="_blank" aria-label="WhatsApp">&#128172;</a>
-  <a class="float-btn mail" href="mailto:contact@palramai.in" aria-label="Email">&#9993;</a>
-</div>
-
+<!-- CHAT ASSISTANT WIDGET -->
 <div class="chat-widget">
   <div class="chat-panel" id="chatPanel">
-    <div class="chat-head"><b>PALRAM Assistant</b><span>Typically replies in a few minutes</span></div>
+    <div class="chat-head">
+      <div>
+        <b>PALRAM AI Assistant</b>
+        <span>Typically replies instantly</span>
+      </div>
+      <div class="chat-close" onclick="toggleChat()" title="Close chat">&#10005;</div>
+    </div>
     <div class="chat-body" id="chatBody">
-      <div class="msg bot">Hi &#128075; I'm the PALRAM AI assistant. Ask me about AI agents, automation, or getting a quote.</div>
+      <div class="msg bot">Hello 👋 Ask me about AI solutions tailored for your industry sector!</div>
     </div>
     <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChat()">
+      <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendChat()">
       <button onclick="sendChat()">Send</button>
     </div>
   </div>
-  <div class="chat-bubble" onclick="toggleChat()"><img src="assets/img/logo-symbol.png" alt="Chat"></div>
+  <div class="chat-bubble" onclick="toggleChat()">💬</div>
 </div>
 
 <script src="assets/js/script.js"></script>

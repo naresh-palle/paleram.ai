@@ -3,176 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services — PALRAM AI</title>
-<meta name="description" content="PALRAM AI builds AI agents, workflow automation, custom software, web and mobile apps for startups, SMBs, and enterprises.">
+<title>Services & Technology Stack — PALRAM AI</title>
+<meta name="description" content="Core services offered by PALRAM AI: AI Development, Autonomous AI Agents, Workflow Automation, Web Apps, Mobile Apps, and UI/UX Design.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/img/favicon-64.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
+
 <div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<!-- STICKY NAVIGATION BAR -->
 <header>
   <nav class="wrap">
-    <a href="index.html" class="logo">
-      <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-      <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+    <a href="index.html" class="logo" id="headerLogo">
+      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+      <div class="logo-text-stack">
+        <span class="brand-title">PALRAM AI</span>
+        <span class="brand-sub">SINCE 2026</span>
+      </div>
     </a>
+
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html" class="active">Services</a>
       <a href="ai-solutions.html">AI Solutions</a>
-      <a href="portfolio.html">Portfolio</a>
       <a href="industries.html">Industries</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="about.html">About</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
     </div>
+
     <div class="nav-actions">
       <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book Free Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book Consultation</a>
       <div class="burger" onclick="toggleMobile()">&#9776;</div>
     </div>
   </nav>
 </header>
 
-<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg); z-index:99; padding:100px 32px 32px;">
-  <div style="display:flex; flex-direction:column; gap:24px; font-size:20px;">
-    <a href="index.html" onclick="toggleMobile()">Home</a>
-    <a href="services.html" onclick="toggleMobile()">Services</a>
-    <a href="ai-solutions.html" onclick="toggleMobile()">AI Solutions</a>
-    <a href="portfolio.html" onclick="toggleMobile()">Portfolio</a>
-    <a href="industries.html" onclick="toggleMobile()">Industries</a>
-    <a href="about.html" onclick="toggleMobile()">About</a>
-    <a href="pricing.html" onclick="toggleMobile()">Pricing</a>
-    <a href="contact.html" onclick="toggleMobile()">Contact</a>
-    <a href="contact.html" class="btn btn-primary" style="justify-content:center" onclick="toggleMobile()">Book Free Consultation</a>
+<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg-dark); z-index:99; padding:100px 32px 32px;">
+  <div style="display:flex; flex-direction:column; gap:20px; font-size:18px;">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="ai-solutions.html">Solutions</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
   </div>
-  <div style="position:absolute; top:26px; right:32px; font-size:28px; cursor:pointer;" onclick="toggleMobile()">&#10005;</div>
 </div>
 
-<section class="page-hero">
-  <div class="wrap">
-    <div class="eyebrow reveal in"><span class="dot"></span> Services</div>
-    <h1 class="reveal in">Everything you need to go from idea to intelligent product</h1>
-    <p class="reveal in">Six practice areas, one integrated team &mdash; so your AI, your software, and your infrastructure are built to work together from day one.</p>
+<!-- SERVICES HERO -->
+<section class="hero" style="padding: 40px 0 60px;">
+  <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
+    <div class="eyebrow"><span class="dot"></span> Full-Cycle Engineering</div>
+    <h1>Enterprise <span class="grad-text">Services & Stack</span></h1>
+    <p class="lead" style="margin: 0 auto;">From autonomous multi-agent orchestration to custom cloud backends, we build production software engineered for high scale.</p>
   </div>
 </section>
 
+<!-- SERVICES GRID -->
 <section class="section" style="padding-top:0;">
   <div class="wrap">
     <div class="grid grid-3">
-      <div class="card reveal">
-        <div class="icon">&#129504;</div>
+      <!-- Service 1 -->
+      <div class="card">
+        <div class="card-icon">🧠</div>
         <h3>AI Development</h3>
-        <p>Custom AI solutions built on the models and retrieval systems that fit your data and use case.</p>
-        <div class="tag-row"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Chatbots</span><span class="tag">AI Search</span><span class="tag">Knowledge Bases</span></div>
+        <p>Custom LLM fine-tuning, retrieval-augmented generation (RAG), vector database search, and intelligent prompt routing.</p>
+        <div class="feature-pills" style="margin-top:16px;">
+          <span class="feature-pill">OpenAI API</span>
+          <span class="feature-pill">LangChain</span>
+          <span class="feature-pill">LlamaIndex</span>
+          <span class="feature-pill">Pinecone</span>
+        </div>
       </div>
-      <div class="card reveal">
-        <div class="icon">&#129302;</div>
+
+      <!-- Service 2 -->
+      <div class="card">
+        <div class="card-icon">🤖</div>
         <h3>AI Agents</h3>
-        <p>Autonomous agents that handle real workflows &mdash; support, sales, research, and code &mdash; end to end.</p>
-        <div class="tag-row"><span class="tag">Support Agents</span><span class="tag">Sales Agents</span><span class="tag">HR Agents</span><span class="tag">Coding Agents</span></div>
+        <p>Multi-agent orchestration networks, autonomous task decomposition, tool execution, and persistent memory state.</p>
+        <div class="feature-pills" style="margin-top:16px;">
+          <span class="feature-pill">AutoGPT</span>
+          <span class="feature-pill">CrewAI</span>
+          <span class="feature-pill">Python</span>
+          <span class="feature-pill">Redis</span>
+        </div>
       </div>
-      <div class="card reveal">
-        <div class="icon">&#9889;</div>
+
+      <!-- Service 3 -->
+      <div class="card">
+        <div class="card-icon">⚡</div>
         <h3>Automation</h3>
-        <p>Connect your tools and eliminate manual work with automated pipelines across your business.</p>
-        <div class="tag-row"><span class="tag">n8n</span><span class="tag">Zapier</span><span class="tag">Make.com</span><span class="tag">Doc Processing</span><span class="tag">CRM Automation</span></div>
+        <p>End-to-end business process automation, webhook triggers, API integrations, and low-latency data pipelines.</p>
+        <div class="feature-pills" style="margin-top:16px;">
+          <span class="feature-pill">n8n</span>
+          <span class="feature-pill">Zapier</span>
+          <span class="feature-pill">Make.com</span>
+          <span class="feature-pill">Python</span>
+        </div>
       </div>
-      <div class="card reveal">
-        <div class="icon">&#128187;</div>
+
+      <!-- Service 4 -->
+      <div class="card">
+        <div class="card-icon">💻</div>
         <h3>Web Development</h3>
-        <p>Fast, scalable web platforms &mdash; from marketing sites to full SaaS products and marketplaces.</p>
-        <div class="tag-row"><span class="tag">SaaS</span><span class="tag">E-commerce</span><span class="tag">Admin Panels</span><span class="tag">Booking Systems</span></div>
+        <p>Ultra-fast Next.js 15 web applications, reactive dashboards, Server-Side Rendering (SSR), and microservice APIs.</p>
+        <div class="feature-pills" style="margin-top:16px;">
+          <span class="feature-pill">Next.js 15</span>
+          <span class="feature-pill">React 19</span>
+          <span class="feature-pill">TypeScript</span>
+          <span class="feature-pill">Tailwind</span>
+        </div>
       </div>
-      <div class="card reveal">
-        <div class="icon">&#128241;</div>
+
+      <!-- Service 5 -->
+      <div class="card">
+        <div class="card-icon">📱</div>
         <h3>Mobile Apps</h3>
-        <p>Native and cross-platform apps that feel fast and native on every device you ship to.</p>
-        <div class="tag-row"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Flutter</span><span class="tag">React Native</span></div>
+        <p>Cross-platform iOS & Android mobile applications built for high performance, smooth animations, and offline sync.</p>
+        <div class="feature-pills" style="margin-top:16px;">
+          <span class="feature-pill">React Native</span>
+          <span class="feature-pill">Flutter</span>
+          <span class="feature-pill">iOS</span>
+          <span class="feature-pill">Android</span>
+        </div>
       </div>
-      <div class="card reveal">
-        <div class="icon">&#127912;</div>
+
+      <!-- Service 6 -->
+      <div class="card">
+        <div class="card-icon">🎨</div>
         <h3>UI/UX Design</h3>
-        <p>Interfaces designed around how people actually work, backed by a system that scales with you.</p>
-        <div class="tag-row"><span class="tag">Wireframes</span><span class="tag">Figma</span><span class="tag">Design Systems</span><span class="tag">Dashboards</span></div>
+        <p>Human-centered design systems, glassmorphism UI mockups, interactive prototypes, and conversion optimization.</p>
+        <div class="feature-pills" style="margin-top:16px;">
+          <span class="feature-pill">Figma</span>
+          <span class="feature-pill">Framer</span>
+          <span class="feature-pill">Design Systems</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow"><span class="dot"></span> Infrastructure</div>
-      <h2>DevOps &amp; cloud, built for AI workloads</h2>
-      <p>Enterprise-grade infrastructure so your agents and applications run reliably at scale.</p>
-    </div>
-    <div class="grid grid-4">
-      <div class="card reveal"><div class="icon">&#9729;&#65039;</div><h3>Cloud Deployment</h3><p>AWS, Azure, and Google Cloud architectures sized to your workload.</p></div>
-      <div class="card reveal"><div class="icon">&#128230;</div><h3>Containers</h3><p>Docker and Kubernetes for consistent, portable deployments.</p></div>
-      <div class="card reveal"><div class="icon">&#128736;&#65039;</div><h3>Infrastructure as Code</h3><p>Terraform-managed environments you can reproduce and audit.</p></div>
-      <div class="card reveal"><div class="icon">&#128202;</div><h3>CI/CD &amp; Monitoring</h3><p>Automated pipelines with real-time monitoring and alerting.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="cta-banner reveal">
-      <h2>Not sure which service fits?</h2>
-      <p>Tell us what you're building and we'll map it to the right practice area.</p>
-      <a href="contact.html" class="btn btn-primary btn-lg">Talk to Us</a>
-    </div>
-  </div>
-</section>
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="index.html" class="logo" style="margin-bottom:14px;">
-          <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-          <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
+          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+          <div class="logo-text-stack">
+            <span class="brand-title">PALRAM AI</span>
+            <span class="brand-sub">SINCE 2026</span>
+          </div>
         </a>
-        <p style="max-width:260px;">Transforming businesses with AI, automation, and modern software solutions.</p>
-        <div class="social-row">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="GitHub">gh</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="YouTube">yt</a>
-        </div>
+        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">Transforming businesses with AI Agents, Workflow Automation, and Enterprise Software.</p>
       </div>
-      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">AI Solutions</a><a href="#">Blog</a></div>
-      <div><h5>Solutions</h5><a href="services.html">Automation</a><a href="portfolio.html">Portfolio</a><a href="industries.html">Industries</a><a href="pricing.html">Pricing</a></div>
-      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-      <div><h5>Contact</h5><p>contact@palramai.in</p><p>palramai.in</p></div>
+
+      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">Solutions</a><a href="#">Blog</a></div>
+      <div><h5>Services</h5><a href="services.html">AI Development</a><a href="services.html">AI Agents</a><a href="services.html">Automation</a><a href="services.html">Web Apps</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Security</a></div>
+      <div><h5>Contact</h5><p style="font-size:0.85rem; color:var(--text-secondary);">contact@palramai.in</p><p style="font-size:0.85rem; color:var(--text-secondary);">https://palramai.in</p></div>
     </div>
+
     <div class="foot-bottom">
       <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>Built for scale</span>
+      <span>Enterprise AI Agency</span>
     </div>
   </div>
 </footer>
 
-<div class="float-stack">
-  <a class="float-btn wa" href="https://wa.me/910000000000" target="_blank" aria-label="WhatsApp">&#128172;</a>
-  <a class="float-btn mail" href="mailto:contact@palramai.in" aria-label="Email">&#9993;</a>
-</div>
-
+<!-- CHAT ASSISTANT WIDGET -->
 <div class="chat-widget">
   <div class="chat-panel" id="chatPanel">
-    <div class="chat-head"><b>PALRAM Assistant</b><span>Typically replies in a few minutes</span></div>
+    <div class="chat-head">
+      <div>
+        <b>PALRAM AI Assistant</b>
+        <span>Typically replies instantly</span>
+      </div>
+      <div class="chat-close" onclick="toggleChat()" title="Close chat">&#10005;</div>
+    </div>
     <div class="chat-body" id="chatBody">
-      <div class="msg bot">Hi &#128075; I'm the PALRAM AI assistant. Ask me about AI agents, automation, or getting a quote.</div>
+      <div class="msg bot">Hello 👋 Ask me about our engineering services or technology stack options!</div>
     </div>
     <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChat()">
+      <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendChat()">
       <button onclick="sendChat()">Send</button>
     </div>
   </div>
-  <div class="chat-bubble" onclick="toggleChat()"><img src="assets/img/logo-symbol.png" alt="Chat"></div>
+  <div class="chat-bubble" onclick="toggleChat()">💬</div>
 </div>
 
 <script src="assets/js/script.js"></script>

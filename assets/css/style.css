@@ -1,0 +1,605 @@
+/* ==========================================================================
+   PALRAM AI — Enterprise SaaS Agency Design System
+   Google Fonts: Plus Jakarta Sans / Outfit (Option 3 Brand Identity)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Color Palette — Cyber Violet Obsidian & Neon Cyan */
+  --color-primary: #A855F7;        /* Glowing Neon Violet */
+  --color-secondary: #06B6D4;      /* Electric Cyan */
+  --color-accent: #14B8A6;         /* Neon Teal */
+  --color-success: #10B981;        /* Emerald */
+  
+  --bg-dark: #180B28;              /* Exact Midnight Purple from Logo Image */
+  --bg-card: #201133;              /* Dark Violet Plum Surface */
+  --bg-card-hover: #2B1745;        /* Interactive Cyber Violet */
+  --bg-glass: rgba(24, 11, 40, 0.92); /* Header background matching logo background */
+  
+  --text-primary: #FAF5FF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #A855F7;
+  
+  --border-card: rgba(168, 85, 247, 0.15);
+  --border-accent: rgba(6, 182, 212, 0.4);
+
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 30px rgba(168, 85, 247, 0.25);
+  --shadow-lg: 0 20px 50px rgba(24, 11, 40, 0.95);
+  
+  --radius-card: 16px;
+  --radius-pill: 9999px;
+  --radius-sm: 8px;
+}
+
+[data-theme="light"] {
+  --bg-dark: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F1F5F9;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --border-card: rgba(15, 23, 42, 0.1);
+  --border-accent: rgba(37, 99, 235, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   ANIMATED BACKGROUND GRID
+   ========================================================================== */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, black 40%, transparent 80%);
+}
+
+.bg-glow span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  will-change: transform;
+}
+
+.bg-glow .g1 {
+  width: 700px;
+  height: 700px;
+  top: -200px;
+  left: -150px;
+  background: radial-gradient(circle, var(--color-primary), transparent 70%);
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+.bg-glow .g2 {
+  width: 600px;
+  height: 600px;
+  top: 300px;
+  right: -100px;
+  background: radial-gradient(circle, var(--color-secondary), transparent 70%);
+  animation: pulseGlow 10s ease-in-out infinite alternate 2s;
+}
+
+.bg-glow .g3 {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  left: 30%;
+  background: radial-gradient(circle, var(--color-accent), transparent 70%);
+  animation: pulseGlow 9s ease-in-out infinite alternate 4s;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1) translateY(0); opacity: 0.35; }
+  100% { transform: scale(1.1) translateY(-20px); opacity: 0.55; }
+}
+
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   LOGO VARIATIONS STYLING
+   ========================================================================== */
+
+/* Base Logo Container */
+/* ==========================================================================
+   BRAND LOGO: Logo Icon + PALRAM AI + SINCE 2026 Underneath
+   ========================================================================== */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.55));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-img {
+  transform: rotate(4deg) scale(1.06);
+}
+
+.logo-text-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.05;
+}
+
+.logo-text-stack .brand-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
+
+.logo-text-stack .brand-sub {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.625rem;
+  color: #06B6D4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.logo:hover .logo-svg-icon {
+  transform: rotate(5deg) scale(1.06);
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+}
+
+/* Variation 2: Cybernetic Tech Monogram */
+.logo-v2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+}
+.logo-v2 .badge-v2 {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-weight: 900;
+  font-size: 1rem;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+.logo-v2 span.ai-dot {
+  color: #06B6D4;
+}
+
+/* Variation 3: Quantum AI Multi-Node */
+.logo-v3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+.logo-v3 .ai-tag {
+  background: rgba(124, 58, 237, 0.25);
+  border: 1px solid var(--color-secondary);
+  color: #C084FC;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+/* Variation 4: Pure Italic Vermilion Script + Arrow */
+.logo-v4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.logo-v4 .script-v4 {
+  background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.4));
+}
+.logo-v4 .arrow-v4 {
+  color: #EF4444;
+  font-style: normal;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: transform 0.25s ease;
+}
+.logo-v4:hover .arrow-v4 {
+  transform: translate(3px, -3px);
+}
+
+/* Logo SVG icon helper */
+.logo-svg-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(255, 53, 0, 0.4));
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-glass);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border-card);
+  padding: 14px 0;
+  margin-bottom: 32px;
+}
+
+nav.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--text-primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.burger {
+  display: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.45);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.35);
+}
+
+.btn-ghost {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  color: var(--text-primary);
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 0.95rem;
+}
+
+/* HERO */
+.hero { padding: 60px 0 90px; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.grad-text {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  max-width: 600px;
+}
+
+.hero-ctas { display: flex; gap: 16px; margin-bottom: 48px; }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-card);
+}
+
+.stat b {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: block;
+}
+
+.stat span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* 3D AI Visualizer Card */
+.hero-visual-card {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 9, 11, 0.2) 0%, rgba(9, 9, 11, 0.95) 100%);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.badge-tag {
+  align-self: flex-start;
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* SECTIONS */
+.section { padding: 90px 0; border-top: 1px solid var(--border-card); }
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+.section-head h2 { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; margin-bottom: 14px; }
+.section-head p { color: var(--text-secondary); font-size: 1.05rem; }
+
+.grid { display: grid; gap: 28px; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.card h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 10px; }
+.card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
+
+.feature-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.feature-pill { font-family: var(--font-mono); font-size: 0.725rem; padding: 4px 10px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-card); color: var(--text-secondary); }
+
+/* TIMELINE */
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.timeline-step { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-card); padding: 28px 20px; text-align: center; }
+.timeline-step .num { font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--color-accent); margin-bottom: 8px; }
+.timeline-step h4 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border-card); padding: 80px 0 40px; background: #050507; }
+.foot-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 48px; margin-bottom: 56px; }
+.foot-grid h5 { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+.foot-grid a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; margin-bottom: 12px; }
+
+.foot-bottom { display: flex; justify-content: space-between; padding-top: 32px; border-top: 1px solid var(--border-card); font-size: 0.8rem; color: var(--text-muted); }
+
+/* CHAT WIDGET */
+.chat-widget { position: fixed; bottom: 24px; right: 24px; z-index: 999; }
+.chat-bubble { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #FFF; font-size: 1.4rem; }
+.chat-panel { display: none; position: absolute; bottom: 70px; right: 0; width: 360px; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-card); flex-direction: column; overflow: hidden; }
+.chat-head { background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: #FFF; padding: 16px; font-size: 0.875rem; display: flex; justify-content: space-between; align-items: center; }
+.chat-close { cursor: pointer; font-size: 1.05rem; width: 28px; height: 28px; border-radius: 50%; background: rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center; }
+.chat-body { padding: 16px; height: 280px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 0.825rem; }
+.msg.bot { background: var(--bg-card-hover); align-self: flex-start; }
+.msg.user { background: var(--color-primary); color: #FFF; align-self: flex-end; }
+.chat-input { display: flex; padding: 12px; border-top: 1px solid var(--border-card); gap: 8px; }
+.chat-input input { flex: 1; padding: 10px 14px; border: 1px solid var(--border-card); border-radius: var(--radius-pill); background: var(--bg-dark); color: #FFF; font-size: 0.8rem; outline: none; }
+.chat-input button { background: var(--color-primary); color: #FFF; border: none; padding: 8px 18px; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .timeline { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .burger { display: block; }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 2.5rem; }
+  .grid-3, .grid-2, .grid-4 { grid-template-columns: 1fr; }
+}

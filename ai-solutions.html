@@ -3,148 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Solutions — PALRAM AI</title>
-<meta name="description" content="PALRAM AI builds AI agents, workflow automation, custom software, web and mobile apps for startups, SMBs, and enterprises.">
+<title>AI Solutions & Architecture — PALRAM AI</title>
+<meta name="description" content="Explore PALRAM AI enterprise architecture: Multi-agent mesh networks, Vector RAG search, state memory, and autonomous task execution.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/img/favicon-64.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
+
 <div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<!-- STICKY NAVIGATION BAR -->
 <header>
   <nav class="wrap">
-    <a href="index.html" class="logo">
-      <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-      <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+    <a href="index.html" class="logo" id="headerLogo">
+      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+      <div style="display:flex; flex-direction:column; line-height:1.1;">
+        <span style="font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:1.25rem; color:#FFFFFF; letter-spacing:0.06em; text-shadow:0 0 14px rgba(168, 85, 247, 0.6);">PALRAM AI</span>
+        <span style="font-family:'JetBrains Mono', monospace; font-weight:600; font-size:0.625rem; color:#06B6D4; letter-spacing:0.2em; text-transform:uppercase; margin-top:2px;">SINCE 2026</span>
+      </div>
     </a>
+
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="ai-solutions.html" class="active">AI Solutions</a>
-      <a href="portfolio.html">Portfolio</a>
       <a href="industries.html">Industries</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="about.html">About</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
     </div>
+
     <div class="nav-actions">
       <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book Free Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book Consultation</a>
       <div class="burger" onclick="toggleMobile()">&#9776;</div>
     </div>
   </nav>
 </header>
 
-<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg); z-index:99; padding:100px 32px 32px;">
-  <div style="display:flex; flex-direction:column; gap:24px; font-size:20px;">
-    <a href="index.html" onclick="toggleMobile()">Home</a>
-    <a href="services.html" onclick="toggleMobile()">Services</a>
-    <a href="ai-solutions.html" onclick="toggleMobile()">AI Solutions</a>
-    <a href="portfolio.html" onclick="toggleMobile()">Portfolio</a>
-    <a href="industries.html" onclick="toggleMobile()">Industries</a>
-    <a href="about.html" onclick="toggleMobile()">About</a>
-    <a href="pricing.html" onclick="toggleMobile()">Pricing</a>
-    <a href="contact.html" onclick="toggleMobile()">Contact</a>
-    <a href="contact.html" class="btn btn-primary" style="justify-content:center" onclick="toggleMobile()">Book Free Consultation</a>
+<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg-dark); z-index:99; padding:100px 32px 32px;">
+  <div style="display:flex; flex-direction:column; gap:20px; font-size:18px;">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="ai-solutions.html">Solutions</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
   </div>
-  <div style="position:absolute; top:26px; right:32px; font-size:28px; cursor:pointer;" onclick="toggleMobile()">&#10005;</div>
 </div>
 
-<section class="page-hero">
-  <div class="wrap">
-    <div class="eyebrow reveal in"><span class="dot"></span> AI Solutions</div>
-    <h1 class="reveal in">AI built on the models and tools that fit your data</h1>
-    <p class="reveal in">We work across every major model and framework, choosing the stack that fits your use case &mdash; not the other way around.</p>
+<!-- SOLUTIONS HERO -->
+<section class="hero" style="padding: 40px 0 60px;">
+  <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
+    <div class="eyebrow"><span class="dot"></span> Architecture Breakdown</div>
+    <h1>Enterprise <span class="grad-text">AI Mesh Infrastructure</span></h1>
+    <p class="lead" style="margin: 0 auto;">Discover the technical blueprint behind our multi-agent orchestrator, vector RAG memory system, and automated tool execution engine.</p>
   </div>
 </section>
 
+<!-- SOLUTIONS BLUEPRINT SECTION -->
 <section class="section" style="padding-top:0;">
   <div class="wrap">
-    <div class="grid grid-2">
-      <div class="card reveal">
-        <div class="icon">&#129504;</div>
-        <h3>AI Development</h3>
-        <p>Custom AI systems &mdash; from retrieval-augmented search over your own documents to fully custom LLM applications.</p>
-        <div class="tag-row"><span class="tag">LLMs</span><span class="tag">RAG Systems</span><span class="tag">Chatbots</span><span class="tag">AI Assistants</span><span class="tag">Knowledge Bases</span><span class="tag">AI Search</span></div>
+    <div class="grid grid-2" style="align-items:center;">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Orchestrator v4</div>
+        <h2>Multi-Agent Mesh Architecture</h2>
+        <p>Instead of single linear prompts, our systems deploy collaborative networks of specialized subagents working in parallel.</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; margin-top:20px; color:var(--text-secondary);">
+          <li>✦ <strong>Task Decomposition:</strong> Breaks complex goals into sub-tasks.</li>
+          <li>✦ <strong>Parallel Execution:</strong> Runs simultaneous web, vector, and API lookups.</li>
+          <li>✦ <strong>State Memory:</strong> Maintains long-term context in Redis & Vector DBs.</li>
+          <li>✦ <strong>Self-Correction:</strong> Evaluates tool results and retries on errors automatically.</li>
+        </ul>
       </div>
-      <div class="card reveal">
-        <div class="icon">&#129302;</div>
-        <h3>AI Agents</h3>
-        <p>Autonomous agents that take real actions inside your workflows, not just answer questions.</p>
-        <div class="tag-row"><span class="tag">Customer Support</span><span class="tag">Sales</span><span class="tag">HR</span><span class="tag">Marketing</span><span class="tag">Research</span><span class="tag">Coding</span></div>
+
+      <div class="card" style="padding:32px; background:var(--bg-card); border-color:var(--border-accent);">
+        <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--color-primary); margin-bottom:12px;">SYSTEM_STATUS :: ONLINE</div>
+        <h4 style="font-size:1.2rem; margin-bottom:16px;">Active Agent Mesh Node</h4>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="padding:12px; border-radius:8px; background:rgba(168,85,247,0.1); border:1px solid var(--border-card);">
+            <strong>Planner Agent:</strong> Decomposing incoming API payload...
+          </div>
+          <div style="padding:12px; border-radius:8px; background:rgba(6,182,212,0.1); border:1px solid var(--border-card);">
+            <strong>Research Agent:</strong> Querying Pinecone Vector Index (0.04s)
+          </div>
+          <div style="padding:12px; border-radius:8px; background:rgba(20,184,166,0.1); border:1px solid var(--border-card);">
+            <strong>Execution Agent:</strong> Synthesizing final response output...
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" style="padding-top:60px;">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow"><span class="dot"></span> Tech Stack</div>
-      <h2>Models and frameworks we build on</h2>
-    </div>
-  </div>
-  <div class="marquee">
-    <div class="marquee-track" id="marqueeTrack"></div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="cta-banner reveal">
-      <h2>Have a specific AI use case in mind?</h2>
-      <p>Get a free scoping call and a rough estimate within a day.</p>
-      <a href="contact.html" class="btn btn-primary btn-lg">Book a Free Consultation</a>
-    </div>
-  </div>
-</section>
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="index.html" class="logo" style="margin-bottom:14px;">
-          <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-          <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
+          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+          <div style="display:flex; flex-direction:column; line-height:1.1;">
+            <span style="font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:1.15rem; color:#FFFFFF; letter-spacing:0.06em; text-shadow:0 0 14px rgba(168, 85, 247, 0.6);">PALRAM AI</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-weight:600; font-size:0.6rem; color:#06B6D4; letter-spacing:0.2em; text-transform:uppercase; margin-top:2px;">SINCE 2026</span>
+          </div>
         </a>
-        <p style="max-width:260px;">Transforming businesses with AI, automation, and modern software solutions.</p>
-        <div class="social-row">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="GitHub">gh</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="YouTube">yt</a>
-        </div>
+        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">Transforming businesses with AI Agents, Workflow Automation, and Enterprise Software.</p>
       </div>
-      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">AI Solutions</a><a href="#">Blog</a></div>
-      <div><h5>Solutions</h5><a href="services.html">Automation</a><a href="portfolio.html">Portfolio</a><a href="industries.html">Industries</a><a href="pricing.html">Pricing</a></div>
-      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-      <div><h5>Contact</h5><p>contact@palramai.in</p><p>palramai.in</p></div>
+
+      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">Solutions</a><a href="#">Blog</a></div>
+      <div><h5>Services</h5><a href="services.html">AI Development</a><a href="services.html">AI Agents</a><a href="services.html">Automation</a><a href="services.html">Web Apps</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Security</a></div>
+      <div><h5>Contact</h5><p style="font-size:0.85rem; color:var(--text-secondary);">contact@palramai.in</p><p style="font-size:0.85rem; color:var(--text-secondary);">https://palramai.in</p></div>
     </div>
+
     <div class="foot-bottom">
       <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>Built for scale</span>
+      <span>Enterprise AI Agency</span>
     </div>
   </div>
 </footer>
 
-<div class="float-stack">
-  <a class="float-btn wa" href="https://wa.me/910000000000" target="_blank" aria-label="WhatsApp">&#128172;</a>
-  <a class="float-btn mail" href="mailto:contact@palramai.in" aria-label="Email">&#9993;</a>
-</div>
-
+<!-- CHAT ASSISTANT WIDGET -->
 <div class="chat-widget">
   <div class="chat-panel" id="chatPanel">
-    <div class="chat-head"><b>PALRAM Assistant</b><span>Typically replies in a few minutes</span></div>
+    <div class="chat-head">
+      <div>
+        <b>PALRAM AI Assistant</b>
+        <span>Typically replies instantly</span>
+      </div>
+      <div class="chat-close" onclick="toggleChat()" title="Close chat">&#10005;</div>
+    </div>
     <div class="chat-body" id="chatBody">
-      <div class="msg bot">Hi &#128075; I'm the PALRAM AI assistant. Ask me about AI agents, automation, or getting a quote.</div>
+      <div class="msg bot">Hello 👋 Ask me about our AI mesh architecture and vector RAG stack!</div>
     </div>
     <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChat()">
+      <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendChat()">
       <button onclick="sendChat()">Send</button>
     </div>
   </div>
-  <div class="chat-bubble" onclick="toggleChat()"><img src="assets/img/logo-symbol.png" alt="Chat"></div>
+  <div class="chat-bubble" onclick="toggleChat()">💬</div>
 </div>
 
 <script src="assets/js/script.js"></script>

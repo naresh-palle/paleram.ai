@@ -3,163 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — PALRAM AI</title>
-<meta name="description" content="PALRAM AI builds AI agents, workflow automation, custom software, web and mobile apps for startups, SMBs, and enterprises.">
+<title>Contact & Project Consultation — PALRAM AI</title>
+<meta name="description" content="Get in touch with PALRAM AI for custom AI Agents, Workflow Automation, Web & Mobile App Development, and Enterprise Cloud Solutions.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
-<link rel="apple-touch-icon" href="assets/img/favicon-64.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
+
 <div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<!-- STICKY NAVIGATION BAR (FLUSH NO GAP) -->
 <header>
   <nav class="wrap">
-    <a href="index.html" class="logo">
-      <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-      <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+    <a href="index.html" class="logo" id="headerLogo">
+      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+      <div class="logo-text-stack">
+        <span class="brand-title">PALRAM AI</span>
+        <span class="brand-sub">SINCE 2026</span>
+      </div>
     </a>
+
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="ai-solutions.html">AI Solutions</a>
-      <a href="portfolio.html">Portfolio</a>
       <a href="industries.html">Industries</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="about.html">About</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html" class="active">Contact</a>
     </div>
+
     <div class="nav-actions">
       <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book Free Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book Consultation</a>
       <div class="burger" onclick="toggleMobile()">&#9776;</div>
     </div>
   </nav>
 </header>
 
-<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg); z-index:99; padding:100px 32px 32px;">
-  <div style="display:flex; flex-direction:column; gap:24px; font-size:20px;">
+<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg-dark); z-index:99; padding:100px 32px 32px;">
+  <div style="display:flex; flex-direction:column; gap:20px; font-size:18px;">
     <a href="index.html" onclick="toggleMobile()">Home</a>
     <a href="services.html" onclick="toggleMobile()">Services</a>
     <a href="ai-solutions.html" onclick="toggleMobile()">AI Solutions</a>
-    <a href="portfolio.html" onclick="toggleMobile()">Portfolio</a>
     <a href="industries.html" onclick="toggleMobile()">Industries</a>
+    <a href="portfolio.html" onclick="toggleMobile()">Portfolio</a>
     <a href="about.html" onclick="toggleMobile()">About</a>
     <a href="pricing.html" onclick="toggleMobile()">Pricing</a>
     <a href="contact.html" onclick="toggleMobile()">Contact</a>
-    <a href="contact.html" class="btn btn-primary" style="justify-content:center" onclick="toggleMobile()">Book Free Consultation</a>
   </div>
-  <div style="position:absolute; top:26px; right:32px; font-size:28px; cursor:pointer;" onclick="toggleMobile()">&#10005;</div>
 </div>
 
-<section class="page-hero" style="padding-bottom:20px;">
-  <div class="wrap">
-    <div class="eyebrow reveal in"><span class="dot"></span> Contact</div>
-    <h1 class="reveal in">Let's scope your project</h1>
-    <p class="reveal in">Tell us what you're building &mdash; a dedicated PM will follow up within one business day with next steps and a rough estimate.</p>
+<!-- PAGE HERO -->
+<section class="hero" style="padding: 40px 0 60px;">
+  <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
+    <div class="eyebrow"><span class="dot"></span> Project Scope & Consultation</div>
+    <h1>Let's Scope Your <span class="grad-text">Next AI Product</span></h1>
+    <p class="lead" style="margin: 0 auto;">Tell us about your technical goals. A senior AI solutions architect will analyze your requirements and get back to you within 24 hours.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:20px;">
-  <div class="wrap contact-grid" style="display:grid;">
-    <div class="reveal">
-      <div class="contact-info">
-        <div class="card"><h4>&#128231; Email</h4><p>contact@palramai.in</p></div>
-        <div class="card"><h4>&#127760; Website</h4><p>palramai.in</p></div>
-        <div class="card"><h4>&#128197; Book a slot</h4><p>Free 30-minute consultation, no commitment.</p></div>
+<!-- CONTACT & FORM SECTION -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns: 1fr 2fr; gap:40px; align-items:start;">
+      <!-- Contact Info Cards -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="card">
+          <div class="card-icon">✉️</div>
+          <h3>Direct Email</h3>
+          <p style="margin-bottom:0;">contact@palramai.in</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Official Domain</h3>
+          <p style="margin-bottom:0;">https://palramai.in</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3>Discovery Call</h3>
+          <p style="margin-bottom:0;">Free 30-minute technical session with zero commitment.</p>
+        </div>
       </div>
-    </div>
-    <div class="card reveal">
-      <form onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="field"><label>NAME</label><input type="text" required placeholder="Your full name"></div>
-          <div class="field"><label>EMAIL</label><input type="email" required placeholder="you@company.com"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>PHONE</label><input type="tel" placeholder="+91 00000 00000"></div>
-          <div class="field"><label>COMPANY</label><input type="text" placeholder="Company name"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>COUNTRY</label><input type="text" placeholder="Country"></div>
-          <div class="field"><label>PROJECT TYPE</label>
-            <select>
-              <option>AI Agent / Automation</option>
-              <option>Web Application</option>
-              <option>Mobile App</option>
-              <option>Enterprise System</option>
-              <option>Other</option>
-            </select>
+
+      <!-- Form Card -->
+      <div class="card" style="padding:40px;">
+        <form onsubmit="event.preventDefault(); alert('Thank you! A PALRAM AI architect will contact you shortly.');">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Your Name *</label>
+              <input type="text" placeholder="John Doe" required style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-card); background:var(--bg-dark); color:#fff; font-size:0.9rem;">
+            </div>
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Company Name *</label>
+              <input type="text" placeholder="Acme Inc" required style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-card); background:var(--bg-dark); color:#fff; font-size:0.9rem;">
+            </div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>BUDGET</label>
-            <select>
-              <option>Under $5,000</option>
-              <option>$5,000 &ndash; $15,000</option>
-              <option>$15,000 &ndash; $50,000</option>
-              <option>$50,000+</option>
-            </select>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Work Email *</label>
+              <input type="email" placeholder="john@acme.com" required style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-card); background:var(--bg-dark); color:#fff; font-size:0.9rem;">
+            </div>
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Phone Number</label>
+              <input type="tel" placeholder="+91 90000 00000" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-card); background:var(--bg-dark); color:#fff; font-size:0.9rem;">
+            </div>
           </div>
-          <div class="field"><label>TIMELINE</label>
-            <select>
-              <option>Less than 1 month</option>
-              <option>1&ndash;3 months</option>
-              <option>3&ndash;6 months</option>
-              <option>Flexible</option>
-            </select>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Project Type</label>
+              <select style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-card); background:var(--bg-dark); color:#fff; font-size:0.9rem;">
+                <option>AI Development</option>
+                <option>AI Agents</option>
+                <option>Automation</option>
+                <option>Web Development</option>
+                <option>Mobile Apps</option>
+                <option>UI/UX Design</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Estimated Budget</label>
+              <select style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-card); background:var(--bg-dark); color:#fff; font-size:0.9rem;">
+                <option>Under ₹50,000</option>
+                <option>₹50,000 – ₹1,50,000</option>
+                <option>₹1,50,000 – ₹5,00,000</option>
+                <option>₹5,00,000+</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="field full" style="margin-bottom:20px;"><label>REQUIREMENTS</label><textarea placeholder="Briefly describe what you'd like to build..."></textarea></div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Submit Inquiry</button>
-      </form>
+
+          <div style="margin-bottom:24px;">
+            <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Project Requirements & Vision</label>
+            <textarea rows="5" placeholder="Briefly describe what you'd like to build, tech stack preferences, and timelines..." style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--border-card); background:var(--bg-dark); color:#fff; font-size:0.9rem;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">Submit Inquiry</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="index.html" class="logo" style="margin-bottom:14px;">
-          <img class="logo-dark-img" src="assets/img/logo-dark.png" alt="PALRAM AI">
-          <img class="logo-light-img" src="assets/img/logo-light.png" alt="PALRAM AI">
+        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
+          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
+          <div class="logo-text-stack">
+            <span class="brand-title">PALRAM AI</span>
+            <span class="brand-sub">SINCE 2026</span>
+          </div>
         </a>
-        <p style="max-width:260px;">Transforming businesses with AI, automation, and modern software solutions.</p>
-        <div class="social-row">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="GitHub">gh</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="YouTube">yt</a>
-        </div>
+        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">Transforming businesses with AI Agents, Workflow Automation, and Enterprise Software.</p>
       </div>
-      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">AI Solutions</a><a href="#">Blog</a></div>
-      <div><h5>Solutions</h5><a href="services.html">Automation</a><a href="portfolio.html">Portfolio</a><a href="industries.html">Industries</a><a href="pricing.html">Pricing</a></div>
-      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
-      <div><h5>Contact</h5><p>contact@palramai.in</p><p>palramai.in</p></div>
+
+      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">Solutions</a><a href="#">Blog</a></div>
+      <div><h5>Services</h5><a href="services.html">AI Development</a><a href="services.html">AI Agents</a><a href="services.html">Automation</a><a href="services.html">Web Apps</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Security</a></div>
+      <div><h5>Contact</h5><p style="font-size:0.85rem; color:var(--text-secondary);">contact@palramai.in</p><p style="font-size:0.85rem; color:var(--text-secondary);">https://palramai.in</p></div>
     </div>
+
     <div class="foot-bottom">
       <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>Built for scale</span>
+      <span>Enterprise AI Agency</span>
     </div>
   </div>
 </footer>
 
-<div class="float-stack">
-  <a class="float-btn wa" href="https://wa.me/910000000000" target="_blank" aria-label="WhatsApp">&#128172;</a>
-  <a class="float-btn mail" href="mailto:contact@palramai.in" aria-label="Email">&#9993;</a>
-</div>
-
+<!-- CHAT ASSISTANT WIDGET -->
 <div class="chat-widget">
   <div class="chat-panel" id="chatPanel">
-    <div class="chat-head"><b>PALRAM Assistant</b><span>Typically replies in a few minutes</span></div>
+    <div class="chat-head">
+      <div>
+        <b>PALRAM AI Assistant</b>
+        <span>Typically replies instantly</span>
+      </div>
+      <div class="chat-close" onclick="toggleChat()" title="Close chat">&#10005;</div>
+    </div>
     <div class="chat-body" id="chatBody">
-      <div class="msg bot">Hi &#128075; I'm the PALRAM AI assistant. Ask me about AI agents, automation, or getting a quote.</div>
+      <div class="msg bot">Hello 👋 Ask me about project timelines, pricing estimates, or AI architecture!</div>
     </div>
     <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChat()">
+      <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendChat()">
       <button onclick="sendChat()">Send</button>
     </div>
   </div>
-  <div class="chat-bubble" onclick="toggleChat()"><img src="assets/img/logo-symbol.png" alt="Chat"></div>
+  <div class="chat-bubble" onclick="toggleChat()">💬</div>
 </div>
 
 <script src="assets/js/script.js"></script>

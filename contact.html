@@ -14,77 +14,32 @@
     <div class="wrap">
       <div class="hero-inner">
         <div class="eyebrow"><span class="dot"></span> Contact</div>
-        <h1>Tell us what to <span class="grad-text">build</span></h1>
-        <p class="lead">Submit opens a draft to <strong>contact@palramai.in</strong>. You can write that address directly.</p>
+        <h1>Start a <span class="grad-text">project</span></h1>
+        <p class="lead contact-note"><a href="mailto:contact@palramai.in">contact@palramai.in</a></p>
       </div>
     </div>
   </section>
   <section class="section">
     <div class="wrap">
       <div class="contact-layout">
-        <aside class="contact-aside">
-          <div class="card">
-            <h3>Email</h3>
-            <p><a href="mailto:contact@palramai.in">contact@palramai.in</a></p>
+        <form class="card contact-form" onsubmit="submitInquiry(event)">
+          <div>
+            <label class="field-label" for="name">Name</label>
+            <input class="field" id="name" name="name" required autocomplete="name">
           </div>
-          <div class="card">
-            <h3>Site</h3>
-            <p><a href="https://palramai.in">palramai.in</a></p>
+          <div>
+            <label class="field-label" for="email">Email</label>
+            <input class="field" id="email" name="email" type="email" required autocomplete="email">
           </div>
-          <div class="card">
-            <h3>Call</h3>
-            <p>A short scoping call after we read your brief.</p>
+          <div>
+            <label class="field-label" for="details">Message</label>
+            <textarea class="field" id="details" name="details" rows="4" required></textarea>
           </div>
-        </aside>
-        <form class="card" onsubmit="submitInquiry(event)">
-          <div class="form-grid">
-            <div>
-              <label class="field-label" for="name">Name *</label>
-              <input class="field" id="name" name="name" required autocomplete="name">
-            </div>
-            <div>
-              <label class="field-label" for="company">Company</label>
-              <input class="field" id="company" name="company" autocomplete="organization">
-            </div>
-          </div>
-          <div class="form-grid">
-            <div>
-              <label class="field-label" for="email">Work email *</label>
-              <input class="field" id="email" name="email" type="email" required autocomplete="email">
-            </div>
-            <div>
-              <label class="field-label" for="phone">Phone</label>
-              <input class="field" id="phone" name="phone" type="tel" autocomplete="tel">
-            </div>
-          </div>
-          <div class="form-grid">
-            <div>
-              <label class="field-label" for="service">Project type</label>
-              <select class="field" id="service" name="service">
-                <option>AI development</option>
-                <option>AI agents</option>
-                <option>Automation</option>
-                <option>Web development</option>
-                <option>Mobile apps</option>
-                <option>UI / UX</option>
-              </select>
-            </div>
-            <div>
-              <label class="field-label" for="budget">Budget (INR)</label>
-              <select class="field" id="budget" name="budget">
-                <option>Under ₹50,000</option>
-                <option>₹50,000 – ₹1,50,000</option>
-                <option>₹1,50,000 – ₹5,00,000</option>
-                <option>₹5,00,000+</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-          <div style="margin-bottom:16px;">
-            <label class="field-label" for="details">What you want to build</label>
-            <textarea class="field" id="details" name="details" rows="5"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg">Open email draft</button>
+          <input type="hidden" name="company" value="">
+          <input type="hidden" name="phone" value="">
+          <input type="hidden" name="service" value="">
+          <input type="hidden" name="budget" value="">
+          <button type="submit" class="btn btn-primary">Send</button>
         </form>
       </div>
     </div>

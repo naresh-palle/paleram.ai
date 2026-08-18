@@ -4,96 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — PALRAM AI</title>
-<meta name="description" content="Contact PALRAM AI at contact@palramai.in for AI agents, automation, and software projects.">
+<meta name="description" content="Contact PALRAM AI at contact@palramai.in">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body data-theme="dark">
-
-<div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-
-<header>
-  <nav class="wrap">
-    <a href="index.html" class="logo" id="headerLogo">
-      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-      <div class="logo-text-stack">
-        <span class="brand-title">PALRAM AI</span>
-        <span class="brand-sub">SINCE 2026</span>
+<body data-theme="dark" data-page="contact">
+<main>
+  <section class="hero page-hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="dot"></span> Contact</div>
+        <h1>Tell us what to <span class="grad-text">build</span></h1>
+        <p class="lead">Submit opens a draft to <strong>contact@palramai.in</strong>. You can write that address directly.</p>
       </div>
-    </a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="ai-solutions.html">AI Solutions</a>
-      <a href="industries.html">Industries</a>
-      <a href="portfolio.html">Work</a>
-      <a href="about.html">About</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="contact.html" class="active">Contact</a>
     </div>
-    <div class="nav-actions">
-      <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book a call</a>
-      <div class="burger" onclick="toggleMobile()">&#9776;</div>
-    </div>
-  </nav>
-</header>
-
-<div id="mobileMenu" class="mobile-menu">
-  <div class="mobile-menu-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="ai-solutions.html">AI Solutions</a>
-    <a href="industries.html">Industries</a>
-    <a href="portfolio.html">Work</a>
-    <a href="about.html">About</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="mobile-close" onclick="toggleMobile()">&#10005;</div>
-</div>
-
-<section class="hero" style="padding: 40px 0 60px;">
-  <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
-    <div class="eyebrow"><span class="dot"></span> Contact</div>
-    <h1>Tell us what you need to <span class="grad-text">build</span></h1>
-    <p class="lead" style="margin: 0 auto;">Submit opens your email app with a draft to <strong>contact@palramai.in</strong>. You can also write that address directly.</p>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="contact-layout">
-      <div style="display:flex; flex-direction:column; gap:20px;">
-        <div class="card">
-          <div class="card-icon">✉️</div>
-          <h3>Email</h3>
-          <p style="margin-bottom:0;"><a href="mailto:contact@palramai.in">contact@palramai.in</a></p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Site</h3>
-          <p style="margin-bottom:0;"><a href="https://palramai.in">palramai.in</a></p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📅</div>
-          <h3>Call</h3>
-          <p style="margin-bottom:0;">A short scoping call after we read your brief. No fee to talk.</p>
-        </div>
-      </div>
-
-      <div class="card" style="padding:40px;">
-        <form onsubmit="submitInquiry(event)">
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="contact-layout">
+        <aside class="contact-aside">
+          <div class="card">
+            <h3>Email</h3>
+            <p><a href="mailto:contact@palramai.in">contact@palramai.in</a></p>
+          </div>
+          <div class="card">
+            <h3>Site</h3>
+            <p><a href="https://palramai.in">palramai.in</a></p>
+          </div>
+          <div class="card">
+            <h3>Call</h3>
+            <p>A short scoping call after we read your brief.</p>
+          </div>
+        </aside>
+        <form class="card" onsubmit="submitInquiry(event)">
           <div class="form-grid">
             <div>
               <label class="field-label" for="name">Name *</label>
-              <input class="field" id="name" name="name" type="text" required autocomplete="name">
+              <input class="field" id="name" name="name" required autocomplete="name">
             </div>
             <div>
               <label class="field-label" for="company">Company</label>
-              <input class="field" id="company" name="company" type="text" autocomplete="organization">
+              <input class="field" id="company" name="company" autocomplete="organization">
             </div>
           </div>
           <div class="form-grid">
@@ -129,75 +80,16 @@
               </select>
             </div>
           </div>
-          <div style="margin-bottom:24px;">
+          <div style="margin-bottom:16px;">
             <label class="field-label" for="details">What you want to build</label>
             <textarea class="field" id="details" name="details" rows="5"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">Open email draft</button>
+          <button type="submit" class="btn btn-primary btn-lg">Open email draft</button>
         </form>
       </div>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
-          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-          <div class="logo-text-stack">
-            <span class="brand-title">PALRAM AI</span>
-            <span class="brand-sub">SINCE 2026</span>
-          </div>
-        </a>
-        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">AI agents, workflow automation, and software. palramai.in</p>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="ai-solutions.html">AI Solutions</a>
-        <a href="pricing.html">Pricing</a>
-      </div>
-      <div>
-        <h5>Work</h5>
-        <a href="portfolio.html">Build types</a>
-        <a href="industries.html">Industries</a>
-        <a href="contact.html">Start a project</a>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <a href="mailto:contact@palramai.in">contact@palramai.in</a>
-        <a href="https://palramai.in">palramai.in</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>AI studio · India</span>
-    </div>
-  </div>
-</footer>
-
-<div class="chat-widget">
-  <div class="chat-panel" id="chatPanel">
-    <div class="chat-head">
-      <div>
-        <b>PALRAM AI</b>
-        <span>Quick answers · email for a real reply</span>
-      </div>
-      <div class="chat-close" onclick="toggleChat()">&#10005;</div>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg bot">Use the form or write to contact@palramai.in.</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a question" onkeypress="if(event.key==='Enter')sendChat()">
-      <button type="button" onclick="sendChat()">Send</button>
-    </div>
-  </div>
-  <div class="chat-bubble" onclick="toggleChat()">💬</div>
-</div>
+  </section>
+</main>
 <script src="assets/js/script.js"></script>
 </body>
 </html>

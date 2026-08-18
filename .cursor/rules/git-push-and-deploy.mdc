@@ -1,0 +1,12 @@
+---
+description: After every code change, commit, git push origin main, and deploy GitHub Pages.
+alwaysApply: true
+---
+
+# Deploy on every code change
+
+After you finish editing this repo, follow `.cursor/skills/git-push-and-deploy/SKILL.md`.
+
+every time change of code do a git push and deploy
+
+Pushing `main` to `origin` deploys https://palramai.in (GitHub Pages). Do it in the same turn as the code change. Skip only when there is nothing to commit.

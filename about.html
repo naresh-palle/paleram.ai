@@ -4,159 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — PALRAM AI</title>
-<meta name="description" content="PALRAM AI is an AI and software studio founded in 2026. We build agents, automation, and applications for businesses in India.">
+<meta name="description" content="PALRAM AI is an AI and software studio founded in 2026.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body data-theme="dark">
-
-<div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-
-<header>
-  <nav class="wrap">
-    <a href="index.html" class="logo" id="headerLogo">
-      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-      <div class="logo-text-stack">
-        <span class="brand-title">PALRAM AI</span>
-        <span class="brand-sub">SINCE 2026</span>
-      </div>
-    </a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="ai-solutions.html">AI Solutions</a>
-      <a href="industries.html">Industries</a>
-      <a href="portfolio.html">Work</a>
-      <a href="about.html" class="active">About</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-actions">
-      <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book a call</a>
-      <div class="burger" onclick="toggleMobile()">&#9776;</div>
-    </div>
-  </nav>
-</header>
-
-<div id="mobileMenu" class="mobile-menu">
-  <div class="mobile-menu-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="ai-solutions.html">AI Solutions</a>
-    <a href="industries.html">Industries</a>
-    <a href="portfolio.html">Work</a>
-    <a href="about.html">About</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="mobile-close" onclick="toggleMobile()">&#10005;</div>
-</div>
-
-<section class="hero" style="padding: 40px 0 60px;">
-  <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
-    <div class="eyebrow"><span class="dot"></span> Studio</div>
-    <h1>About <span class="grad-text">PALRAM AI</span></h1>
-    <p class="lead" style="margin: 0 auto;">PALRAM AI is a software studio started in 2026. We help companies put language models and automation into products they can run day to day.</p>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> How we think</div>
-      <h2>Engineering first</h2>
-      <p>Useful AI is an application with APIs, data, and a UI — not a demo prompt.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Build the system</h3>
-        <p>Retrieval, tools, and the product around the model. If a spreadsheet is enough, we will say so.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🛡️</div>
-        <h3>Your data, your rules</h3>
-        <p>We design for access control, encryption in transit, and hosting you choose. We do not list certifications we have not completed.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🚀</div>
-        <h3>Keep it operable</h3>
-        <p>Deployments you can restart, logs you can read, and a handoff — not a black box only we can touch.</p>
+<body data-theme="dark" data-page="about">
+<main>
+  <section class="hero page-hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="dot"></span> Studio</div>
+        <h1>About <span class="grad-text">PALRAM AI</span></h1>
+        <p class="lead">Software studio started in 2026. We put language models and automation into products teams can run day to day.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Talk to us</h2>
-      <p>Reach the studio at <a href="mailto:contact@palramai.in">contact@palramai.in</a> · <a href="https://palramai.in">palramai.in</a></p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
-          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-          <div class="logo-text-stack">
-            <span class="brand-title">PALRAM AI</span>
-            <span class="brand-sub">SINCE 2026</span>
-          </div>
-        </a>
-        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">AI agents, workflow automation, and software. palramai.in</p>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="ai-solutions.html">AI Solutions</a>
-        <a href="pricing.html">Pricing</a>
-      </div>
-      <div>
-        <h5>Work</h5>
-        <a href="portfolio.html">Build types</a>
-        <a href="industries.html">Industries</a>
-        <a href="contact.html">Start a project</a>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <a href="mailto:contact@palramai.in">contact@palramai.in</a>
-        <a href="https://palramai.in">palramai.in</a>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid-3">
+        <div class="card"><h3>Build the system</h3><p>Retrieval, tools, and the product around the model. If a spreadsheet is enough, we will say so.</p></div>
+        <div class="card"><h3>Your data, your rules</h3><p>Access control, encryption in transit, hosting you choose. We do not list certifications we have not completed.</p></div>
+        <div class="card"><h3>Keep it operable</h3><p>Deployments you can restart, logs you can read, and a handoff.</p></div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>AI studio · India</span>
+  </section>
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Talk to the studio</h2>
+      <p><a href="mailto:contact@palramai.in">contact@palramai.in</a></p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact</a>
     </div>
-  </div>
-</footer>
-
-<div class="chat-widget">
-  <div class="chat-panel" id="chatPanel">
-    <div class="chat-head">
-      <div>
-        <b>PALRAM AI</b>
-        <span>Quick answers · email for a real reply</span>
-      </div>
-      <div class="chat-close" onclick="toggleChat()">&#10005;</div>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg bot">Studio questions? Email contact@palramai.in.</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a question" onkeypress="if(event.key==='Enter')sendChat()">
-      <button type="button" onclick="sendChat()">Send</button>
-    </div>
-  </div>
-  <div class="chat-bubble" onclick="toggleChat()">💬</div>
-</div>
+  </section>
+</main>
 <script src="assets/js/script.js"></script>
 </body>
 </html>

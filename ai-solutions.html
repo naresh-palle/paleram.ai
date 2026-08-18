@@ -7,175 +7,53 @@
 <meta name="description" content="How PALRAM AI designs agents, RAG, and tool-calling systems for business workflows.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body data-theme="dark">
-
-<div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-
-<header>
-  <nav class="wrap">
-    <a href="index.html" class="logo" id="headerLogo">
-      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-      <div class="logo-text-stack">
-        <span class="brand-title">PALRAM AI</span>
-        <span class="brand-sub">SINCE 2026</span>
+<body data-theme="dark" data-page="services">
+<main>
+  <section class="hero page-hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="dot"></span> Architecture</div>
+        <h1>AI in <span class="grad-text">production</span></h1>
+        <p class="lead">Agents, retrieval, and tools — sized to your data and APIs.</p>
       </div>
-    </a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="ai-solutions.html" class="active">AI Solutions</a>
-      <a href="industries.html">Industries</a>
-      <a href="portfolio.html">Work</a>
-      <a href="about.html">About</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="contact.html">Contact</a>
     </div>
-    <div class="nav-actions">
-      <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book a call</a>
-      <div class="burger" onclick="toggleMobile()">&#9776;</div>
-    </div>
-  </nav>
-</header>
-
-<div id="mobileMenu" class="mobile-menu">
-  <div class="mobile-menu-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="ai-solutions.html">AI Solutions</a>
-    <a href="industries.html">Industries</a>
-    <a href="portfolio.html">Work</a>
-    <a href="about.html">About</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="mobile-close" onclick="toggleMobile()">&#10005;</div>
-</div>
-
-<section class="hero" style="padding: 40px 0 60px;">
-  <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
-    <div class="eyebrow"><span class="dot"></span> Architecture</div>
-    <h1>How we put <span class="grad-text">AI in production</span></h1>
-    <p class="lead" style="margin: 0 auto;">Agents, retrieval, and tools — sized to your data and APIs, not a branded platform we pretend is already live.</p>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="grid grid-2" style="align-items:center;">
-      <div>
-        <div class="eyebrow"><span class="dot"></span> Agents</div>
-        <h2>Split the work, then call tools</h2>
-        <p>A useful agent is a loop: plan, retrieve, call an API, check the result, and stop or ask a person.</p>
-        <ul class="stack-list" style="margin-top:20px;">
-          <li><strong>Plan:</strong> break a request into steps you can log and debug.</li>
-          <li><strong>Retrieve:</strong> search your files or database before the model answers.</li>
-          <li><strong>Act:</strong> tickets, CRM, calendar, or custom HTTP tools.</li>
-          <li><strong>Guard:</strong> confidence checks and human handoff when it should not guess.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="badge-tag">Typical layout</div>
-        <h4 style="font-size:1.2rem; margin:12px 0 16px;">Roles we wire together</h4>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div style="padding:12px; border-radius:8px; background:rgba(168,85,247,0.1); border:1px solid var(--border-card);">
-            <strong>Planner</strong> — turns the user goal into steps.
-          </div>
-          <div style="padding:12px; border-radius:8px; background:rgba(6,182,212,0.1); border:1px solid var(--border-card);">
-            <strong>Retriever</strong> — vector or SQL search over your content.
-          </div>
-          <div style="padding:12px; border-radius:8px; background:rgba(20,184,166,0.1); border:1px solid var(--border-card);">
-            <strong>Executor</strong> — tools and the final answer in your UI.
-          </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>How an agent runs</h3>
+          <ul class="stack-list">
+            <li><strong>Plan</strong> — break a request into steps you can log.</li>
+            <li><strong>Retrieve</strong> — search files or a database first.</li>
+            <li><strong>Act</strong> — tickets, CRM, calendar, or HTTP tools.</li>
+            <li><strong>Guard</strong> — hand off when it should not guess.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Roles we wire</h3>
+          <ul class="stack-list">
+            <li><strong>Planner</strong> — turns the goal into steps.</li>
+            <li><strong>Retriever</strong> — vector or SQL search.</li>
+            <li><strong>Executor</strong> — tools and the answer in your UI.</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>RAG, not magic</h2>
-      <p>We chunk documents, embed them, retrieve the few that matter, and cite them in the UI when you want that.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card"><h3>Ingest</h3><p>PDFs, Notion, Drive, or a database dump — cleaned and versioned.</p></div>
-      <div class="card"><h3>Index</h3><p>pgvector, Pinecone, or similar — whichever fits cost and where you already host.</p></div>
-      <div class="card"><h3>Answer</h3><p>The model only sees retrieved context plus your system rules.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <h2>Bring a workflow and a data source</h2>
-    <p>We will say if an agent is the right tool. contact@palramai.in</p>
-    <a href="contact.html" class="btn btn-primary btn-lg">Contact</a>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
-          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-          <div class="logo-text-stack">
-            <span class="brand-title">PALRAM AI</span>
-            <span class="brand-sub">SINCE 2026</span>
-          </div>
-        </a>
-        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">AI agents, workflow automation, and software. palramai.in</p>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="ai-solutions.html">AI Solutions</a>
-        <a href="pricing.html">Pricing</a>
-      </div>
-      <div>
-        <h5>Work</h5>
-        <a href="portfolio.html">Build types</a>
-        <a href="industries.html">Industries</a>
-        <a href="contact.html">Start a project</a>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <a href="mailto:contact@palramai.in">contact@palramai.in</a>
-        <a href="https://palramai.in">palramai.in</a>
+      <div class="grid grid-3" style="margin-top:18px;">
+        <div class="card"><h3>Ingest</h3><p>PDFs, Drive, or a database dump — cleaned and versioned.</p></div>
+        <div class="card"><h3>Index</h3><p>pgvector or Pinecone — whichever fits where you already host.</p></div>
+        <div class="card"><h3>Answer</h3><p>The model only sees retrieved context plus your rules.</p></div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>AI studio · India</span>
+  </section>
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Bring a workflow and a data source</h2>
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact</a>
     </div>
-  </div>
-</footer>
-
-<div class="chat-widget">
-  <div class="chat-panel" id="chatPanel">
-    <div class="chat-head">
-      <div>
-        <b>PALRAM AI</b>
-        <span>Quick answers · email for a real reply</span>
-      </div>
-      <div class="chat-close" onclick="toggleChat()">&#10005;</div>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg bot">Ask about agents or RAG. Email contact@palramai.in for a real reply.</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a question" onkeypress="if(event.key==='Enter')sendChat()">
-      <button type="button" onclick="sendChat()">Send</button>
-    </div>
-  </div>
-  <div class="chat-bubble" onclick="toggleChat()">💬</div>
-</div>
+  </section>
+</main>
 <script src="assets/js/script.js"></script>
 </body>
 </html>

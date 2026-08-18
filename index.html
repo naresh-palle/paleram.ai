@@ -7,403 +7,99 @@
 <meta name="description" content="PALRAM AI designs and builds AI agents, workflow automation, web applications, and mobile apps for businesses in India.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body data-theme="dark">
-
-<div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
-
-<header>
-  <nav class="wrap">
-    <a href="index.html" class="logo" id="headerLogo">
-      <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-      <div class="logo-text-stack">
-        <span class="brand-title">PALRAM AI</span>
-        <span class="brand-sub">SINCE 2026</span>
-      </div>
-    </a>
-
-    <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="services.html">Services</a>
-      <a href="ai-solutions.html">AI Solutions</a>
-      <a href="industries.html">Industries</a>
-      <a href="portfolio.html">Work</a>
-      <a href="about.html">About</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="nav-actions">
-      <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon" role="button" aria-label="Toggle theme">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book a call</a>
-      <div class="burger" onclick="toggleMobile()" aria-label="Open menu">&#9776;</div>
-    </div>
-  </nav>
-</header>
-
-<div id="mobileMenu" class="mobile-menu">
-  <div class="mobile-menu-links">
-    <a href="index.html" onclick="toggleMobile()">Home</a>
-    <a href="services.html" onclick="toggleMobile()">Services</a>
-    <a href="ai-solutions.html" onclick="toggleMobile()">AI Solutions</a>
-    <a href="industries.html" onclick="toggleMobile()">Industries</a>
-    <a href="portfolio.html" onclick="toggleMobile()">Work</a>
-    <a href="about.html" onclick="toggleMobile()">About</a>
-    <a href="pricing.html" onclick="toggleMobile()">Pricing</a>
-    <a href="contact.html" onclick="toggleMobile()">Contact</a>
-    <a href="contact.html" class="btn btn-primary" style="justify-content:center" onclick="toggleMobile()">Book a call</a>
-  </div>
-  <div class="mobile-close" onclick="toggleMobile()">&#10005;</div>
-</div>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow"><span class="dot"></span> AI agents · Automation · Software</div>
-      <h1>Build with <span class="grad-text">PALRAM AI</span></h1>
-      <p class="lead">We design and ship AI agents, workflow automation, web apps, and mobile apps. Started in 2026. Based in India. One team from first call to production.</p>
-
-      <div class="hero-ctas">
-        <a href="contact.html" class="btn btn-primary btn-lg">Start a project</a>
-        <a href="services.html" class="btn btn-ghost btn-lg">See services</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat"><b>AI agents</b><span>Support, sales, ops</span></div>
-        <div class="stat"><b>RAG</b><span>Search your files</span></div>
-        <div class="stat"><b>Automation</b><span>n8n, APIs, CRM</span></div>
-        <div class="stat"><b>Software</b><span>Web &amp; mobile</span></div>
-      </div>
-    </div>
-
-    <div class="hero-visual-card hero-mesh">
-      <div class="mesh-ring r1"></div>
-      <div class="mesh-ring r2"></div>
-      <div class="mesh-core"></div>
-      <div class="visual-overlay">
-        <div class="badge-tag">How we work</div>
-        <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Agents inside real products</h3>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 14px;">
-          We wire language models to your tools, documents, and APIs — then wrap them in software people can actually use.
-        </p>
-        <div class="feature-pills">
-          <span class="feature-pill">Task planning</span>
-          <span class="feature-pill">Document RAG</span>
-          <span class="feature-pill">Tool calling</span>
-          <span class="feature-pill">App UI</span>
+<body data-theme="dark" data-page="home">
+<main>
+  <section class="hero hero-home">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="dot"></span> AI agents · Automation · Software</div>
+        <h1>Build with <span class="grad-text">PALRAM AI</span></h1>
+        <p class="lead">We design and ship AI agents, workflow automation, web apps, and mobile apps. Started in 2026. India. One team from first call to production.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn btn-primary btn-lg">Start a project</a>
+          <a href="services.html" class="btn btn-ghost btn-lg">See services</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>AI agents</b><span>Support, sales, ops</span></div>
+          <div class="stat"><b>RAG</b><span>Search your files</span></div>
+          <div class="stat"><b>Automation</b><span>n8n, APIs, CRM</span></div>
+          <div class="stat"><b>Software</b><span>Web &amp; mobile</span></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> Practice areas</div>
-      <h2>What we build</h2>
-      <p>AI, automation, and product engineering in one engagement.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <div>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span> Services</div>
+        <h2>What we build</h2>
+        <p>Six practices. Detail lives on the <a href="services.html">services</a> page — not repeated everywhere.</p>
+      </div>
+      <div class="grid grid-3">
+        <a class="card" href="services.html">
           <div class="card-icon">🧠</div>
           <h3>AI development</h3>
-          <p>Custom LLM apps: chat, document Q&amp;A, search, and document extraction.</p>
-        </div>
-        <div class="feature-pills">
-          <span class="feature-pill">LLMs</span>
-          <span class="feature-pill">RAG</span>
-          <span class="feature-pill">Chat</span>
-          <span class="feature-pill">OpenAI / Claude / Gemini</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div>
+          <p>Chat, document Q&amp;A, search, and extraction.</p>
+        </a>
+        <a class="card" href="ai-solutions.html">
           <div class="card-icon">🤖</div>
           <h3>AI agents</h3>
-          <p>Agents that plan steps, call tools, and run a defined workflow — not a single prompt.</p>
-        </div>
-        <div class="feature-pills">
-          <span class="feature-pill">Support</span>
-          <span class="feature-pill">Sales</span>
-          <span class="feature-pill">Research</span>
-          <span class="feature-pill">Ops</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div>
+          <p>Plan, call tools, stop when a human should take over.</p>
+        </a>
+        <a class="card" href="services.html">
           <div class="card-icon">⚡</div>
           <h3>Automation</h3>
-          <p>Connect CRM, billing, forms, and messaging so routine work runs without copy-paste.</p>
-        </div>
-        <div class="feature-pills">
-          <span class="feature-pill">n8n</span>
-          <span class="feature-pill">Zapier</span>
-          <span class="feature-pill">Make.com</span>
-          <span class="feature-pill">APIs</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div>
-          <div class="card-icon">💻</div>
-          <h3>Web development</h3>
-          <p>Product sites, dashboards, and SaaS UIs with a clear API behind them.</p>
-        </div>
-        <div class="feature-pills">
-          <span class="feature-pill">Next.js</span>
-          <span class="feature-pill">React</span>
-          <span class="feature-pill">Dashboards</span>
-          <span class="feature-pill">APIs</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div>
-          <div class="card-icon">📱</div>
-          <h3>Mobile apps</h3>
-          <p>Cross-platform apps for iOS and Android when the work needs a phone, not a browser.</p>
-        </div>
-        <div class="feature-pills">
-          <span class="feature-pill">Flutter</span>
-          <span class="feature-pill">React Native</span>
-          <span class="feature-pill">iOS</span>
-          <span class="feature-pill">Android</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div>
-          <div class="card-icon">🎨</div>
-          <h3>UI / UX</h3>
-          <p>Flows, screens, and a design system so the product is usable before it is clever.</p>
-        </div>
-        <div class="feature-pills">
-          <span class="feature-pill">Figma</span>
-          <span class="feature-pill">Wireframes</span>
-          <span class="feature-pill">Prototypes</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="whyus">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> How we work</div>
-      <h2>Why teams hire PALRAM AI</h2>
-      <p>Small team, direct communication, production code — not slide decks.</p>
-    </div>
-
-    <div class="grid grid-4">
-      <div class="card"><h4>AI in the product</h4><p>Models sit behind APIs and UI, with tools and retrieval — not a chatbot bolted on last.</p></div>
-      <div class="card"><h4>Ship in slices</h4><p>Discovery, a working slice, then expand. You see software early.</p></div>
-      <div class="card"><h4>Access control</h4><p>We design for least privilege, encrypted transport, and data that stays in your systems where you require it.</p></div>
-      <div class="card"><h4>Cloud you can run</h4><p>Docker, CI, and hosting on AWS, GCP, or Azure — sized to the project, not a default mega-stack.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="process">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> Process</div>
-      <h2>Five steps</h2>
-      <p>From a scoped problem to something running in production.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-step">
-        <div class="num">01</div>
-        <h4>Discovery</h4>
-        <p>Goals, data, tools, and whether AI is the right fit.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="num">02</div>
-        <h4>Design</h4>
-        <p>Flows, screens, and the agent or automation map.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="num">03</div>
-        <h4>Build</h4>
-        <p>Models, APIs, UI, and integrations in one backlog.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="num">04</div>
-        <h4>Launch</h4>
-        <p>Tests, deploy, monitoring, and a handoff you can operate.</p>
-      </div>
-      <div class="timeline-step">
-        <div class="num">05</div>
-        <h4>Tune</h4>
-        <p>Prompts, retrieval, and workflows after real users hit them.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="industries">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> Industries</div>
-      <h2>Where this work lands</h2>
-      <p>Same building blocks — different data and workflows. See <a href="industries.html">industries</a>.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card"><h4>Healthcare</h4><p>Document intake, scheduling helpers, and internal knowledge search. Built to your privacy rules.</p></div>
-      <div class="card"><h4>Finance</h4><p>Ops bots, KYC document flows, and internal Q&amp;A over policies.</p></div>
-      <div class="card"><h4>Retail</h4><p>Support bots, catalog search, and order-status automation.</p></div>
-      <div class="card"><h4>Real estate</h4><p>Lead qualification, listing Q&amp;A, and lease document search.</p></div>
-      <div class="card"><h4>Logistics</h4><p>Dispatch notes, status messages, and ops dashboards.</p></div>
-      <div class="card"><h4>Legal &amp; ops</h4><p>Contract search, summaries, and policy chat over your files.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="techstack">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> Stack</div>
-      <h2>Tools we use when they fit</h2>
-      <p>We pick from this list for the job — not all of it on every project.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>AI</h3>
-        <p>OpenAI · Claude · Gemini · Llama · LangChain · LangGraph · CrewAI · Pinecone · pgvector</p>
-      </div>
-      <div class="card">
-        <h3>Backend</h3>
-        <p>Python · FastAPI · Node.js · NestJS · REST</p>
-      </div>
-      <div class="card">
-        <h3>Frontend &amp; mobile</h3>
-        <p>React · Next.js · TypeScript · Flutter · React Native</p>
-      </div>
-      <div class="card">
-        <h3>Cloud</h3>
-        <p>AWS · Azure · Google Cloud · Docker · GitHub Actions</p>
-      </div>
-      <div class="card">
-        <h3>Data</h3>
-        <p>PostgreSQL · MongoDB · Redis · Supabase</p>
-      </div>
-      <div class="card">
-        <h3>Automation</h3>
-        <p>n8n · Zapier · Make.com · custom Python jobs</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="portfolio">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> Engagements</div>
-      <h2>Typical builds</h2>
-      <p>These are the kinds of systems we scope and deliver. Named client results go here when we have permission to publish them.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Support agent</h3>
-        <p>Answers from your help center and tickets, with handoff to a human when confidence is low.</p>
-        <span class="feature-pill">LLM · RAG · web UI</span>
-      </div>
-      <div class="card">
-        <h3>Internal document search</h3>
-        <p>Ask questions over PDFs, policies, and wikis your team already has.</p>
-        <span class="feature-pill">Vector search · FastAPI</span>
-      </div>
-      <div class="card">
-        <h3>Ops automation</h3>
-        <p>Orders, invoices, or WhatsApp updates moving through n8n or a small custom service.</p>
-        <span class="feature-pill">n8n · APIs</span>
-      </div>
-    </div>
-    <p class="text-center" style="margin-top:32px;"><a href="portfolio.html" class="btn btn-ghost">See all build types</a></p>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <h2>Have a workflow to automate?</h2>
-    <p>Email <a href="mailto:contact@palramai.in">contact@palramai.in</a> or send a short brief.</p>
-    <div class="hero-ctas">
-      <a href="contact.html" class="btn btn-primary btn-lg">Contact</a>
-      <a href="pricing.html" class="btn btn-ghost btn-lg">Pricing</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="logo" id="footerLogo" style="margin-bottom:16px;">
-          <img src="assets/img/logo-icon.png" alt="PALRAM AI" class="logo-img">
-          <div class="logo-text-stack">
-            <span class="brand-title">PALRAM AI</span>
-            <span class="brand-sub">SINCE 2026</span>
-          </div>
+          <p>CRM, billing, forms, and messaging without copy-paste.</p>
         </a>
-        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">AI agents, workflow automation, and software. palramai.in</p>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="ai-solutions.html">AI Solutions</a>
-        <a href="pricing.html">Pricing</a>
-      </div>
-      <div>
-        <h5>Work</h5>
-        <a href="portfolio.html">Build types</a>
-        <a href="industries.html">Industries</a>
-        <a href="contact.html">Start a project</a>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <a href="mailto:contact@palramai.in">contact@palramai.in</a>
-        <a href="https://palramai.in">palramai.in</a>
+        <a class="card" href="services.html">
+          <div class="card-icon">💻</div>
+          <h3>Web</h3>
+          <p>Product sites, dashboards, and APIs.</p>
+        </a>
+        <a class="card" href="services.html">
+          <div class="card-icon">📱</div>
+          <h3>Mobile</h3>
+          <p>iOS and Android when the work needs a phone.</p>
+        </a>
+        <a class="card" href="portfolio.html">
+          <div class="card-icon">📦</div>
+          <h3>Typical builds</h3>
+          <p>Support agents, RAG search, ops pipelines.</p>
+        </a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>AI studio · India</span>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<div class="chat-widget">
-  <div class="chat-panel" id="chatPanel">
-    <div class="chat-head">
-      <div>
-        <b>PALRAM AI</b>
-        <span>Quick answers · email for a real reply</span>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span> Process</div>
+        <h2>Five steps</h2>
+        <p>From a scoped problem to something running in production.</p>
       </div>
-      <div class="chat-close" onclick="toggleChat()" title="Close">&#10005;</div>
+      <div class="timeline">
+        <div class="timeline-step"><div class="num">01</div><h4>Discover</h4><p>Goals, data, tools, fit.</p></div>
+        <div class="timeline-step"><div class="num">02</div><h4>Design</h4><p>Flows and the agent map.</p></div>
+        <div class="timeline-step"><div class="num">03</div><h4>Build</h4><p>Models, APIs, UI together.</p></div>
+        <div class="timeline-step"><div class="num">04</div><h4>Launch</h4><p>Deploy, monitor, handoff.</p></div>
+        <div class="timeline-step"><div class="num">05</div><h4>Tune</h4><p>After real users hit it.</p></div>
+      </div>
     </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg bot">Ask about agents, RAG, automation, or pricing. For a real reply, use contact@palramai.in.</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Type a question" onkeypress="if(event.key==='Enter')sendChat()">
-      <button type="button" onclick="sendChat()">Send</button>
-    </div>
-  </div>
-  <div class="chat-bubble" onclick="toggleChat()">💬</div>
-</div>
+  </section>
 
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Have a workflow to automate?</h2>
+      <p>Email <a href="mailto:contact@palramai.in">contact@palramai.in</a></p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn btn-primary btn-lg">Contact</a>
+        <a href="pricing.html" class="btn btn-ghost btn-lg">Pricing</a>
+      </div>
+    </div>
+  </section>
+</main>
 <script src="assets/js/script.js"></script>
 </body>
 </html>

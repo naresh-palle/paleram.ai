@@ -28,7 +28,7 @@ palramai/
 ├── services.html         # All 6 service categories (AI, Automation, DevOps, etc.)
 ├── ai-solutions.html     # AI agents, LLM integrations, RAG systems, model stack
 ├── industries.html       # Healthcare, FinTech, E-Commerce, Real Estate, Logistics, Legal
-├── portfolio.html        # Case studies — chatbots, RAG platforms, travel AI, healthcare
+├── portfolio.html        # Work — typical build types (no invented case studies)
 ├── about.html            # Team, values, process, why choose PALRAM AI
 ├── pricing.html          # Transparent INR pricing tiers (Starter / Pro / Enterprise)
 ├── contact.html          # Project inquiry form with INR budget selector
@@ -55,34 +55,30 @@ palramai/
 
 ## Pages & Features
 
-### 🏠 Home (`index.html`)
-- Full hero section with animated CTA buttons
-- Services, Industries, Portfolio, and Tech Stack sections
-- Testimonials and stats counter
+### Home (`index.html`)
+- Hero, services, process, industries, stack, typical builds
+- No invented project counts or client metrics
 
-### ⚙️ Services (`services.html`)
-- 6 service categories: AI Development, AI Agents, Automation, Web Apps, Mobile, UI/UX
+### Services (`services.html`)
+- AI, agents, automation, web, mobile, UI/UX
 
-### 🤖 AI Solutions (`ai-solutions.html`)
-- Multi-agent mesh, RAG pipelines, LLM model integrations
+### AI Solutions (`ai-solutions.html`)
+- How agents, tools, and RAG are assembled for a project
 
-### 🏭 Industries (`industries.html`)
-- Healthcare, FinTech, E-Commerce, Real Estate, Logistics, Legal & Compliance
+### Industries (`industries.html`)
+- Healthcare ops, finance, retail, real estate, logistics, legal
 
-### 💼 Portfolio (`portfolio.html`)
-- 6 case studies with tech stack pills (OpenAI, LangChain, Pinecone, FastAPI, etc.)
+### Work (`portfolio.html`)
+- Build types we take on. Named case studies only when a client agrees.
 
-### 🙋 About (`about.html`)
-- Mission, team ethos, delivery process, why PALRAM AI
+### About (`about.html`)
+- Studio since 2026, how we work
 
-### 💰 Pricing (`pricing.html`)
-- **All prices in Indian Rupees (₹)**
-- Starter: ₹49,999 | Pro: ₹1,49,999 | Enterprise: Custom quote
+### Pricing (`pricing.html`)
+- Starting packages in INR: Starter ₹49,999 · Pro ₹1,49,999 · Custom quote
 
-### 📬 Contact (`contact.html`)
-- Project inquiry form
-- Budget selector in ₹ (Under ₹50,000 → ₹5,00,000+)
-- Discovery call booking CTA
+### Contact (`contact.html`)
+- Form opens a mailto draft to contact@palramai.in
 
 ---
 
@@ -118,17 +114,16 @@ Static HTML/CSS/JS — zero build step required.
 ## Navbar Order (All Pages)
 
 ```
-Home → Services → AI Solutions → Industries → Portfolio → About → Pricing → Contact
+Home → Services → AI Solutions → Industries → Work → About → Pricing → Contact
 ```
 
 ---
 
 ## Known Gaps (Future Backend Work)
 
-- **Contact Form** — Currently shows a browser alert on submit. Wire to [Formspree](https://formspree.io), a serverless function, or CRM API for real submissions.
-- **Chat Widget** — Keyword-matched canned responses in `script.js`. Replace `sendChat()` with a real OpenAI API call when ready.
-- **Blog / CMS** — Not included. Requires headless CMS (Sanity, Contentful) + routing.
-- **Payment Gateway** — Pricing page links to contact. Wire to Razorpay for INR payments.
+- **Contact Form** — Opens a mailto draft to contact@palramai.in. Wire to Formspree or a serverless function when you want inbox capture without the user’s email app.
+- **Chat Widget** — Keyword helper only. It is not a live agent.
+- **Work page** — Build types until you have permission to name clients.
 
 ---
 

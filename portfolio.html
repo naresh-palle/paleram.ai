@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio & Case Studies — PALRAM AI</title>
-<meta name="description" content="Explore featured client work by PALRAM AI: Enterprise AI chatbots, internal RAG platforms, healthcare assistants, and automated workflows.">
+<title>Work — PALRAM AI</title>
+<meta name="description" content="Types of AI, automation, and software PALRAM AI builds: support agents, document search, ops automation, and product apps.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,6 @@
 
 <div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-<!-- STICKY NAVIGATION BAR -->
 <header>
   <nav class="wrap">
     <a href="index.html" class="logo" id="headerLogo">
@@ -24,132 +23,118 @@
         <span class="brand-sub">SINCE 2026</span>
       </div>
     </a>
-
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="ai-solutions.html">AI Solutions</a>
       <a href="industries.html">Industries</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="portfolio.html" class="active">Work</a>
       <a href="about.html">About</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
     </div>
-
     <div class="nav-actions">
       <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book a call</a>
       <div class="burger" onclick="toggleMobile()">&#9776;</div>
     </div>
   </nav>
 </header>
 
-<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg-dark); z-index:99; padding:100px 32px 32px;">
-  <div style="display:flex; flex-direction:column; gap:20px; font-size:18px;">
+<div id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-links">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="ai-solutions.html">AI Solutions</a>
     <a href="industries.html">Industries</a>
-    <a href="portfolio.html">Portfolio</a>
+    <a href="portfolio.html">Work</a>
     <a href="about.html">About</a>
     <a href="pricing.html">Pricing</a>
     <a href="contact.html">Contact</a>
   </div>
+  <div class="mobile-close" onclick="toggleMobile()">&#10005;</div>
 </div>
 
-<!-- PORTFOLIO HERO -->
 <section class="hero" style="padding: 40px 0 60px;">
   <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
-    <div class="eyebrow"><span class="dot"></span> Proven Impact</div>
-    <h1>Featured Client Work & <span class="grad-text">Case Studies</span></h1>
-    <p class="lead" style="margin: 0 auto;">See how PALRAM AI deploys AI Agents, RAG engines, and scalable microservices to drive measurable business transformation.</p>
+    <div class="eyebrow"><span class="dot"></span> Work</div>
+    <h1>What we <span class="grad-text">ship</span></h1>
+    <p class="lead" style="margin: 0 auto;">Build types we take on. We will add named case studies here when a client agrees to be listed.</p>
   </div>
 </section>
 
-<!-- CASE STUDIES GRID -->
 <section class="section" style="padding-top:0;">
   <div class="wrap">
     <div class="grid grid-3">
-      <!-- Case Study 1 -->
       <div class="card">
         <div class="card-icon">🤖</div>
-        <h3>Enterprise AI Chatbot</h3>
-        <p>Support agent handling 40,000+ monthly customer queries with 94% automated resolution accuracy.</p>
+        <h3>Customer support agent</h3>
+        <p>Answers from your docs and past tickets. Escalates when it should not guess.</p>
         <div class="feature-pills" style="margin-top:16px;">
-          <span class="feature-pill">OpenAI</span>
-          <span class="feature-pill">LangChain</span>
-          <span class="feature-pill">Next.js 15</span>
-          <span class="feature-pill">PostgreSQL</span>
+          <span class="feature-pill">LLM</span>
+          <span class="feature-pill">RAG</span>
+          <span class="feature-pill">Web UI</span>
         </div>
       </div>
-
-      <!-- Case Study 2 -->
       <div class="card">
         <div class="card-icon">🧠</div>
-        <h3>Internal RAG Platform</h3>
-        <p>Vector RAG search engine across 500,000+ legal and compliance PDFs with sub-second answer retrieval.</p>
+        <h3>Internal document search</h3>
+        <p>Q&amp;A over PDFs, wikis, and shared drives your team already uses.</p>
         <div class="feature-pills" style="margin-top:16px;">
-          <span class="feature-pill">Pinecone</span>
+          <span class="feature-pill">pgvector</span>
           <span class="feature-pill">FastAPI</span>
           <span class="feature-pill">Python</span>
-          <span class="feature-pill">pgvector</span>
         </div>
       </div>
-
-      <!-- Case Study 3 -->
       <div class="card">
         <div class="card-icon">✈️</div>
-        <h3>Travel AI Planner</h3>
-        <p>Hyper-personalized travel itinerary generator app handling 100,000+ dynamic booking recommendations.</p>
+        <h3>Planner / itinerary agent</h3>
+        <p>Multi-step planning with constraints you define — travel, onboarding, or ops checklists.</p>
         <div class="feature-pills" style="margin-top:16px;">
-          <span class="feature-pill">Claude 3.5</span>
-          <span class="feature-pill">React Native</span>
-          <span class="feature-pill">NestJS</span>
-          <span class="feature-pill">Redis</span>
+          <span class="feature-pill">Agents</span>
+          <span class="feature-pill">APIs</span>
         </div>
       </div>
-
-      <!-- Case Study 4 -->
       <div class="card">
         <div class="card-icon">🏥</div>
-        <h3>Healthcare AI Assistant</h3>
-        <p>HIPAA-compliant medical triage agent system providing instant patient guidance and appointment scheduling.</p>
+        <h3>Care operations helper</h3>
+        <p>Intake, scheduling, and staff Q&amp;A. We follow the privacy rules you set; we do not claim a certification we do not hold.</p>
         <div class="feature-pills" style="margin-top:16px;">
-          <span class="feature-pill">Gemini Pro</span>
-          <span class="feature-pill">Flutter</span>
-          <span class="feature-pill">AWS EKS</span>
-          <span class="feature-pill">Docker</span>
+          <span class="feature-pill">LLM</span>
+          <span class="feature-pill">Mobile or web</span>
         </div>
       </div>
-
-      <!-- Case Study 5 -->
       <div class="card">
         <div class="card-icon">⚡</div>
-        <h3>E-Commerce Automation</h3>
-        <p>n8n order fulfillment and instant WhatsApp automated order tracking notification pipeline.</p>
+        <h3>Commerce automation</h3>
+        <p>Order status, inventory hooks, and customer messages through n8n or a small service.</p>
         <div class="feature-pills" style="margin-top:16px;">
           <span class="feature-pill">n8n</span>
-          <span class="feature-pill">Shopify API</span>
-          <span class="feature-pill">WhatsApp API</span>
+          <span class="feature-pill">Shopify</span>
+          <span class="feature-pill">WhatsApp</span>
         </div>
       </div>
-
-      <!-- Case Study 6 -->
       <div class="card">
         <div class="card-icon">📊</div>
-        <h3>Business Analytics Dashboard</h3>
-        <p>Real-time AI revenue forecasting, demand prediction, and inventory management portal.</p>
+        <h3>Ops dashboard</h3>
+        <p>A live view of the numbers you already collect — with optional forecast or alert rules.</p>
         <div class="feature-pills" style="margin-top:16px;">
-          <span class="feature-pill">Next.js 15</span>
-          <span class="feature-pill">TailwindCSS</span>
-          <span class="feature-pill">Prisma ORM</span>
+          <span class="feature-pill">Next.js</span>
+          <span class="feature-pill">PostgreSQL</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Want this for your stack?</h2>
+    <p>Send a brief to contact@palramai.in</p>
+    <a href="contact.html" class="btn btn-primary btn-lg">Contact</a>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -161,43 +146,53 @@
             <span class="brand-sub">SINCE 2026</span>
           </div>
         </a>
-        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">Transforming businesses with AI Agents, Workflow Automation, and Enterprise Software.</p>
+        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">AI agents, workflow automation, and software. palramai.in</p>
       </div>
-
-      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">AI Solutions</a><a href="#">Blog</a></div>
-      <div><h5>Services</h5><a href="services.html">AI Development</a><a href="services.html">AI Agents</a><a href="services.html">Automation</a><a href="services.html">Web Apps</a></div>
-      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Security</a></div>
-      <div><h5>Contact</h5><p style="font-size:0.85rem; color:var(--text-secondary);">contact@palramai.in</p><p style="font-size:0.85rem; color:var(--text-secondary);">https://palramai.in</p></div>
+      <div>
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="ai-solutions.html">AI Solutions</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div>
+        <h5>Work</h5>
+        <a href="portfolio.html">Build types</a>
+        <a href="industries.html">Industries</a>
+        <a href="contact.html">Start a project</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="mailto:contact@palramai.in">contact@palramai.in</a>
+        <a href="https://palramai.in">palramai.in</a>
+      </div>
     </div>
-
     <div class="foot-bottom">
       <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>Enterprise AI Agency</span>
+      <span>AI studio · India</span>
     </div>
   </div>
 </footer>
 
-<!-- CHAT ASSISTANT WIDGET -->
 <div class="chat-widget">
   <div class="chat-panel" id="chatPanel">
     <div class="chat-head">
       <div>
-        <b>PALRAM AI Assistant</b>
-        <span>Typically replies instantly</span>
+        <b>PALRAM AI</b>
+        <span>Quick answers · email for a real reply</span>
       </div>
-      <div class="chat-close" onclick="toggleChat()" title="Close chat">&#10005;</div>
+      <div class="chat-close" onclick="toggleChat()">&#10005;</div>
     </div>
     <div class="chat-body" id="chatBody">
-      <div class="msg bot">Hello 👋 Ask me about our client case studies and technical architectures!</div>
+      <div class="msg bot">Ask about a build type. For a real reply, email contact@palramai.in.</div>
     </div>
     <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendChat()">
-      <button onclick="sendChat()">Send</button>
+      <input type="text" id="chatInput" placeholder="Type a question" onkeypress="if(event.key==='Enter')sendChat()">
+      <button type="button" onclick="sendChat()">Send</button>
     </div>
   </div>
   <div class="chat-bubble" onclick="toggleChat()">💬</div>
 </div>
-
 <script src="assets/js/script.js"></script>
 </body>
 </html>

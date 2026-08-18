@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing & Packages — PALRAM AI</title>
-<meta name="description" content="Transparent pricing tiers in INR for AI development, AI agent orchestration, workflow automation, web apps, and enterprise software engineering.">
+<title>Pricing — PALRAM AI</title>
+<meta name="description" content="PALRAM AI pricing in INR: Starter from ₹49,999, Pro from ₹1,49,999, and custom quotes for larger work.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,6 @@
 
 <div class="bg-glow"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
-<!-- STICKY NAVIGATION BAR -->
 <header>
   <nav class="wrap">
     <a href="index.html" class="logo" id="headerLogo">
@@ -24,118 +23,110 @@
         <span class="brand-sub">SINCE 2026</span>
       </div>
     </a>
-
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="ai-solutions.html">AI Solutions</a>
       <a href="industries.html">Industries</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="portfolio.html">Work</a>
       <a href="about.html">About</a>
       <a href="pricing.html" class="active">Pricing</a>
       <a href="contact.html">Contact</a>
     </div>
-
     <div class="nav-actions">
       <div class="icon-toggle" onclick="toggleTheme()" id="themeIcon">&#9789;</div>
-      <a href="contact.html" class="btn btn-primary">Book Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book a call</a>
       <div class="burger" onclick="toggleMobile()">&#9776;</div>
     </div>
   </nav>
 </header>
 
-<div id="mobileMenu" style="display:none; position:fixed; inset:0; background:var(--bg-dark); z-index:99; padding:100px 32px 32px;">
-  <div style="display:flex; flex-direction:column; gap:20px; font-size:18px;">
+<div id="mobileMenu" class="mobile-menu">
+  <div class="mobile-menu-links">
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="ai-solutions.html">AI Solutions</a>
     <a href="industries.html">Industries</a>
-    <a href="portfolio.html">Portfolio</a>
+    <a href="portfolio.html">Work</a>
     <a href="about.html">About</a>
     <a href="pricing.html">Pricing</a>
     <a href="contact.html">Contact</a>
   </div>
+  <div class="mobile-close" onclick="toggleMobile()">&#10005;</div>
 </div>
 
-<!-- PRICING HERO -->
 <section class="hero" style="padding: 40px 0 60px;">
   <div class="wrap text-center" style="max-width:800px; margin:0 auto;">
-    <div class="eyebrow"><span class="dot"></span> Investment Tiers</div>
-    <h1>Transparent <span class="grad-text">Pricing & Packages (INR)</span></h1>
-    <p class="lead" style="margin: 0 auto;">Select the engagement model that matches your business stage &mdash; from rapid MVPs to enterprise AI transformation.</p>
+    <div class="eyebrow"><span class="dot"></span> Pricing (INR)</div>
+    <h1>Starting <span class="grad-text">points</span></h1>
+    <p class="lead" style="margin: 0 auto;">These are starting packages. Final price depends on scope, integrations, and how much of the product already exists.</p>
   </div>
 </section>
 
-<!-- PRICING TIERS GRID -->
 <section class="section" style="padding-top:0;">
   <div class="wrap">
     <div class="grid grid-3">
-      <!-- Tier 1: Starter MVP -->
-      <div class="card" style="position:relative;">
-        <div>
-          <div class="badge-tag">Startup Tier</div>
-          <h3 style="font-size:1.6rem; margin-top:10px;">Starter AI MVP</h3>
-          <p style="font-size:0.9rem; color:var(--text-secondary);">Ideal for startups needing a production-ready AI MVP or automated pipeline delivered fast.</p>
-          <div style="font-family:var(--font-heading); font-size:2.5rem; font-weight:800; color:var(--text-primary); margin:20px 0;">₹49,999<span style="font-size:1rem; font-weight:400; color:var(--text-muted);"> / project</span></div>
-        </div>
-        <div style="border-top:1px solid var(--border-card); padding-top:20px; margin-top:20px;">
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; font-size:0.875rem; color:var(--text-secondary);">
-            <li>✓ Single LLM / RAG Integration</li>
-            <li>✓ Up to 3 Automation Workflows</li>
-            <li>✓ Custom Next.js 15 Frontend UI</li>
-            <li>✓ 2 Weeks Delivery Timeline</li>
-            <li>✓ 30 Days Technical Support</li>
-          </ul>
-          <a href="contact.html" class="btn btn-ghost" style="width:100%; justify-content:center; margin-top:24px;">Start Starter Project</a>
-        </div>
-      </div>
-
-      <!-- Tier 2: Enterprise Pro (Featured) -->
-      <div class="card" style="border-color:var(--color-primary); box-shadow:var(--shadow-md); position:relative;">
-        <div style="position:absolute; top:-12px; right:24px; background:var(--color-primary); color:#FFF; font-size:0.7rem; font-weight:700; padding:4px 12px; border-radius:var(--radius-pill); text-transform:uppercase;">Most Popular</div>
-        <div>
-          <div class="badge-tag" style="background:rgba(168,85,247,0.2); color:var(--color-primary);">Growth & SMB</div>
-          <h3 style="font-size:1.6rem; margin-top:10px;">Enterprise AI Pro</h3>
-          <p style="font-size:0.9rem; color:var(--text-secondary);">Complete multi-agent mesh, custom vector DB, and scalable microservice backend.</p>
-          <div style="font-family:var(--font-heading); font-size:2.5rem; font-weight:800; color:var(--text-primary); margin:20px 0;">₹1,49,999<span style="font-size:1rem; font-weight:400; color:var(--text-muted);"> / project</span></div>
-        </div>
-        <div style="border-top:1px solid var(--border-card); padding-top:20px; margin-top:20px;">
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; font-size:0.875rem; color:var(--text-secondary);">
-            <li>✓ Autonomous Multi-Agent Mesh</li>
-            <li>✓ Enterprise Vector RAG Search</li>
-            <li>✓ NestJS & FastAPI Microservices</li>
-            <li>✓ Next.js 15 & Mobile App Build</li>
-            <li>✓ AWS Docker & CI/CD Pipeline</li>
-            <li>✓ 90 Days Priority Support</li>
-          </ul>
-          <a href="contact.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:24px;">Start Pro Engagement</a>
-        </div>
-      </div>
-
-      <!-- Tier 3: Custom Scale -->
       <div class="card">
         <div>
-          <div class="badge-tag" style="background:rgba(6,182,212,0.2); color:var(--color-secondary);">Enterprise Tier</div>
-          <h3 style="font-size:1.6rem; margin-top:10px;">Custom Enterprise</h3>
-          <p style="font-size:0.9rem; color:var(--text-secondary);">Dedicated engineering squad for large scale digital & AI transformation projects.</p>
-          <div style="font-family:var(--font-heading); font-size:2.5rem; font-weight:800; color:var(--text-primary); margin:20px 0;">Custom<span style="font-size:1rem; font-weight:400; color:var(--text-muted);"> quote in ₹</span></div>
+          <div class="badge-tag">Starter</div>
+          <h3 style="font-size:1.6rem; margin-top:10px;">MVP</h3>
+          <p>A first production slice: one AI surface or a small automation set, plus a simple UI.</p>
+          <div style="font-family:var(--font-heading); font-size:2.5rem; font-weight:800; margin:20px 0;">₹49,999<span style="font-size:1rem; font-weight:400; color:var(--text-muted);"> starting</span></div>
         </div>
         <div style="border-top:1px solid var(--border-card); padding-top:20px; margin-top:20px;">
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; font-size:0.875rem; color:var(--text-secondary);">
-            <li>✓ Dedicated Senior Engineering Squad</li>
-            <li>✓ Custom Model Fine-Tuning & Training</li>
-            <li>✓ On-Premise / Private Cloud Deploy</li>
-            <li>✓ SOC2 & HIPAA Compliance Audit</li>
-            <li>✓ 24/7 Dedicated SLA Support</li>
+          <ul class="stack-list">
+            <li>One LLM or RAG path</li>
+            <li>Up to three automations</li>
+            <li>Web UI for that slice</li>
+            <li>Timeline set in the brief</li>
+            <li>30 days of fix-forward support</li>
           </ul>
-          <a href="contact.html" class="btn btn-accent" style="width:100%; justify-content:center; margin-top:24px;">Contact Enterprise Team</a>
+          <a href="contact.html" class="btn btn-ghost" style="width:100%; justify-content:center; margin-top:24px;">Ask about Starter</a>
+        </div>
+      </div>
+
+      <div class="card" style="border-color:var(--color-primary); box-shadow:var(--shadow-md); position:relative;">
+        <div style="position:absolute; top:-12px; right:24px; background:var(--color-primary); color:#FFF; font-size:0.7rem; font-weight:700; padding:4px 12px; border-radius:var(--radius-pill);">Often chosen</div>
+        <div>
+          <div class="badge-tag">Pro</div>
+          <h3 style="font-size:1.6rem; margin-top:10px;">Product + agents</h3>
+          <p>Agents, retrieval, and an app or API you can put in front of a team.</p>
+          <div style="font-family:var(--font-heading); font-size:2.5rem; font-weight:800; margin:20px 0;">₹1,49,999<span style="font-size:1rem; font-weight:400; color:var(--text-muted);"> starting</span></div>
+        </div>
+        <div style="border-top:1px solid var(--border-card); padding-top:20px; margin-top:20px;">
+          <ul class="stack-list">
+            <li>Multi-step agent or RAG search</li>
+            <li>Backend APIs</li>
+            <li>Web app (mobile if scoped)</li>
+            <li>Deploy + CI for that stack</li>
+            <li>90 days of priority support</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:24px;">Ask about Pro</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="badge-tag" style="background:rgba(6,182,212,0.2); color:var(--color-secondary);">Custom</div>
+          <h3 style="font-size:1.6rem; margin-top:10px;">Larger build</h3>
+          <p>Dedicated time for a longer product, private deploy, or several systems at once.</p>
+          <div style="font-family:var(--font-heading); font-size:2.5rem; font-weight:800; margin:20px 0;">Quote<span style="font-size:1rem; font-weight:400; color:var(--text-muted);"> in ₹</span></div>
+        </div>
+        <div style="border-top:1px solid var(--border-card); padding-top:20px; margin-top:20px;">
+          <ul class="stack-list">
+            <li>Scoped squad time</li>
+            <li>Fine-tuning only if the data justifies it</li>
+            <li>Private cloud or on-prem if you host it</li>
+            <li>Security review against your checklist</li>
+            <li>SLA written into the contract</li>
+          </ul>
+          <a href="contact.html" class="btn btn-accent" style="width:100%; justify-content:center; margin-top:24px;">Request a quote</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -147,43 +138,53 @@
             <span class="brand-sub">SINCE 2026</span>
           </div>
         </a>
-        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">Transforming businesses with AI Agents, Workflow Automation, and Enterprise Software.</p>
+        <p style="max-width:280px; color:var(--text-secondary); font-size:0.85rem;">AI agents, workflow automation, and software. palramai.in</p>
       </div>
-
-      <div><h5>Company</h5><a href="about.html">About</a><a href="services.html">Services</a><a href="ai-solutions.html">AI Solutions</a><a href="#">Blog</a></div>
-      <div><h5>Services</h5><a href="services.html">AI Development</a><a href="services.html">AI Agents</a><a href="services.html">Automation</a><a href="services.html">Web Apps</a></div>
-      <div><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Security</a></div>
-      <div><h5>Contact</h5><p style="font-size:0.85rem; color:var(--text-secondary);">contact@palramai.in</p><p style="font-size:0.85rem; color:var(--text-secondary);">https://palramai.in</p></div>
+      <div>
+        <h5>Company</h5>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="ai-solutions.html">AI Solutions</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div>
+        <h5>Work</h5>
+        <a href="portfolio.html">Build types</a>
+        <a href="industries.html">Industries</a>
+        <a href="contact.html">Start a project</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <a href="mailto:contact@palramai.in">contact@palramai.in</a>
+        <a href="https://palramai.in">palramai.in</a>
+      </div>
     </div>
-
     <div class="foot-bottom">
       <span>&copy; 2026 PALRAM AI. All rights reserved.</span>
-      <span>Enterprise AI Agency</span>
+      <span>AI studio · India</span>
     </div>
   </div>
 </footer>
 
-<!-- CHAT ASSISTANT WIDGET -->
 <div class="chat-widget">
   <div class="chat-panel" id="chatPanel">
     <div class="chat-head">
       <div>
-        <b>PALRAM AI Assistant</b>
-        <span>Typically replies instantly</span>
+        <b>PALRAM AI</b>
+        <span>Quick answers · email for a real reply</span>
       </div>
-      <div class="chat-close" onclick="toggleChat()" title="Close chat">&#10005;</div>
+      <div class="chat-close" onclick="toggleChat()">&#10005;</div>
     </div>
     <div class="chat-body" id="chatBody">
-      <div class="msg bot">Hello 👋 Ask me about project tiers, pricing estimates in Rupees (₹), or custom quotes!</div>
+      <div class="msg bot">Starter from ₹49,999. Email contact@palramai.in for a quote.</div>
     </div>
     <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter')sendChat()">
-      <button onclick="sendChat()">Send</button>
+      <input type="text" id="chatInput" placeholder="Type a question" onkeypress="if(event.key==='Enter')sendChat()">
+      <button type="button" onclick="sendChat()">Send</button>
     </div>
   </div>
   <div class="chat-bubble" onclick="toggleChat()">💬</div>
 </div>
-
 <script src="assets/js/script.js"></script>
 </body>
 </html>

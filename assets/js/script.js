@@ -78,7 +78,7 @@ function mountChrome(page, theme) {
         <a href="contact.html">Start a project</a>
       </div>
       <div><h5>Contact</h5>
-        <a href="mailto:contact@palramai.in">contact@palramai.in</a>
+        <a href="mailto:admin@palramai.in">admin@palramai.in</a>
         <a href="https://palramai.in">palramai.in</a>
       </div>
     </div>
@@ -97,7 +97,7 @@ function mountChrome(page, theme) {
         <button type="button" class="chat-close" id="chatClose" aria-label="Close">✕</button>
       </div>
       <div class="chat-body" id="chatBody">
-        <div class="msg bot">Ask about agents, RAG, automation, or pricing. Real replies go to contact@palramai.in.</div>
+        <div class="msg bot">Ask about agents, RAG, automation, or pricing. Real replies go to admin@palramai.in.</div>
       </div>
       <div class="chat-input">
         <input type="text" id="chatInput" placeholder="Type a question" autocomplete="off">
@@ -151,11 +151,11 @@ function sendChat() {
   body.scrollTop = body.scrollHeight;
 
   const lower = userText.toLowerCase();
-  let reply = 'This widget is a short guide. Email contact@palramai.in for a real reply.';
+  let reply = 'This widget is a short guide. Email admin@palramai.in for a real reply.';
   if (/price|cost|pricing|₹|rupee/.test(lower)) {
-    reply = 'Starter work begins at ₹49,999. Larger builds are quoted after a short call. See Pricing, or email contact@palramai.in.';
+    reply = 'Starter work begins at ₹49,999. Larger builds are quoted after a short call. See Pricing, or email admin@palramai.in.';
   } else if (/contact|call|email/.test(lower)) {
-    reply = 'Write to contact@palramai.in or use the Contact page.';
+    reply = 'Write to admin@palramai.in or use the Contact page.';
   } else if (/agent|rag|automat/.test(lower)) {
     reply = 'We build AI agents, RAG over your documents, and workflow automation. Share the use case on Contact.';
   }
@@ -180,7 +180,7 @@ function submitInquiry(event) {
     data.get('details') || ''
   ];
   window.location.href =
-    'mailto:contact@palramai.in?subject=' +
+    'mailto:admin@palramai.in?subject=' +
     encodeURIComponent('Project inquiry — PALRAM AI') +
     '&body=' +
     encodeURIComponent(lines.join('\n'));

@@ -78,7 +78,7 @@ palramai/
 - Starting packages in INR: Starter ₹49,999 · Pro ₹1,49,999 · Custom quote
 
 ### Contact (`contact.html`)
-- Form opens a mailto draft to contact@palramai.in
+- Form opens a mailto draft to admin@palramai.in
 
 ---
 
@@ -121,7 +121,7 @@ Home → Services → AI Solutions → Industries → Work → About → Pricing
 
 ## Known Gaps (Future Backend Work)
 
-- **Contact Form** — Opens a mailto draft to contact@palramai.in. Wire to Formspree or a serverless function when you want inbox capture without the user’s email app.
+- **Contact Form** — Opens a mailto draft to admin@palramai.in. Wire to Formspree or a serverless function when you want inbox capture without the user’s email app.
 - **Chat Widget** — Keyword helper only. It is not a live agent.
 - **Work page** — Build types until you have permission to name clients.
 

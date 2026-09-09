@@ -128,27 +128,58 @@ const PALRAM = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  mountAurora();
   mountLoader();
   mountSiteShell();
+  replaceStaticMarks();
   initHeader();
   initMobileMenu();
   initReveal();
+  initAstraOrb();
   initHeroInteraction();
+  initMagnetic();
   initBusinessExplorer();
   initAgentShowcase();
   initIndustries();
   initIntake();
   initAssistant();
-  window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 320);
+  window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 520);
 });
 
-function mountLoader() {
-  document.body.insertAdjacentHTML("afterbegin", `<div class="site-loader" aria-hidden="true">${markHTML("loader-mark")}</div>`);
-  window.setTimeout(() => document.querySelector(".site-loader")?.remove(), 780);
+function reducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function markHTML(className = "brand-mark") {
-  return `<img class="${className}" src="assets/img/palram-mark.svg" alt="" width="38" height="38">`;
+function orbHTML(size = "sm") {
+  return `<span class="astra-orb astra-orb-${size}" aria-hidden="true"></span>`;
+}
+
+function brandHTML(subtitle) {
+  return `${orbHTML()}<span class="brand-lockup"><span class="brand-name">palram</span><small>${subtitle}</small></span>`;
+}
+
+function mountAurora() {
+  document.body.insertAdjacentHTML("afterbegin", `<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>`);
+}
+
+function mountLoader() {
+  document.body.insertAdjacentHTML("afterbegin", `<div class="site-loader" aria-hidden="true"><div class="loader-core">${orbHTML("md")}<span class="loader-word">palram</span></div></div>`);
+  window.setTimeout(() => document.querySelector(".site-loader")?.remove(), 980);
+}
+
+function replaceStaticMarks() {
+  document.querySelectorAll("img.capability-mark").forEach(image => {
+    const orb = document.createElement("span");
+    orb.className = "astra-orb astra-orb-sm capability-mark";
+    orb.setAttribute("aria-hidden", "true");
+    image.replaceWith(orb);
+  });
+  document.querySelectorAll("img.page-visual").forEach(image => {
+    const orb = document.createElement("div");
+    orb.className = "astra-orb astra-orb-page page-visual";
+    orb.setAttribute("aria-hidden", "true");
+    image.replaceWith(orb);
+  });
 }
 
 function mountSiteShell() {
@@ -161,9 +192,8 @@ function mountSiteShell() {
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" id="siteHeader">
       <div class="wrap nav-shell">
-        <a class="brand" href="index.html" aria-label="PALRAM AI home">
-          ${markHTML()}
-          <span class="brand-word">PALRAM AI<small>INTELLIGENCE IN MOTION</small></span>
+        <a class="brand" href="index.html" aria-label="palram home">
+          ${brandHTML("AI · AGENTS · SOFTWARE")}
         </a>
         <nav class="desktop-nav" aria-label="Primary navigation">${nav}</nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">◐</button>
@@ -178,7 +208,7 @@ function mountSiteShell() {
     <footer class="site-footer">
       <div class="wrap footer-main">
         <div class="footer-brand">
-          <a class="brand" href="index.html">${markHTML()}<span class="brand-word">PALRAM AI<small>AI · AUTOMATION · SOFTWARE</small></span></a>
+          <a class="brand" href="index.html">${brandHTML("AI · AUTOMATION · SOFTWARE")}</a>
           <p>We turn business problems into intelligent software.</p>
         </div>
         <div class="footer-column">
@@ -208,11 +238,11 @@ function mountSiteShell() {
       </div>
     </footer>
     <button class="assistant-launcher" id="assistantLauncher" type="button" aria-expanded="false" aria-controls="assistantPanel">
-      ${markHTML()}<span>PALRAM AI Assistant</span>
+      ${orbHTML()}<span>palram guide</span>
     </button>
     <section class="assistant-panel" id="assistantPanel" aria-label="PALRAM AI Assistant">
       <div class="assistant-head">
-        <div>${markHTML()}<span><strong>PALRAM AI Assistant</strong><small>Website guide</small></span></div>
+        <div>${orbHTML()}<span><strong>palram guide</strong><small>Website guide</small></span></div>
         <button class="assistant-close" id="assistantClose" type="button" aria-label="Close assistant">×</button>
       </div>
       <div class="assistant-body">
@@ -282,12 +312,95 @@ function initReveal() {
   nodes.forEach(node => observer.observe(node));
 }
 
+function initAstraOrb() {
+  const stage = document.querySelector("[data-astra-stage]");
+  if (!stage) return;
+
+  const canvas = document.createElement("canvas");
+  canvas.className = "astra-canvas";
+  canvas.setAttribute("aria-hidden", "true");
+  stage.prepend(canvas);
+  const context = canvas.getContext("2d", { alpha: true });
+  if (!context) return;
+
+  const blobs = [
+    { radius: 0.48, color: [94, 231, 255], speed: 1.05 },
+    { radius: 0.4, color: [82, 104, 255], speed: 0.82 },
+    { radius: 0.34, color: [155, 92, 255], speed: 1.28 },
+    { radius: 0.18, color: [255, 255, 255], speed: 0.7 }
+  ];
+
+  const resize = () => {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    const { width, height } = stage.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.floor(width * ratio));
+    canvas.height = Math.max(1, Math.floor(height * ratio));
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  };
+
+  const paint = time => {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const cx = width / 2;
+    const cy = height / 2;
+    const base = Math.min(width, height) * 0.42;
+    context.clearRect(0, 0, width, height);
+    context.globalCompositeOperation = "lighter";
+    blobs.forEach((blob, index) => {
+      const ox = Math.sin(time * blob.speed + index) * 16;
+      const oy = Math.cos(time * blob.speed * 0.85 + index * 1.4) * 14;
+      const radius = base * blob.radius * (1 + Math.sin(time * 1.35 + index) * 0.1);
+      const glow = context.createRadialGradient(cx + ox, cy + oy, radius * 0.04, cx + ox, cy + oy, radius);
+      glow.addColorStop(0, `rgba(${blob.color.join(",")},0.95)`);
+      glow.addColorStop(0.38, `rgba(${blob.color.join(",")},0.32)`);
+      glow.addColorStop(1, `rgba(${blob.color.join(",")},0)`);
+      context.fillStyle = glow;
+      context.beginPath();
+      context.arc(cx + ox, cy + oy, radius, 0, Math.PI * 2);
+      context.fill();
+    });
+  };
+
+  resize();
+  paint(0);
+  stage.querySelector(".astra-orb")?.setAttribute("hidden", "");
+  window.addEventListener("resize", resize, { passive: true });
+  if (reducedMotion()) return;
+
+  let elapsed = 0;
+  let last = performance.now();
+  const tick = now => {
+    elapsed += (now - last) / 1000;
+    last = now;
+    paint(elapsed);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+function initMagnetic() {
+  if (reducedMotion() || window.matchMedia("(pointer: coarse)").matches) return;
+  document.querySelectorAll(".button-primary, .nav-cta").forEach(button => {
+    button.addEventListener("pointermove", event => {
+      const box = button.getBoundingClientRect();
+      const x = event.clientX - box.left - box.width / 2;
+      const y = event.clientY - box.top - box.height / 2;
+      button.style.transform = `translate(${x * 0.12}px, ${y * 0.18}px)`;
+    });
+    button.addEventListener("pointerleave", () => {
+      button.style.transform = "";
+    });
+  });
+}
+
 function initHeroInteraction() {
   const hero = document.querySelector(".hero");
   const visual = document.querySelector(".system-visual");
-  const mark = document.querySelector(".intelligence-mark");
+  const mark = document.querySelector(".intelligence-core");
   const glow = document.querySelector(".hero-glow");
-  if (!hero || !visual || !mark || !glow || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!hero || !visual || !mark || !glow || reducedMotion()) return;
 
   hero.addEventListener("pointermove", event => {
     const rect = hero.getBoundingClientRect();
@@ -295,7 +408,7 @@ function initHeroInteraction() {
     const y = (event.clientY - rect.top) / rect.height;
     glow.style.left = `${x * 100}%`;
     glow.style.top = `${y * 100}%`;
-    mark.style.transform = `translate(-50%, -50%) translate(${(x - .5) * 14}px, ${(y - .5) * 14}px)`;
+    mark.style.transform = `translate(-50%, -50%) translate(${(x - .5) * 18}px, ${(y - .5) * 18}px)`;
     visual.querySelectorAll(".system-node").forEach((node, index) => {
       const depth = (index % 3 + 1) * 2;
       node.style.transform = `translate(${(x - .5) * depth}px, ${(y - .5) * depth}px)`;

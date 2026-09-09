@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" role="img" aria-labelledby="title desc">
+  <title id="title">palram</title>
+  <desc id="desc">PALRAM wordmark with a luminous intelligence orb.</desc>
+  <defs>
+    <radialGradient id="orb" cx="38%" cy="32%" r="70%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".22" stop-color="#5EE7FF"/>
+      <stop offset=".58" stop-color="#5268FF"/>
+      <stop offset="1" stop-color="#9B5CFF"/>
+    </radialGradient>
+    <linearGradient id="word" x1="70" y1="16" x2="350" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FBFF"/>
+      <stop offset=".42" stop-color="#5EE7FF"/>
+      <stop offset="1" stop-color="#B48CFF"/>
+    </linearGradient>
+  </defs>
+  <circle cx="30" cy="36" r="22" fill="url(#orb)"/>
+  <circle cx="22" cy="28" r="6" fill="#fff" opacity=".55"/>
+  <text x="64" y="48" fill="url(#word)" font-family="Sora, Arial, Helvetica, sans-serif" font-size="36" font-weight="700" letter-spacing="7">palram</text>
+</svg>

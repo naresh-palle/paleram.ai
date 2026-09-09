@@ -1,0 +1,17 @@
+{
+  "name": "PALRAM AI",
+  "short_name": "PALRAM AI",
+  "description": "AI agents, automation and software engineering.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090e",
+  "theme_color": "#07090e",
+  "icons": [
+    {
+      "src": "/assets/img/palram-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

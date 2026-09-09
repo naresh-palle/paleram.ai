@@ -1,43 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Work — PALRAM AI</title>
-<meta name="description" content="Types of AI, automation, and software PALRAM AI builds.">
-<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selected Build Concepts — PALRAM AI</title>
+  <meta name="description" content="Selected build concepts from PALRAM AI, showing the challenge, solution, architecture, and intended outcome for practical AI and software systems.">
+  <link rel="canonical" href="https://palramai.in/portfolio.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PALRAM AI">
+  <meta property="og:title" content="Selected Build Concepts — PALRAM AI">
+  <meta property="og:description" content="Credible system concepts for AI agents, knowledge retrieval, workflow automation, and operational software.">
+  <meta property="og:url" content="https://palramai.in/portfolio.html">
+  <meta property="og:image" content="https://palramai.in/assets/img/palram-mark.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Selected Build Concepts — PALRAM AI">
+  <meta name="twitter:description" content="Challenges, solutions, architectures, and intended outcomes for practical software systems.">
+  <meta name="twitter:image" content="https://palramai.in/assets/img/palram-mark.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/img/palram-mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body data-theme="dark" data-page="work">
-<main>
-  <section class="hero page-hero">
-    <div class="wrap">
-      <div class="hero-inner">
-        <div class="eyebrow"><span class="dot"></span> Work</div>
-        <h1>What we <span class="grad-text">ship</span></h1>
-        <p class="lead">Build types we take on. Named case studies go here when a client agrees to be listed.</p>
+<body data-page="work">
+  <main>
+    <section class="hero page-hero">
+      <div class="wrap">
+        <div class="eyebrow">Selected Build Concepts</div>
+        <h1>See how a system <span class="display-gradient">takes shape.</span></h1>
+        <p class="lead">These concepts illustrate the kinds of products we can engineer. They are not client case studies or claims of delivered results.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="contact.html">Shape your build <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="services.html">View solutions</a>
+        </div>
+        <img class="page-visual" src="assets/img/palram-mark.svg" alt="" width="240" height="240">
       </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="wrap">
-      <div class="grid grid-3">
-        <div class="card"><div class="card-icon">🤖</div><h3>Support agent</h3><p>Answers from your docs and tickets. Escalates when it should not guess.</p><div class="feature-pills"><span class="feature-pill">LLM</span><span class="feature-pill">RAG</span></div></div>
-        <div class="card"><div class="card-icon">🧠</div><h3>Document search</h3><p>Q&amp;A over PDFs, wikis, and shared drives.</p><div class="feature-pills"><span class="feature-pill">pgvector</span><span class="feature-pill">FastAPI</span></div></div>
-        <div class="card"><div class="card-icon">✈️</div><h3>Planner agent</h3><p>Multi-step planning with constraints you define.</p><div class="feature-pills"><span class="feature-pill">Agents</span><span class="feature-pill">APIs</span></div></div>
-        <div class="card"><div class="card-icon">🏥</div><h3>Ops helper</h3><p>Intake, scheduling, staff Q&amp;A. We follow the privacy rules you set.</p></div>
-        <div class="card"><div class="card-icon">⚡</div><h3>Commerce automation</h3><p>Orders, inventory, and customer messages through n8n or a small service.</p><div class="feature-pills"><span class="feature-pill">n8n</span><span class="feature-pill">WhatsApp</span></div></div>
-        <div class="card"><div class="card-icon">📊</div><h3>Ops dashboard</h3><p>A live view of numbers you already collect.</p><div class="feature-pills"><span class="feature-pill">Next.js</span><span class="feature-pill">PostgreSQL</span></div></div>
+    </section>
+
+    <section class="section section-line" aria-labelledby="concepts-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Concept portfolio</div>
+            <h2 id="concepts-heading">Built from the problem outward.</h2>
+          </div>
+          <p>Each concept starts with operational friction and makes the technical shape explicit—before interfaces or model choices distract from the job to be done.</p>
+        </div>
+        <div class="concept-grid" data-reveal>
+          <article class="concept">
+            <small>Concept 01 · Knowledge</small>
+            <h3>Grounded support workspace</h3>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Support teams search scattered policies and past tickets while customers wait.</dd>
+              <dt>Solution</dt>
+              <dd>A cited answer workspace that retrieves approved knowledge and hands uncertain requests to a person.</dd>
+              <dt>Architecture</dt>
+              <dd>Web app · identity and permissions · retrieval API · vector search · ticketing integration · evaluation logs.</dd>
+              <dt>Intended outcome</dt>
+              <dd>More consistent answers, faster knowledge access, and visible escalation rather than unsupported guesses.</dd>
+            </dl>
+          </article>
+          <article class="concept">
+            <small>Concept 02 · Operations</small>
+            <h3>Document approval pipeline</h3>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Documents arrive in mixed formats and move through checks, matching, and approvals by hand.</dd>
+              <dt>Solution</dt>
+              <dd>An extraction and validation workflow that routes exceptions and records every decision.</dd>
+              <dt>Architecture</dt>
+              <dd>Secure intake · OCR and extraction · rules engine · approval queue · system connectors · audit history.</dd>
+              <dt>Intended outcome</dt>
+              <dd>Less repetitive entry, clearer process state, and human control over exceptions.</dd>
+            </dl>
+          </article>
+          <article class="concept">
+            <small>Concept 03 · Product</small>
+            <h3>Vertical AI workflow product</h3>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>A specialist team has valuable expertise but no repeatable software product around it.</dd>
+              <dt>Solution</dt>
+              <dd>A focused SaaS product that combines guided input, domain retrieval, assisted output, and review.</dd>
+              <dt>Architecture</dt>
+              <dd>Responsive application · tenant-aware API · model gateway · retrieval layer · billing hooks · cloud deployment.</dd>
+              <dt>Intended outcome</dt>
+              <dd>A testable product foundation that can evolve with real user feedback and measured model quality.</dd>
+            </dl>
+          </article>
+          <article class="concept">
+            <small>Concept 04 · Automation</small>
+            <h3>Lead operations coordinator</h3>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Inbound leads wait while teams enrich records, apply routing rules, and prepare follow-up.</dd>
+              <dt>Solution</dt>
+              <dd>An event-driven coordinator that gathers context, applies explicit rules, drafts outreach, and assigns ownership.</dd>
+              <dt>Architecture</dt>
+              <dd>Form and CRM events · enrichment APIs · workflow orchestrator · approval step · messaging · observability.</dd>
+              <dt>Intended outcome</dt>
+              <dd>Quicker, more consistent handling while commercial decisions remain with the team.</dd>
+            </dl>
+          </article>
+          <article class="concept">
+            <small>Concept 05 · Data</small>
+            <h3>Governed operations assistant</h3>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Recurring business questions depend on analysts translating language into trusted metrics and queries.</dd>
+              <dt>Solution</dt>
+              <dd>A constrained assistant that maps questions to approved definitions, generates queries, and shows its work.</dd>
+              <dt>Architecture</dt>
+              <dd>Semantic metric layer · read-only query service · validation · explanation UI · access controls · query history.</dd>
+              <dt>Intended outcome</dt>
+              <dd>Faster routine answers without hiding definitions, permissions, or the underlying query.</dd>
+            </dl>
+          </article>
+          <article class="concept">
+            <small>Concept 06 · Internal systems</small>
+            <h3>Field operations command view</h3>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Status, exceptions, messages, and assignments live across several tools.</dd>
+              <dt>Solution</dt>
+              <dd>A role-based workspace that consolidates live state and coordinates action across existing systems.</dd>
+              <dt>Architecture</dt>
+              <dd>Operational dashboard · integration services · event queue · notifications · role controls · monitoring.</dd>
+              <dt>Intended outcome</dt>
+              <dd>A shared view of work, fewer manual handoffs, and clearer ownership when something changes.</dd>
+            </dl>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
-  <section class="cta-band">
-    <div class="wrap">
-      <h2>Want this for your stack?</h2>
-      <a href="contact.html" class="btn btn-primary btn-lg">Contact</a>
-    </div>
-  </section>
-</main>
-<script src="assets/js/script.js"></script>
+    </section>
+
+    <section class="section section-line" aria-labelledby="method-heading">
+      <div class="wrap">
+        <div class="section-head single">
+          <div class="eyebrow">From concept to production</div>
+          <h2 id="method-heading">Evidence before expansion.</h2>
+          <p>Discovery defines the risk, prototype work tests the uncertain parts, and production engineering turns validated decisions into an operable system.</p>
+        </div>
+        <div class="process" data-reveal>
+          <div class="process-step"><b>01</b><h3>Discover</h3><p>Map users, constraints, systems, and success criteria.</p></div>
+          <div class="process-step"><b>02</b><h3>Frame</h3><p>Choose the smallest valuable and testable product slice.</p></div>
+          <div class="process-step"><b>03</b><h3>Prototype</h3><p>Resolve model, data, integration, and interaction uncertainty.</p></div>
+          <div class="process-step"><b>04</b><h3>Engineer</h3><p>Build the product, services, controls, and deployment path.</p></div>
+          <div class="process-step"><b>05</b><h3>Validate</h3><p>Test quality, failure modes, security, and real workflows.</p></div>
+          <div class="process-step"><b>06</b><h3>Evolve</h3><p>Operate, learn, and improve against observed needs.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap">
+        <div class="eyebrow">Your concept</div>
+        <h2>Turn an operational problem into a buildable system.</h2>
+        <p>Share the workflow, the people involved, and the systems already in place. We will help define what should be built first.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="contact.html">Start a project <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

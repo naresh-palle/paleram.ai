@@ -1,149 +1,68 @@
-# PALRAM AI — Official Website
+# PALRAM AI
 
-> **Live Site:** [palramai.in](https://palramai.in)  
-> **Repo:** [github.com/naresh-palle/paleram.ai](https://github.com/naresh-palle/paleram.ai)
+Official website for [PALRAM AI](https://palramai.in/) — AI agents, intelligent automation and software engineering.
 
-Enterprise-grade AI agency website for **PALRAM AI** — specializing in AI Agents, Workflow Automation, RAG Systems, and Custom Software Engineering.
+## Architecture
 
----
+- Semantic static HTML
+- Shared design system: `assets/css/site.css`
+- Shared accessible runtime: `assets/js/site.js`
+- No framework, package dependencies, build step, backend or environment variables
+- GitHub Pages deploys `main`; `CNAME` maps `palramai.in`
 
-## Tech Stack
+The shared runtime mounts navigation, footer and the disclosed non-AI website assistant. It also powers the business explorer, agent showcase, industry explorer, contact intake, mobile navigation and scroll reveals.
 
-| Layer | Technology |
-|---|---|
-| Structure | HTML5 (Semantic) |
-| Styling | Vanilla CSS (Design tokens, glassmorphism, animations) |
-| Scripting | Vanilla JavaScript |
-| Fonts | Plus Jakarta Sans, Outfit, JetBrains Mono (Google Fonts) |
-| Hosting | GitHub Pages / Static CDN |
-| CI/CD | GitHub → Auto-deploy on push to `main` |
+## Pages
 
----
+- `index.html` — homepage and interactive product story
+- `services.html` — solution overview
+- `ai-agents.html` — AI agent engineering
+- `automation.html` — intelligent automation
+- `ai-development.html` — generative AI and RAG
+- `software-development.html` — web, SaaS, APIs, backend, cloud
+- `mobile-app-development.html` — iOS and Android applications
+- `industries.html` — industry examples
+- `portfolio.html` — selected build concepts (not client case studies)
+- `about.html` — company positioning
+- `pricing.html` — honest INR engagement starting points
+- `contact.html` — four-step project intake that opens a mail draft
+- `blog.html` — future insights hub; no fabricated posts
+- `ai-solutions.html` — legacy redirect to `ai-development.html`
 
-## Site Structure
+## Brand system
 
-```
-palramai/
-├── index.html            # Home — hero, services overview, portfolio, tech stack
-├── services.html         # All 6 service categories (AI, Automation, DevOps, etc.)
-├── ai-solutions.html     # AI agents, LLM integrations, RAG systems, model stack
-├── industries.html       # Healthcare, FinTech, E-Commerce, Real Estate, Logistics, Legal
-├── portfolio.html        # Work — typical build types (no invented case studies)
-├── about.html            # Team, values, process, why choose PALRAM AI
-├── pricing.html          # Transparent INR pricing tiers (Starter / Pro / Enterprise)
-├── contact.html          # Project inquiry form with INR budget selector
-├── assets/
-│   ├── css/style.css     # Global design system — tokens, components, animations
-│   ├── js/script.js      # Theme toggle, nav scroll, chat widget, mobile menu
-│   └── img/
-│       ├── logo-icon.png # Official PALRAM AI logo (Cyber AI Head)
-│       └── favicon-32.png
-└── README.md
-```
+The PALRAM Intelligence Mark is stored in:
 
----
+- `assets/img/palram-mark.svg`
+- `assets/img/social-preview.svg`
 
-## Brand Design
+The recurring geometry represents PALRAM (`P`) and intelligence (`A`) as connected paths. It is used consistently in navigation, hero visuals, capabilities, favicon, footer and social metadata.
 
-- **Color Palette:** Cyber Midnight Violet `#180B28` + Neon Violet `#A855F7` + Electric Cyan `#06B6D4`
-- **Logo:** Uploaded PNG image applied uniformly across all pages (header + footer)
-- **Logo Layout:** Logo icon → **PALRAM AI** (bold) → *SINCE 2026* (monospace, stacked below)
-- **Dark Mode** default with light mode toggle
-- **Animations:** Glassmorphism cards, ambient glow orbs, scroll reveal, micro-interactions
+## Forms and integrations
 
----
+There is currently no form backend or live AI integration.
 
-## Pages & Features
+- Project intake opens an email to `admin@palramai.in`
+- The website assistant is explicitly labelled as a guided interface, not a live model
+- No analytics are installed
+- No customer data is stored by this website
 
-### Home (`index.html`)
-- Hero, services, process, industries, stack, typical builds
-- No invented project counts or client metrics
-
-### Services (`services.html`)
-- AI, agents, automation, web, mobile, UI/UX
-
-### AI Solutions (`ai-solutions.html`)
-- How agents, tools, and RAG are assembled for a project
-
-### Industries (`industries.html`)
-- Healthcare ops, finance, retail, real estate, logistics, legal
-
-### Work (`portfolio.html`)
-- Build types we take on. Named case studies only when a client agrees.
-
-### About (`about.html`)
-- Studio since 2026, how we work
-
-### Pricing (`pricing.html`)
-- Starting packages in INR: Starter ₹49,999 · Pro ₹1,49,999 · Custom quote
-
-### Contact (`contact.html`)
-- Form opens a mailto draft to admin@palramai.in
-
----
-
-## Run Locally
+## Local preview
 
 ```bash
-# Using npx serve (recommended)
-npx serve .
-
-# Using Python
-python3 -m http.server 3000
-
-# Using Node http-server
-npx http-server . -p 3000
+python -m http.server 4173
 ```
 
-Then open → **http://localhost:3000**
+Open `http://localhost:4173/`.
 
----
+## Deployment
 
-## Deploy
+Pushing `main` to `origin` deploys the static site through GitHub Pages:
 
-Static HTML/CSS/JS — zero build step required.
-
-| Platform | Method |
-|---|---|
-| **GitHub Pages** | Enable Pages on `main` branch in repo settings |
-| **Vercel** | Import repo → framework: `Other` → no build command |
-| **Netlify** | Drag & drop folder or connect GitHub repo |
-
----
-
-## Navbar Order (All Pages)
-
-```
-Home → Services → AI Solutions → Industries → Work → About → Pricing → Contact
+```bash
+git push origin main
 ```
 
----
+## Trust policy
 
-## Known Gaps (Future Backend Work)
-
-- **Contact Form** — Opens a mailto draft to admin@palramai.in. Wire to Formspree or a serverless function when you want inbox capture without the user’s email app.
-- **Chat Widget** — Keyword helper only. It is not a live agent.
-- **Work page** — Build types until you have permission to name clients.
-
----
-
-## Customization
-
-All brand tokens live at the top of [`assets/css/style.css`](assets/css/style.css) in `:root`:
-
-```css
-:root {
-  --bg-dark: #180B28;          /* Page background */
-  --color-primary: #A855F7;    /* Neon Violet accent */
-  --color-secondary: #06B6D4;  /* Electric Cyan accent */
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
-```
-
----
-
-## License
-
-© 2026 PALRAM AI. All rights reserved.  
-Website design and code proprietary to PALRAM AI.
+Do not add fabricated clients, logos, testimonials, certifications, partnerships, statistics or case-study results. Use clearly labelled concepts or intended outcomes until real public evidence is available.

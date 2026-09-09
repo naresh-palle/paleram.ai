@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#07090E"/>
+      <stop offset="1" stop-color="#101527"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#5EE7FF"/>
+      <stop offset=".5" stop-color="#5268FF"/>
+      <stop offset="1" stop-color="#9B5CFF"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#5268FF" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#5268FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="925" cy="210" r="340" fill="url(#glow)"/>
+  <g opacity=".13" stroke="#A7B4D3">
+    <path d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200"/>
+    <path d="M120 0v630M240 0v630M360 0v630M480 0v630M600 0v630M720 0v630M840 0v630M960 0v630M1080 0v630"/>
+  </g>
+  <g transform="translate(844 112) scale(3.2)">
+    <path d="M14 52V13h20c9 0 16 6 16 14s-7 14-16 14H24" fill="none" stroke="url(#mark)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M25 52 39 21l13 31M31 40h15" fill="none" stroke="url(#mark)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="88" y="155" fill="#5EE7FF" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5">PALRAM AI</text>
+  <text x="88" y="283" fill="#F5F7FB" font-family="Arial, sans-serif" font-size="68" font-weight="700">Build software that</text>
+  <text x="88" y="365" fill="#F5F7FB" font-family="Arial, sans-serif" font-size="68" font-weight="700">thinks, acts and scales.</text>
+  <text x="88" y="455" fill="#9DA7B8" font-family="Arial, sans-serif" font-size="27">AI Agents � Automation � Software</text>
+  <text x="88" y="548" fill="#667085" font-family="Arial, sans-serif" font-size="20">palramai.in</text>
+</svg>

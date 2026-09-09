@@ -42,6 +42,7 @@ html[data-theme="light"] {
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   background: var(--base);
 }
@@ -182,6 +183,8 @@ select:focus-visible {
 
 .wrap {
   width: var(--wrap);
+  max-width: 100%;
+  min-width: 0;
   margin-inline: auto;
 }
 
@@ -228,22 +231,24 @@ h1,
 h2,
 h3,
 h4 {
+  max-width: 100%;
   font-family: var(--display);
-  letter-spacing: -.035em;
+  font-weight: 500;
+  letter-spacing: -.03em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 h1 {
-  margin-bottom: 28px;
-  font-size: clamp(3.3rem, 7.5vw, 7.6rem);
-  font-weight: 600;
-  line-height: .98;
+  margin-bottom: 20px;
+  font-size: clamp(1.8rem, 1.05rem + 2.15vw, 3.25rem);
+  line-height: 1.14;
 }
 
 h2 {
-  margin-bottom: 20px;
-  font-size: clamp(2.15rem, 4vw, 4.25rem);
-  font-weight: 600;
-  line-height: 1.06;
+  margin-bottom: 16px;
+  font-size: clamp(1.45rem, 1rem + 1.25vw, 2.5rem);
+  line-height: 1.2;
 }
 
 h3 {
@@ -682,8 +687,8 @@ html[data-theme="light"] .mobile-nav {
 /* Hero */
 .hero {
   position: relative;
-  min-height: 790px;
-  padding: 172px 0 100px;
+  min-height: 0;
+  padding: 148px 0 72px;
   overflow: clip;
 }
 
@@ -710,6 +715,12 @@ html[data-theme="light"] .mobile-nav {
 
 .hero-copy {
   position: relative;
+  min-width: 0;
+}
+
+.hero-copy h1,
+.page-hero h1 {
+  max-width: min(100%, 24ch);
 }
 
 .hero-copy .lead {
@@ -1440,16 +1451,17 @@ html[data-theme="light"] .mobile-nav {
 
 /* Inner pages */
 .page-hero {
-  min-height: 590px;
-  padding: 180px 0 90px;
+  min-height: 0;
+  padding: 148px 0 72px;
 }
 
 .page-hero .wrap {
   position: relative;
+  min-width: 0;
 }
 
 .page-hero h1 {
-  max-width: 980px;
+  max-width: min(100%, 24ch);
 }
 
 .page-hero .lead {
@@ -1964,9 +1976,14 @@ html[data-theme="light"] .site-footer {
     margin-bottom: 40px;
   }
 
-  .hero {
-    min-height: auto;
-    padding: 138px 0 72px;
+  .hero,
+  .page-hero {
+    min-height: 0;
+    padding: 128px 0 56px;
+  }
+
+  .page-visual {
+    display: none;
   }
 
   .system-visual {
@@ -2061,11 +2078,11 @@ html[data-theme="light"] .site-footer {
 
 @media (max-width: 560px) {
   h1 {
-    font-size: clamp(2.75rem, 14vw, 4rem);
+    font-size: clamp(1.65rem, 7.4vw, 2.1rem);
   }
 
   h2 {
-    font-size: 2.15rem;
+    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
   }
 
   .brand-lockup small {

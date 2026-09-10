@@ -294,11 +294,12 @@ p { color: var(--muted); }
 .loader-mark {
   width: 72px;
   height: 72px;
+  overflow: visible;
 }
 
 .loader-mark path {
-  stroke-dasharray: 180;
-  stroke-dashoffset: 180;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
   animation: drawPath .7s var(--ease) forwards;
 }
 
@@ -309,6 +310,14 @@ p { color: var(--muted); }
 
 @keyframes drawPath {
   to { stroke-dashoffset: 0; }
+}
+
+@keyframes orbitSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes agentPulse {
+  50% { transform: scale(1.08); opacity: .55; }
 }
 
 /* Header */
@@ -342,8 +351,20 @@ p { color: var(--muted); }
 }
 
 .brand-mark {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
+  overflow: visible;
+}
+
+.brand-mark .signal-core,
+.palram-agent-mark .signal-core {
+  filter: drop-shadow(0 0 5px #5ee7ff);
+}
+
+.orbit-signal {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: orbitSpin 8s linear infinite;
 }
 
 .brand-name {
@@ -1184,6 +1205,71 @@ h1 .line {
   text-transform: uppercase;
 }
 
+body.has-roaming-agent .assistant-launcher {
+  display: none;
+}
+
+.palram-agent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 95;
+  width: 76px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.palram-agent-aura {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--signal) 42%, transparent), transparent 72%);
+  animation: agentPulse 2.8s var(--ease) infinite;
+  pointer-events: none;
+}
+
+.palram-agent-core {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 68px;
+  transform-origin: 50% 42%;
+}
+
+.palram-agent-mark {
+  width: 64px;
+  height: 64px;
+  overflow: visible;
+  filter: drop-shadow(0 8px 16px color-mix(in srgb, var(--signal) 28%, transparent));
+}
+
+.palram-agent-status {
+  display: block;
+  margin-top: -6px;
+  color: var(--signal);
+  font: 500 8px/1 var(--mono);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--signal) 55%, transparent);
+}
+
+.palram-agent-mark .agent-shell {
+  fill: var(--panel);
+}
+
+.palram-agent-mark .agent-head {
+  fill: var(--base-2);
+}
+
 .assistant-panel {
   bottom: 76px;
   width: min(380px, calc(100vw - 32px));
@@ -1445,6 +1531,14 @@ body.has-signal-cursor .site-cursor {
     padding: 0;
     justify-content: center;
   }
+  .palram-agent {
+    width: 64px;
+  }
+  .palram-agent-mark {
+    width: 54px;
+    height: 54px;
+  }
+  .palram-agent-status { font-size: 7px; }
   .living-system { min-height: 420px; }
   .flow-node { min-width: 70px; font-size: 8px; padding: 6px 7px; }
   .intake-panel { min-height: 460px; padding: 24px 18px; }
@@ -1459,4 +1553,5 @@ body.has-signal-cursor .site-cursor {
     transition-duration: .001ms !important;
   }
   .js [data-reveal] { opacity: 1; transform: none; }
+  .palram-agent { display: none; }
 }

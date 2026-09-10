@@ -158,7 +158,9 @@ const PALRAM = {
   }
 };
 
-const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" stroke-linejoin="miter"><path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26"/><path d="M26 42 L50 54"/></g><rect x="11" y="7" width="6" height="6" fill="#5EE7FF"/><rect x="47" y="22" width="6" height="6" fill="currentColor"/><rect x="47" y="51" width="6" height="6" fill="currentColor"/></svg>`;
+const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".28"/><circle class="orbit-signal" cx="32" cy="32" r="27" fill="none" stroke="#5EE7FF" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/><path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 38 L47 51" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round"/><circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#5EE7FF"/></svg>`;
+
+const AGENT = `<svg class="palram-agent-mark" viewBox="0 0 72 72" aria-hidden="true"><circle class="agent-ring" cx="36" cy="30" r="18" fill="none" stroke="currentColor" stroke-width="1.15" opacity=".28"/><circle class="orbit-signal" cx="36" cy="30" r="18" fill="none" stroke="#5EE7FF" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="12 102"/><ellipse cx="36" cy="44" rx="12" ry="16" fill="currentColor" opacity=".14"/><rect class="agent-shell" x="27" y="36" width="18" height="22" rx="9"/><circle class="agent-head" cx="36" cy="28" r="11"/><circle class="signal-core" cx="36" cy="28" r="5" fill="#5EE7FF"/><circle cx="34.2" cy="26.4" r="1.5" fill="#eef4ff"/></svg>`;
 
 document.addEventListener("DOMContentLoaded", () => {
   mountLoader();
@@ -175,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initIndustries();
   initIntake();
   initAssistant();
+  initRoamingAgent();
   initCursor();
   window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 420);
 });
@@ -192,8 +195,10 @@ function mountLoader() {
     <div class="site-loader" aria-hidden="true">
       <div class="loader-core">
         <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
-          <path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26 M26 42 L50 54" stroke="currentColor" stroke-width="2.25" stroke-linecap="square"/>
-          <rect x="11" y="7" width="6" height="6" fill="#5EE7FF"/>
+          <circle cx="32" cy="32" r="27" stroke="currentColor" stroke-width="1.2" opacity=".28"/>
+          <circle class="orbit-signal" cx="32" cy="32" r="27" stroke="#5EE7FF" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
+          <path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20 M33 38 L47 51" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#5EE7FF"/>
         </svg>
         <span class="loader-word">PALRAM</span>
       </div>
@@ -288,6 +293,11 @@ function mountSiteShell() {
         <div class="assistant-answer" id="assistantAnswer" aria-live="polite">Choose a question to see how we can help.</div>
       </div>
     </section>
+    <button class="palram-agent" id="palramAgent" type="button" hidden aria-expanded="false" aria-controls="assistantPanel" aria-label="PALRAM agent, open guide">
+      <span class="palram-agent-aura"></span>
+      <span class="palram-agent-core">${AGENT}</span>
+      <span class="palram-agent-status">SCANNING</span>
+    </button>
     <div class="site-cursor" id="siteCursor" aria-hidden="true">
       <span class="site-cursor-core"></span>
       <span class="cursor-label" id="cursorLabel" hidden></span>
@@ -547,21 +557,117 @@ function initIntake() {
 
 function initAssistant() {
   const launcher = document.getElementById("assistantLauncher");
+  const agent = document.getElementById("palramAgent");
   const panel = document.getElementById("assistantPanel");
   const close = document.getElementById("assistantClose");
   const answer = document.getElementById("assistantAnswer");
-  if (!launcher || !panel || !close || !answer) return;
+  if (!panel || !close || !answer) return;
+  const toggles = [launcher, agent].filter(Boolean);
   const setOpen = open => {
     panel.classList.toggle("is-open", open);
-    launcher.setAttribute("aria-expanded", String(open));
+    toggles.forEach(el => el.setAttribute("aria-expanded", String(open)));
   };
-  launcher.addEventListener("click", () => setOpen(launcher.getAttribute("aria-expanded") !== "true"));
+  toggles.forEach(el => el.addEventListener("click", () => setOpen(el.getAttribute("aria-expanded") !== "true")));
   close.addEventListener("click", () => setOpen(false));
   panel.addEventListener("click", event => {
     const button = event.target.closest("[data-question]");
     if (button) answer.textContent = PALRAM.assistant[button.dataset.question];
   });
   document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
+}
+
+function initRoamingAgent() {
+  const agent = document.getElementById("palramAgent");
+  if (!agent) return;
+  if (reducedMotion()) return;
+  const core = agent.querySelector(".palram-agent-core");
+  const status = agent.querySelector(".palram-agent-status");
+  const states = ["SCANNING", "THINKING", "SIGNAL", "MAPPING"];
+  agent.hidden = false;
+  document.body.classList.add("has-roaming-agent");
+
+  let x = Math.max(24, window.innerWidth - 96);
+  let y = Math.max(96, window.innerHeight * 0.42);
+  let tx = x;
+  let ty = y;
+  let angle = 0;
+  let pauseUntil = 0;
+  let held = false;
+
+  const bounds = () => ({
+    left: 16,
+    top: 92,
+    right: window.innerWidth - 84,
+    bottom: window.innerHeight - 96
+  });
+
+  const pick = () => {
+    const box = bounds();
+    const width = Math.max(40, box.right - box.left);
+    const height = Math.max(40, box.bottom - box.top);
+    const edge = Math.random() < 0.78;
+    if (edge) {
+      const side = Math.floor(Math.random() * 4);
+      const band = 0.24;
+      if (side === 0) { tx = box.left + Math.random() * width; ty = box.top + Math.random() * height * band; }
+      else if (side === 1) { tx = box.left + Math.random() * width; ty = box.bottom - Math.random() * height * band; }
+      else if (side === 2) { tx = box.left + Math.random() * width * band; ty = box.top + Math.random() * height; }
+      else { tx = box.right - Math.random() * width * band; ty = box.top + Math.random() * height; }
+    } else {
+      tx = box.left + Math.random() * width;
+      ty = box.top + Math.random() * height;
+    }
+    if (status) status.textContent = states[Math.floor(Math.random() * states.length)];
+  };
+
+  const place = (now, heading) => {
+    const bob = Math.sin((now || 0) / 430) * 4;
+    agent.style.transform = `translate(${x}px, ${y + bob}px)`;
+    if (core) core.style.transform = `rotate(${heading}deg)`;
+  };
+
+  pick();
+  place(0, 0);
+  agent.addEventListener("pointerenter", () => { held = true; });
+  agent.addEventListener("pointerleave", () => { held = false; });
+  window.addEventListener("resize", () => {
+    const box = bounds();
+    x = Math.min(Math.max(x, box.left), box.right);
+    y = Math.min(Math.max(y, box.top), box.bottom);
+  }, { passive: true });
+
+  const tick = now => {
+    if (held) {
+      place(now, angle);
+      requestAnimationFrame(tick);
+      return;
+    }
+    if (document.getElementById("assistantPanel")?.classList.contains("is-open")) {
+      tx = Math.max(24, window.innerWidth - 430);
+      ty = Math.max(96, window.innerHeight - 210);
+    }
+    if (now < pauseUntil) {
+      place(now, angle);
+      requestAnimationFrame(tick);
+      return;
+    }
+    const dx = tx - x;
+    const dy = ty - y;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 5) {
+      pauseUntil = now + 800 + Math.random() * 2400;
+      pick();
+    } else {
+      const speed = window.matchMedia("(pointer: coarse)").matches ? 0.9 : 1.45;
+      x += (dx / dist) * speed;
+      y += (dy / dist) * speed;
+      const next = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      angle = angle + (next - angle) * 0.08;
+    }
+    place(now, angle);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 }
 
 function initCursor() {

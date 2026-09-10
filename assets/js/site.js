@@ -158,7 +158,7 @@ const PALRAM = {
   }
 };
 
-const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" stroke-linejoin="miter"><path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26"/><path d="M26 42 L50 54"/></g><rect x="11" y="7" width="6" height="6" fill="#3D7FFF"/><rect x="47" y="22" width="6" height="6" fill="currentColor"/><rect x="47" y="51" width="6" height="6" fill="currentColor"/></svg>`;
+const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" stroke-linejoin="miter"><path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26"/><path d="M26 42 L50 54"/></g><rect x="11" y="7" width="6" height="6" fill="#5EE7FF"/><rect x="47" y="22" width="6" height="6" fill="currentColor"/><rect x="47" y="51" width="6" height="6" fill="currentColor"/></svg>`;
 
 document.addEventListener("DOMContentLoaded", () => {
   mountLoader();
@@ -193,7 +193,7 @@ function mountLoader() {
       <div class="loader-core">
         <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
           <path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26 M26 42 L50 54" stroke="currentColor" stroke-width="2.25" stroke-linecap="square"/>
-          <rect x="11" y="7" width="6" height="6" fill="#3D7FFF"/>
+          <rect x="11" y="7" width="6" height="6" fill="#5EE7FF"/>
         </svg>
         <span class="loader-word">PALRAM</span>
       </div>
@@ -288,7 +288,10 @@ function mountSiteShell() {
         <div class="assistant-answer" id="assistantAnswer" aria-live="polite">Choose a question to see how we can help.</div>
       </div>
     </section>
-    <div class="cursor-label" id="cursorLabel" hidden></div>
+    <div class="site-cursor" id="siteCursor" aria-hidden="true">
+      <span class="site-cursor-core"></span>
+      <span class="cursor-label" id="cursorLabel" hidden></span>
+    </div>
   `);
 
   const main = document.querySelector("main");
@@ -562,13 +565,18 @@ function initAssistant() {
 }
 
 function initCursor() {
+  const root = document.getElementById("siteCursor");
   const label = document.getElementById("cursorLabel");
-  if (!label || reducedMotion() || window.matchMedia("(pointer: coarse)").matches) return;
-  document.body.classList.add("custom-cursor");
+  if (!root || reducedMotion() || window.matchMedia("(pointer: coarse)").matches) return;
   const move = event => {
-    label.style.left = `${event.clientX}px`;
-    label.style.top = `${event.clientY}px`;
+    if (!document.body.classList.contains("has-signal-cursor")) {
+      document.body.classList.add("has-signal-cursor");
+    }
+    root.hidden = false;
+    root.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
     const host = event.target.closest("[data-cursor]");
+    root.classList.toggle("is-hot", Boolean(host));
+    if (!label) return;
     if (host) {
       label.hidden = false;
       label.textContent = host.dataset.cursor;
@@ -577,6 +585,8 @@ function initCursor() {
     }
   };
   document.addEventListener("pointermove", move, { passive: true });
+  document.documentElement.addEventListener("mouseleave", () => { root.hidden = true; });
+  document.documentElement.addEventListener("mouseenter", () => { root.hidden = false; });
 }
 
 function escapeHTML(value) {

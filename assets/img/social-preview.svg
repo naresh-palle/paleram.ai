@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0C0C0B"/>
-  <g opacity=".07" fill="none" stroke="#F3F1EA" stroke-width="1">
+  <rect width="1200" height="630" fill="#121A33"/>
+  <g opacity=".08" fill="none" stroke="#EEF4FF" stroke-width="1">
     <path d="M0 210h1200M0 420h1200M240 0v630M960 0v630"/>
   </g>
-  <text x="80" y="118" fill="#3D7FFF" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="6">PALRAM / AI-001</text>
+  <text x="80" y="118" fill="#5EE7FF" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="6">PALRAM / AI-001</text>
   <g transform="translate(80 150) scale(1.6)">
-    <g fill="none" stroke="#F3F1EA" stroke-width="2.25" stroke-linecap="square">
+    <g fill="none" stroke="#EEF4FF" stroke-width="2.25" stroke-linecap="square">
       <path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26"/>
       <path d="M26 42 L50 54"/>
     </g>
-    <rect x="11" y="7" width="6" height="6" fill="#3D7FFF"/>
+    <rect x="11" y="7" width="6" height="6" fill="#5EE7FF"/>
   </g>
-  <text x="200" y="212" fill="#F3F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="500" letter-spacing="10">PALRAM</text>
-  <text x="80" y="360" fill="#F3F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="64" font-weight="500">BUILD SOFTWARE</text>
-  <text x="80" y="436" fill="#F3F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="64" font-weight="500">THAT THINKS, ACTS &amp; SCALES.</text>
-  <text x="80" y="530" fill="#8C8A82" font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="4">AGENT · AUTOMATION · SOFTWARE</text>
-  <text x="80" y="572" fill="#8C8A82" font-family="IBM Plex Mono, monospace" font-size="16">palramai.in</text>
-  <path d="M80 590 H320" stroke="#3D7FFF" stroke-width="2"/>
-  <circle cx="320" cy="590" r="4" fill="#3D7FFF"/>
+  <text x="200" y="212" fill="#EEF4FF" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="500" letter-spacing="10">PALRAM</text>
+  <text x="80" y="360" fill="#EEF4FF" font-family="Space Grotesk, Arial, sans-serif" font-size="64" font-weight="500">BUILD SOFTWARE</text>
+  <text x="80" y="436" fill="#EEF4FF" font-family="Space Grotesk, Arial, sans-serif" font-size="64" font-weight="500">THAT THINKS, ACTS &amp; SCALES.</text>
+  <text x="80" y="530" fill="#9EB0D4" font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="4">AGENT · AUTOMATION · SOFTWARE</text>
+  <text x="80" y="572" fill="#9EB0D4" font-family="IBM Plex Mono, monospace" font-size="16">palramai.in</text>
+  <path d="M80 590 H320" stroke="#5EE7FF" stroke-width="2"/>
+  <circle cx="320" cy="590" r="4" fill="#5EE7FF"/>
 </svg>

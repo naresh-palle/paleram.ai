@@ -4,8 +4,8 @@
   "description": "AI agents, automation and software engineering.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0c0c0b",
-  "theme_color": "#0c0c0b",
+  "background_color": "#121a33",
+  "theme_color": "#121a33",
   "icons": [
     {
       "src": "/assets/img/palram-mark.svg",

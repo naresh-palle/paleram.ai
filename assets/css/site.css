@@ -142,7 +142,6 @@ main,
 .micro,
 .system-status,
 .chapter-index,
-.cursor-label,
 .loader-word,
 .brand-lockup small,
 .node-meta,
@@ -1361,87 +1360,6 @@ body.has-roaming-agent .assistant-launcher {
   font: 500 11px/1 var(--mono);
   letter-spacing: .08em;
   text-transform: uppercase;
-}
-
-body.has-signal-cursor,
-body.has-signal-cursor a,
-body.has-signal-cursor button,
-body.has-signal-cursor input,
-body.has-signal-cursor textarea,
-body.has-signal-cursor select,
-body.has-signal-cursor label {
-  cursor: none;
-}
-
-.site-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 4000;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  opacity: 0;
-}
-
-body.has-signal-cursor .site-cursor {
-  opacity: 1;
-}
-
-.site-cursor-core {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--signal);
-  box-shadow:
-    0 0 0 2px var(--base),
-    0 0 0 8px color-mix(in srgb, var(--signal) 22%, transparent),
-    0 0 18px var(--signal);
-  transform: translate(-50%, -50%);
-}
-
-.site-cursor.is-hot .site-cursor-core {
-  width: 28px;
-  height: 28px;
-  background: color-mix(in srgb, var(--signal) 16%, transparent);
-  border: 1.5px solid var(--signal);
-  box-shadow: 0 0 16px color-mix(in srgb, var(--signal) 45%, transparent);
-}
-
-.cursor-label {
-  position: absolute;
-  top: 10px;
-  left: 16px;
-  padding: 4px 8px;
-  border: 1px solid var(--signal);
-  background: var(--base);
-  color: var(--signal);
-  font: 500 10px/1 var(--mono);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-@media (pointer: coarse) {
-  body.has-signal-cursor,
-  body.has-signal-cursor a,
-  body.has-signal-cursor button,
-  body.has-signal-cursor input,
-  body.has-signal-cursor textarea,
-  body.has-signal-cursor select,
-  body.has-signal-cursor label {
-    cursor: auto;
-  }
-  a,
-  button {
-    cursor: pointer;
-  }
-  .site-cursor {
-    display: none;
-  }
 }
 
 .js [data-reveal] {

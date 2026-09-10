@@ -178,7 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initIntake();
   initAssistant();
   initRoamingAgent();
-  initCursor();
   window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 420);
 });
 
@@ -298,10 +297,6 @@ function mountSiteShell() {
       <span class="palram-agent-core">${AGENT}</span>
       <span class="palram-agent-status">SCANNING</span>
     </button>
-    <div class="site-cursor" id="siteCursor" aria-hidden="true">
-      <span class="site-cursor-core"></span>
-      <span class="cursor-label" id="cursorLabel" hidden></span>
-    </div>
   `);
 
   const main = document.querySelector("main");
@@ -668,31 +663,6 @@ function initRoamingAgent() {
     requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
-}
-
-function initCursor() {
-  const root = document.getElementById("siteCursor");
-  const label = document.getElementById("cursorLabel");
-  if (!root || reducedMotion() || window.matchMedia("(pointer: coarse)").matches) return;
-  const move = event => {
-    if (!document.body.classList.contains("has-signal-cursor")) {
-      document.body.classList.add("has-signal-cursor");
-    }
-    root.hidden = false;
-    root.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
-    const host = event.target.closest("[data-cursor]");
-    root.classList.toggle("is-hot", Boolean(host));
-    if (!label) return;
-    if (host) {
-      label.hidden = false;
-      label.textContent = host.dataset.cursor;
-    } else {
-      label.hidden = true;
-    }
-  };
-  document.addEventListener("pointermove", move, { passive: true });
-  document.documentElement.addEventListener("mouseleave", () => { root.hidden = true; });
-  document.documentElement.addEventListener("mouseenter", () => { root.hidden = false; });
 }
 
 function escapeHTML(value) {

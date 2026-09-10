@@ -1,14 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
-  <title id="title">palram</title>
-  <desc id="desc">A luminous palram mark: the letter P inside an intelligence orb.</desc>
-  <defs>
-    <radialGradient id="orb" cx="35%" cy="30%" r="70%">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset=".2" stop-color="#5EE7FF"/>
-      <stop offset=".55" stop-color="#5268FF"/>
-      <stop offset="1" stop-color="#9B5CFF"/>
-    </radialGradient>
-  </defs>
-  <circle cx="32" cy="32" r="30" fill="url(#orb)"/>
-  <path d="M26 46V20h11.5c7.2 0 12 4.2 12 10.6 0 6.3-4.8 10.6-12 10.6H32.2" fill="none" stroke="#07090e" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round" opacity=".88"/>
+  <title id="title">PALRAM</title>
+  <desc id="desc">A continuous intelligence path from input through decision to action.</desc>
+  <g fill="none" stroke="#F3F1EA" stroke-width="2.25" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26"/>
+    <path d="M26 42 L50 54"/>
+  </g>
+  <rect x="11" y="7" width="6" height="6" fill="#3D7FFF"/>
+  <rect x="47" y="22" width="6" height="6" fill="#F3F1EA"/>
+  <rect x="47" y="51" width="6" height="6" fill="#F3F1EA"/>
 </svg>

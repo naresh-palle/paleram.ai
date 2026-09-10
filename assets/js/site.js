@@ -11,6 +11,19 @@ const PALRAM = {
     ["work", "portfolio.html", "Work"],
     ["about", "about.html", "About"]
   ],
+  fields: {
+    home: "INTELLIGENCE",
+    solutions: "SYSTEMS",
+    agents: "AGENTS",
+    automation: "AUTOMATION",
+    software: "SOFTWARE",
+    industries: "CONTEXT",
+    work: "SYSTEMS",
+    about: "STUDIO",
+    contact: "INTAKE",
+    pricing: "SCOPE",
+    insights: "NOTES"
+  },
   businessAreas: {
     "Customer Support": {
       problem: "Teams repeat the same answers across email, chat and tickets.",
@@ -75,34 +88,52 @@ const PALRAM = {
   },
   agents: {
     Support: {
-      subtitle: "Resolve and route customer questions",
-      tags: ["CRM", "Knowledge base", "Ticketing", "Human escalation"],
-      flow: ["Customer message", "Understand intent", "Retrieve knowledge", "Update CRM", "Reply or escalate"]
+      role: "Resolve and route customer questions",
+      memory: "Help centre, tickets, customer record",
+      tools: "CRM, knowledge base, ticketing",
+      actions: "Answer, classify, update, notify",
+      escalate: "Policy exceptions and unhappy customers",
+      flow: ["User", "Agent", "Knowledge", "Decision", "CRM", "Human"]
     },
     Sales: {
-      subtitle: "Qualify leads and prepare follow-up",
-      tags: ["CRM", "Email", "Enrichment", "Approval"],
-      flow: ["Lead arrives", "Enrich account", "Apply rules", "Draft outreach", "Assign owner"]
+      role: "Qualify leads and prepare follow-up",
+      memory: "Account history, scoring rules",
+      tools: "CRM, email, enrichment",
+      actions: "Score, draft, assign, notify",
+      escalate: "Strategic or ambiguous accounts",
+      flow: ["Lead", "Agent", "Rules", "CRM", "Outreach", "Owner"]
     },
     Research: {
-      subtitle: "Gather evidence and produce cited briefs",
-      tags: ["Web sources", "Documents", "Memory", "Review"],
-      flow: ["Research goal", "Plan queries", "Gather sources", "Synthesize", "Human review"]
+      role: "Gather evidence and produce cited briefs",
+      memory: "Prior briefs and approved sources",
+      tools: "Documents, search, notes",
+      actions: "Plan, retrieve, synthesize, cite",
+      escalate: "Conflicting or weak evidence",
+      flow: ["Goal", "Agent", "Sources", "Synthesis", "Review", "Brief"]
     },
     Operations: {
-      subtitle: "Coordinate tasks across business systems",
-      tags: ["ERP", "APIs", "Database", "Exceptions"],
-      flow: ["Event received", "Validate data", "Choose action", "Update systems", "Report exception"]
-    },
-    HR: {
-      subtitle: "Answer policy questions and guide onboarding",
-      tags: ["HRIS", "Policies", "Tasks", "Escalation"],
-      flow: ["Employee asks", "Check access", "Retrieve policy", "Create task", "Escalate if sensitive"]
+      role: "Coordinate tasks across business systems",
+      memory: "Process state and exception log",
+      tools: "ERP, APIs, database",
+      actions: "Validate, update, notify, retry",
+      escalate: "Failed writes and unknown events",
+      flow: ["Event", "Agent", "Validate", "Systems", "Exception", "Human"]
     },
     Finance: {
-      subtitle: "Extract and route finance documents",
-      tags: ["Invoices", "OCR", "Rules", "Approval"],
-      flow: ["Document arrives", "Extract fields", "Validate", "Route approval", "Post or flag"]
+      role: "Extract and route finance documents",
+      memory: "Vendor rules and prior invoices",
+      tools: "OCR, ledger, approval queue",
+      actions: "Extract, match, route, post",
+      escalate: "Mismatches and unusual amounts",
+      flow: ["Document", "Extract", "Validate", "Approve", "Post", "Flag"]
+    },
+    HR: {
+      role: "Answer policy questions and guide onboarding",
+      memory: "Policies, role, task progress",
+      tools: "HRIS, documents, tasks",
+      actions: "Answer, create task, remind",
+      escalate: "Sensitive or legal questions",
+      flow: ["Employee", "Access", "Policy", "Answer", "Task", "Escalate"]
     }
   },
   industries: {
@@ -127,58 +158,63 @@ const PALRAM = {
   }
 };
 
+const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="square" stroke-linejoin="miter"><path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26"/><path d="M26 42 L50 54"/></g><rect x="11" y="7" width="6" height="6" fill="#3D7FFF"/><rect x="47" y="22" width="6" height="6" fill="currentColor"/><rect x="47" y="51" width="6" height="6" fill="currentColor"/></svg>`;
+
 document.addEventListener("DOMContentLoaded", () => {
-  mountAurora();
   mountLoader();
   mountSiteShell();
-  replaceStaticMarks();
+  mountField();
   initHeader();
   initMobileMenu();
   initReveal();
-  initAstraOrb();
-  initHeroInteraction();
-  initMagnetic();
+  initLivingSystem();
+  initChapters();
   initBusinessExplorer();
   initAgentShowcase();
+  initAutomation();
   initIndustries();
   initIntake();
   initAssistant();
-  window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 520);
+  initCursor();
+  window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 420);
 });
 
 function reducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function orbHTML(size = "sm") {
-  return `<span class="astra-orb astra-orb-${size}" aria-hidden="true"></span>`;
-}
-
 function brandHTML(subtitle) {
-  return `${orbHTML()}<span class="brand-lockup"><span class="brand-name">palram</span><small>${subtitle}</small></span>`;
-}
-
-function mountAurora() {
-  document.body.insertAdjacentHTML("afterbegin", `<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>`);
+  return `${MARK}<span class="brand-lockup"><span class="brand-name">PALRAM</span><small>${subtitle}</small></span>`;
 }
 
 function mountLoader() {
-  document.body.insertAdjacentHTML("afterbegin", `<div class="site-loader" aria-hidden="true"><div class="loader-core">${orbHTML("md")}<span class="loader-word">palram</span></div></div>`);
-  window.setTimeout(() => document.querySelector(".site-loader")?.remove(), 980);
+  document.body.insertAdjacentHTML("afterbegin", `
+    <div class="site-loader" aria-hidden="true">
+      <div class="loader-core">
+        <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
+          <path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26 M26 42 L50 54" stroke="currentColor" stroke-width="2.25" stroke-linecap="square"/>
+          <rect x="11" y="7" width="6" height="6" fill="#3D7FFF"/>
+        </svg>
+        <span class="loader-word">PALRAM</span>
+      </div>
+    </div>`);
+  window.setTimeout(() => document.querySelector(".site-loader")?.remove(), 900);
 }
 
-function replaceStaticMarks() {
-  document.querySelectorAll("img.capability-mark").forEach(image => {
-    const orb = document.createElement("span");
-    orb.className = "astra-orb astra-orb-sm capability-mark";
-    orb.setAttribute("aria-hidden", "true");
-    image.replaceWith(orb);
-  });
+function mountField() {
+  const page = document.body.dataset.page || "";
+  const word = PALRAM.fields[page];
+  if (!word || document.querySelector(".field-word")) return;
+  const hero = document.querySelector(".page-hero, .hero");
+  if (!hero) return;
+  hero.insertAdjacentHTML("afterbegin", `<div class="field-word" aria-hidden="true">${word}</div>`);
   document.querySelectorAll("img.page-visual").forEach(image => {
-    const orb = document.createElement("div");
-    orb.className = "astra-orb astra-orb-page page-visual";
-    orb.setAttribute("aria-hidden", "true");
-    image.replaceWith(orb);
+    const holder = document.createElement("div");
+    holder.innerHTML = MARK;
+    const mark = holder.firstElementChild;
+    mark.classList.add("page-visual");
+    mark.classList.remove("brand-mark");
+    image.replaceWith(mark);
   });
 }
 
@@ -190,14 +226,13 @@ function mountSiteShell() {
 
   document.body.insertAdjacentHTML("afterbegin", `
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="spine" aria-hidden="true">P A L R A M</div>
     <header class="site-header" id="siteHeader">
       <div class="wrap nav-shell">
-        <a class="brand" href="index.html" aria-label="palram home">
-          ${brandHTML("AI · AGENTS · SOFTWARE")}
-        </a>
+        <a class="brand" href="index.html" aria-label="PALRAM home">${brandHTML("AI · AGENTS · SOFTWARE")}</a>
         <nav class="desktop-nav" aria-label="Primary navigation">${nav}</nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">◐</button>
-        <a class="nav-cta" href="contact.html">Start a Project <span aria-hidden="true">→</span></a>
+        <a class="nav-cta" href="contact.html" data-cursor="START">Start a Project →</a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation"><span></span></button>
       </div>
     </header>
@@ -233,17 +268,17 @@ function mountSiteShell() {
         </div>
       </div>
       <div class="wrap footer-bottom">
-        <span>© 2026 PALRAM AI. All rights reserved.</span>
-        <span>AI-first software engineering · India</span>
+        <span>© 2026 PALRAM AI</span>
+        <span>Signal → Intelligence → Action</span>
       </div>
     </footer>
     <button class="assistant-launcher" id="assistantLauncher" type="button" aria-expanded="false" aria-controls="assistantPanel">
-      ${orbHTML()}<span>palram guide</span>
+      ${MARK}<span>Guide</span>
     </button>
-    <section class="assistant-panel" id="assistantPanel" aria-label="PALRAM AI Assistant">
+    <section class="assistant-panel" id="assistantPanel" aria-label="PALRAM guide">
       <div class="assistant-head">
-        <div>${orbHTML()}<span><strong>palram guide</strong><small>Website guide</small></span></div>
-        <button class="assistant-close" id="assistantClose" type="button" aria-label="Close assistant">×</button>
+        <div>${MARK}<span><strong>PALRAM guide</strong><small>Website index</small></span></div>
+        <button class="assistant-close" id="assistantClose" type="button" aria-label="Close guide">×</button>
       </div>
       <div class="assistant-body">
         <p class="assistant-disclosure">This is a guided interface, not a live AI model.</p>
@@ -253,6 +288,7 @@ function mountSiteShell() {
         <div class="assistant-answer" id="assistantAnswer" aria-live="polite">Choose a question to see how we can help.</div>
       </div>
     </section>
+    <div class="cursor-label" id="cursorLabel" hidden></div>
   `);
 
   const main = document.querySelector("main");
@@ -267,7 +303,7 @@ function mountSiteShell() {
 function initHeader() {
   const header = document.getElementById("siteHeader");
   if (!header) return;
-  const update = () => header.classList.toggle("is-scrolled", window.scrollY > 20);
+  const update = () => header.classList.toggle("is-scrolled", window.scrollY > 12);
   update();
   window.addEventListener("scroll", update, { passive: true });
 }
@@ -276,28 +312,22 @@ function initMobileMenu() {
   const button = document.getElementById("menuToggle");
   const menu = document.getElementById("mobileNav");
   if (!button || !menu) return;
-
-  const setOpen = (open) => {
+  const setOpen = open => {
     button.classList.toggle("is-open", open);
     menu.classList.toggle("is-open", open);
     button.setAttribute("aria-expanded", String(open));
     button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     document.body.classList.toggle("menu-open", open);
   };
-
   button.addEventListener("click", () => setOpen(button.getAttribute("aria-expanded") !== "true"));
-  menu.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setOpen(false);
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setOpen(false);
-  });
+  menu.addEventListener("click", event => { if (event.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
 }
 
 function initReveal() {
   const nodes = [...document.querySelectorAll("[data-reveal]")];
   if (!nodes.length) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+  if (reducedMotion() || !("IntersectionObserver" in window)) {
     nodes.forEach(node => node.classList.add("is-visible"));
     return;
   }
@@ -312,145 +342,48 @@ function initReveal() {
   nodes.forEach(node => observer.observe(node));
 }
 
-function initAstraOrb() {
-  const stage = document.querySelector("[data-astra-stage]");
-  if (!stage) return;
-
-  const canvas = document.createElement("canvas");
-  canvas.className = "astra-canvas";
-  canvas.setAttribute("aria-hidden", "true");
-  stage.prepend(canvas);
-  const context = canvas.getContext("2d", { alpha: true });
-  if (!context) return;
-
-  const blobs = [
-    { radius: 0.48, color: [94, 231, 255], speed: 1.05 },
-    { radius: 0.4, color: [82, 104, 255], speed: 0.82 },
-    { radius: 0.34, color: [155, 92, 255], speed: 1.28 },
-    { radius: 0.18, color: [255, 255, 255], speed: 0.7 }
-  ];
-
-  const resize = () => {
-    const ratio = Math.min(window.devicePixelRatio || 1, 2);
-    const { width, height } = stage.getBoundingClientRect();
-    canvas.width = Math.max(1, Math.floor(width * ratio));
-    canvas.height = Math.max(1, Math.floor(height * ratio));
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-  };
-
-  const paint = time => {
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    const cx = width / 2;
-    const cy = height / 2;
-    const base = Math.min(width, height) * 0.42;
-    context.clearRect(0, 0, width, height);
-    context.globalCompositeOperation = "lighter";
-    blobs.forEach((blob, index) => {
-      const ox = Math.sin(time * blob.speed + index) * 16;
-      const oy = Math.cos(time * blob.speed * 0.85 + index * 1.4) * 14;
-      const radius = base * blob.radius * (1 + Math.sin(time * 1.35 + index) * 0.1);
-      const glow = context.createRadialGradient(cx + ox, cy + oy, radius * 0.04, cx + ox, cy + oy, radius);
-      glow.addColorStop(0, `rgba(${blob.color.join(",")},0.95)`);
-      glow.addColorStop(0.38, `rgba(${blob.color.join(",")},0.32)`);
-      glow.addColorStop(1, `rgba(${blob.color.join(",")},0)`);
-      context.fillStyle = glow;
-      context.beginPath();
-      context.arc(cx + ox, cy + oy, radius, 0, Math.PI * 2);
-      context.fill();
-    });
-  };
-
-  resize();
-  paint(0);
-  stage.querySelector(".astra-orb")?.setAttribute("hidden", "");
-  window.addEventListener("resize", resize, { passive: true });
-  if (reducedMotion()) return;
-
-  let elapsed = 0;
-  let last = performance.now();
-  const tick = now => {
-    elapsed += (now - last) / 1000;
-    last = now;
-    paint(elapsed);
-    requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-}
-
-function initMagnetic() {
-  if (reducedMotion() || window.matchMedia("(pointer: coarse)").matches) return;
-  document.querySelectorAll(".button-primary, .nav-cta").forEach(button => {
-    button.addEventListener("pointermove", event => {
-      const box = button.getBoundingClientRect();
-      const x = event.clientX - box.left - box.width / 2;
-      const y = event.clientY - box.top - box.height / 2;
-      button.style.transform = `translate(${x * 0.12}px, ${y * 0.18}px)`;
-    });
-    button.addEventListener("pointerleave", () => {
-      button.style.transform = "";
-    });
-  });
-}
-
-function initHeroInteraction() {
-  const hero = document.querySelector(".hero");
-  const visual = document.querySelector(".system-visual");
-  const mark = document.querySelector(".intelligence-core");
-  const glow = document.querySelector(".hero-glow");
-  if (!hero || !visual || !mark || !glow || reducedMotion()) return;
-
-  hero.addEventListener("pointermove", event => {
-    const rect = hero.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width;
-    const y = (event.clientY - rect.top) / rect.height;
-    glow.style.left = `${x * 100}%`;
-    glow.style.top = `${y * 100}%`;
-    mark.style.transform = `translate(-50%, -50%) translate(${(x - .5) * 18}px, ${(y - .5) * 18}px)`;
-    visual.querySelectorAll(".system-node").forEach((node, index) => {
-      const depth = (index % 3 + 1) * 2;
-      node.style.transform = `translate(${(x - .5) * depth}px, ${(y - .5) * depth}px)`;
-    });
-  });
-  hero.addEventListener("pointerleave", () => {
-    mark.style.transform = "translate(-50%, -50%)";
-    visual.querySelectorAll(".system-node").forEach(node => node.style.transform = "");
-  });
-
-  const nodes = [...visual.querySelectorAll(".system-node")];
+function initLivingSystem() {
+  const system = document.querySelector("[data-living-system]");
+  if (!system || reducedMotion()) return;
+  const nodes = [...system.querySelectorAll(".flow-node")];
   let active = 0;
   window.setInterval(() => {
-    nodes.forEach(node => node.classList.remove("is-active"));
-    nodes[active % nodes.length]?.classList.add("is-active");
+    nodes.forEach(node => node.classList.remove("is-live"));
+    nodes[active % nodes.length]?.classList.add("is-live");
     active += 1;
-  }, 1300);
+  }, 1100);
+}
+
+function initChapters() {
+  const index = document.querySelector("[data-chapter-index]");
+  const chapters = [...document.querySelectorAll("[data-chapter]")];
+  if (!index || !chapters.length || !("IntersectionObserver" in window)) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) index.textContent = entry.target.dataset.chapter;
+    });
+  }, { threshold: .35 });
+  chapters.forEach(chapter => observer.observe(chapter));
 }
 
 function initBusinessExplorer() {
   const tabs = document.querySelector("[data-business-tabs]");
   const result = document.querySelector("[data-business-result]");
   if (!tabs || !result) return;
-
   const render = area => {
     const item = PALRAM.businessAreas[area];
-    if (!item) return;
     result.innerHTML = `
-      <div>
-        <span class="eyebrow">Selected area</span>
-        <h3>${escapeHTML(area)}</h3>
-      </div>
+      <div class="tech-label">Selected area</div>
+      <h3>${escapeHTML(area)}</h3>
       <div class="outcome-flow">
         ${[
           ["Problem", item.problem],
-          ["PALRAM AI", item.solution],
+          ["PALRAM", item.solution],
           ["Automation", item.automation],
           ["Outcome", item.outcome]
         ].map(([label, text]) => `<div class="outcome-step"><span>${label}</span><p>${escapeHTML(text)}</p></div>`).join("")}
       </div>`;
   };
-
   tabs.innerHTML = Object.keys(PALRAM.businessAreas).map((area, index) =>
     `<button class="explorer-tab" type="button" role="tab" aria-selected="${index === 0}" data-area="${escapeHTML(area)}">${escapeHTML(area)}</button>`
   ).join("");
@@ -467,19 +400,39 @@ function initAgentShowcase() {
   const list = document.querySelector("[data-agent-list]");
   const stage = document.querySelector("[data-agent-stage]");
   if (!list || !stage) return;
-
   const render = name => {
     const agent = PALRAM.agents[name];
     stage.innerHTML = `
-      <div class="eyebrow">Active workflow</div>
+      <div class="tech-label">Agent / active</div>
       <h3>${escapeHTML(name)} Agent</h3>
-      <p>${escapeHTML(agent.subtitle)}</p>
-      <div class="agent-meta">${agent.tags.map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}</div>
-      <div class="workflow">${agent.flow.map(step => `<div class="workflow-node is-pulsing">${escapeHTML(step)}</div>`).join("")}</div>`;
+      <p>${escapeHTML(agent.role)}</p>
+      <dl class="agent-spec">
+        <div><dt>Role</dt><dd>${escapeHTML(agent.role)}</dd></div>
+        <div><dt>Memory</dt><dd>${escapeHTML(agent.memory)}</dd></div>
+        <div><dt>Tools</dt><dd>${escapeHTML(agent.tools)}</dd></div>
+        <div><dt>Actions</dt><dd>${escapeHTML(agent.actions)}</dd></div>
+        <div><dt>Human escalation</dt><dd>${escapeHTML(agent.escalate)}</dd></div>
+      </dl>
+      <div class="workflow">${agent.flow.map((step, index) => `<div class="workflow-node${index === 0 ? " is-live" : ""}">${escapeHTML(step)}</div>`).join("")}</div>
+      <div class="loop-actions">
+        ${["Search", "Read", "Reason", "Call API", "Update CRM", "Send message", "Create ticket", "Escalate"].map(item => `<span>${item}</span>`).join("")}
+      </div>`;
+    const nodes = [...stage.querySelectorAll(".workflow-node")];
+    const caps = [...stage.querySelectorAll(".loop-actions span")];
+    let tick = 0;
+    if (stage._timer) window.clearInterval(stage._timer);
+    if (!reducedMotion()) {
+      stage._timer = window.setInterval(() => {
+        nodes.forEach(node => node.classList.remove("is-live"));
+        caps.forEach(cap => cap.classList.remove("is-on"));
+        nodes[tick % nodes.length]?.classList.add("is-live");
+        caps[tick % caps.length]?.classList.add("is-on");
+        tick += 1;
+      }, 900);
+    }
   };
-
   list.innerHTML = Object.entries(PALRAM.agents).map(([name, agent], index) =>
-    `<button class="agent-card" type="button" aria-selected="${index === 0}" data-agent="${name}"><strong>${name} Agent</strong><small>${escapeHTML(agent.subtitle)}</small></button>`
+    `<button class="agent-card" type="button" data-cursor="EXPLORE" aria-selected="${index === 0}" data-agent="${name}"><strong>${name} Agent</strong><small>${escapeHTML(agent.role)}</small></button>`
   ).join("");
   render(Object.keys(PALRAM.agents)[0]);
   list.addEventListener("click", event => {
@@ -490,13 +443,30 @@ function initAgentShowcase() {
   });
 }
 
+function initAutomation() {
+  const canvas = document.querySelector("[data-automation]");
+  if (!canvas) return;
+  const nodes = [...canvas.querySelectorAll(".automation-node")];
+  nodes.forEach(node => {
+    node.setAttribute("data-cursor", "RUN");
+    node.tabIndex = 0;
+  });
+  let tick = 0;
+  if (!reducedMotion()) {
+    window.setInterval(() => {
+      nodes.forEach(node => node.classList.remove("is-live"));
+      nodes[tick % nodes.length]?.classList.add("is-live");
+      tick += 1;
+    }, 1000);
+  }
+}
+
 function initIndustries() {
   const list = document.querySelector("[data-industry-list]");
   const panel = document.querySelector("[data-industry-panel]");
   if (!list || !panel) return;
-
   const render = name => {
-    panel.innerHTML = `<div class="eyebrow">Examples</div><h3>${escapeHTML(name)}</h3><ul>${PALRAM.industries[name].map(item => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
+    panel.innerHTML = `<div class="tech-label">Examples</div><h3>${escapeHTML(name)}</h3><ul>${PALRAM.industries[name].map(item => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
   };
   list.innerHTML = Object.keys(PALRAM.industries).map((name, index) =>
     `<button class="industry-tab" type="button" aria-selected="${index === 0}" data-industry="${escapeHTML(name)}">${escapeHTML(name)}</button>`
@@ -517,7 +487,6 @@ function initIntake() {
   const progress = [...document.querySelectorAll("[data-progress-step]")];
   const status = form.querySelector(".form-status");
   let step = 0;
-
   const show = next => {
     step = Math.max(0, Math.min(next, panels.length - 1));
     panels.forEach((panel, index) => panel.classList.toggle("is-active", index === step));
@@ -528,7 +497,6 @@ function initIntake() {
     panels[step].querySelector("button, input, textarea")?.focus();
     if (status) status.textContent = "";
   };
-
   form.querySelectorAll("[data-choice]").forEach(button => {
     button.addEventListener("click", () => {
       const group = button.dataset.group;
@@ -537,7 +505,6 @@ function initIntake() {
       if (target) target.value = button.dataset.choice;
     });
   });
-
   form.addEventListener("click", event => {
     const next = event.target.closest("[data-next]");
     const back = event.target.closest("[data-back]");
@@ -554,7 +521,6 @@ function initIntake() {
     }
     show(step + 1);
   });
-
   form.addEventListener("submit", event => {
     event.preventDefault();
     if (!form.checkValidity()) {
@@ -582,7 +548,6 @@ function initAssistant() {
   const close = document.getElementById("assistantClose");
   const answer = document.getElementById("assistantAnswer");
   if (!launcher || !panel || !close || !answer) return;
-
   const setOpen = open => {
     panel.classList.toggle("is-open", open);
     launcher.setAttribute("aria-expanded", String(open));
@@ -593,9 +558,25 @@ function initAssistant() {
     const button = event.target.closest("[data-question]");
     if (button) answer.textContent = PALRAM.assistant[button.dataset.question];
   });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") setOpen(false);
-  });
+  document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
+}
+
+function initCursor() {
+  const label = document.getElementById("cursorLabel");
+  if (!label || reducedMotion() || window.matchMedia("(pointer: coarse)").matches) return;
+  document.body.classList.add("custom-cursor");
+  const move = event => {
+    label.style.left = `${event.clientX}px`;
+    label.style.top = `${event.clientY}px`;
+    const host = event.target.closest("[data-cursor]");
+    if (host) {
+      label.hidden = false;
+      label.textContent = host.dataset.cursor;
+    } else {
+      label.hidden = true;
+    }
+  };
+  document.addEventListener("pointermove", move, { passive: true });
 }
 
 function escapeHTML(value) {

@@ -1,37 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#07090E"/>
-      <stop offset="1" stop-color="#101527"/>
-    </linearGradient>
-    <radialGradient id="glow">
-      <stop stop-color="#5268FF" stop-opacity=".42"/>
-      <stop offset="1" stop-color="#5268FF" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="orb" cx="35%" cy="30%" r="70%">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset=".22" stop-color="#5EE7FF"/>
-      <stop offset=".58" stop-color="#5268FF"/>
-      <stop offset="1" stop-color="#9B5CFF"/>
-    </radialGradient>
-    <linearGradient id="word" x1="88" y1="120" x2="720" y2="200" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F7FBFF"/>
-      <stop offset=".45" stop-color="#5EE7FF"/>
-      <stop offset="1" stop-color="#B48CFF"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="980" cy="180" r="360" fill="url(#glow)"/>
-  <circle cx="1040" cy="430" r="220" fill="url(#glow)" opacity=".7"/>
-  <g opacity=".1" stroke="#A7B4D3">
-    <path d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200"/>
-    <path d="M120 0v630M240 0v630M360 0v630M480 0v630M600 0v630M720 0v630M840 0v630M960 0v630M1080 0v630"/>
+  <rect width="1200" height="630" fill="#0C0C0B"/>
+  <g opacity=".07" fill="none" stroke="#F3F1EA" stroke-width="1">
+    <path d="M0 210h1200M0 420h1200M240 0v630M960 0v630"/>
   </g>
-  <circle cx="128" cy="148" r="34" fill="url(#orb)"/>
-  <circle cx="116" cy="136" r="8" fill="#fff" opacity=".5"/>
-  <text x="180" y="164" fill="url(#word)" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" letter-spacing="10">palram</text>
-  <text x="88" y="310" fill="#F5F7FB" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">Build software that</text>
-  <text x="88" y="386" fill="#8BEAFF" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">thinks, acts and scales.</text>
-  <text x="88" y="470" fill="#9DA7B8" font-family="Arial, Helvetica, sans-serif" font-size="26">AI Agents · Automation · Software</text>
-  <text x="88" y="548" fill="#667085" font-family="Arial, Helvetica, sans-serif" font-size="20">palramai.in</text>
+  <text x="80" y="118" fill="#3D7FFF" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="6">PALRAM / AI-001</text>
+  <g transform="translate(80 150) scale(1.6)">
+    <g fill="none" stroke="#F3F1EA" stroke-width="2.25" stroke-linecap="square">
+      <path d="M14 10 V54 M14 10 H38 c10 0 16 7 16 16 0 9-6 16-16 16 H26"/>
+      <path d="M26 42 L50 54"/>
+    </g>
+    <rect x="11" y="7" width="6" height="6" fill="#3D7FFF"/>
+  </g>
+  <text x="200" y="212" fill="#F3F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="42" font-weight="500" letter-spacing="10">PALRAM</text>
+  <text x="80" y="360" fill="#F3F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="64" font-weight="500">BUILD SOFTWARE</text>
+  <text x="80" y="436" fill="#F3F1EA" font-family="Space Grotesk, Arial, sans-serif" font-size="64" font-weight="500">THAT THINKS, ACTS &amp; SCALES.</text>
+  <text x="80" y="530" fill="#8C8A82" font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="4">AGENT · AUTOMATION · SOFTWARE</text>
+  <text x="80" y="572" fill="#8C8A82" font-family="IBM Plex Mono, monospace" font-size="16">palramai.in</text>
+  <path d="M80 590 H320" stroke="#3D7FFF" stroke-width="2"/>
+  <circle cx="320" cy="590" r="4" fill="#3D7FFF"/>
 </svg>

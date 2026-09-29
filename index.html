@@ -20,7 +20,7 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=10">
+  <link rel="stylesheet" href="assets/css/site.css?v=12">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -117,25 +117,22 @@
           </div>
           <p>Input, memory, tools, a decision, and a person when it matters. This is the shape behind every path above.</p>
         </div>
-        <div class="living-system" data-living-system data-reveal aria-label="Living intelligence system">
-          <div class="system-meta"><span>System / online</span><b>Signal active</b></div>
-          <svg viewBox="0 0 560 560" preserveAspectRatio="none" aria-hidden="true">
-            <path class="flow" d="M90 70 L280 280 L470 110"/>
-            <path class="flow" d="M70 250 L280 280 L490 250"/>
-            <path class="flow" d="M90 460 L280 330 L470 460"/>
-            <path class="flow" d="M280 280 L280 510"/>
-            <path class="signal" d="M90 70 L280 280 L470 110"/>
-            <path class="signal" d="M70 250 L280 280 L490 250" style="animation-delay:-1.6s"/>
-            <path class="signal" d="M90 460 L280 330 L470 460" style="animation-delay:-3.2s"/>
-          </svg>
-          <span class="flow-node is-live" data-id="input">Input</span>
-          <span class="flow-node" data-id="agent">AI Agent</span>
-          <span class="flow-node" data-id="memory">Memory</span>
-          <span class="flow-node" data-id="tools">Tools</span>
-          <span class="flow-node" data-id="decision">Decision</span>
-          <span class="flow-node" data-id="action">Action</span>
-          <span class="flow-node" data-id="human">Human</span>
-          <span class="flow-node" data-id="outcome">Outcome</span>
+        <div class="living-system" data-living-system data-reveal aria-label="How a PALRAM system moves from a question to an outcome">
+          <div class="system-canvas">
+            <svg aria-hidden="true"></svg>
+            <span class="flow-node is-live" data-id="input">Input</span>
+            <span class="flow-node" data-id="agent">AI Agent</span>
+            <span class="flow-node" data-id="memory">Memory</span>
+            <span class="flow-node" data-id="tools">Tools</span>
+            <span class="flow-node" data-id="decision">Decision</span>
+            <span class="flow-node" data-id="action">Action</span>
+            <span class="flow-node" data-id="human">Human</span>
+            <span class="flow-node" data-id="outcome">Outcome</span>
+          </div>
+          <div class="system-meta">
+            <span data-system-step>01 / Input</span>
+            <b data-system-status>A question arrives</b>
+          </div>
         </div>
       </div>
     </section>
@@ -345,6 +342,6 @@
       </div>
     </section>
   </main>
-  <script src="assets/js/site.js?v=10" defer></script>
+  <script src="assets/js/site.js?v=12" defer></script>
 </body>
 </html>

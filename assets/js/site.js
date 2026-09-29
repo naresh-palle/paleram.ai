@@ -351,14 +351,131 @@ function initReveal() {
 
 function initLivingSystem() {
   const system = document.querySelector("[data-living-system]");
-  if (!system || reducedMotion()) return;
-  const nodes = [...system.querySelectorAll(".flow-node")];
-  let active = 0;
-  window.setInterval(() => {
-    nodes.forEach(node => node.classList.remove("is-live"));
-    nodes[active % nodes.length]?.classList.add("is-live");
-    active += 1;
-  }, 1100);
+  if (!system) return;
+  const canvas = system.querySelector(".system-canvas");
+  const svg = canvas?.querySelector("svg");
+  const stepEl = system.querySelector("[data-system-step]");
+  const statusEl = system.querySelector("[data-system-status]");
+  if (!canvas || !svg) return;
+
+  const nodes = Object.fromEntries(
+    [...system.querySelectorAll(".flow-node")].map(node => [node.dataset.id, node])
+  );
+  const edges = [
+    ["input", "agent"],
+    ["agent", "memory"],
+    ["agent", "tools"],
+    ["memory", "decision"],
+    ["tools", "decision"],
+    ["decision", "action"],
+    ["decision", "human"],
+    ["action", "outcome"],
+    ["human", "outcome"]
+  ];
+  const beats = [
+    { live: ["input"], edges: [], step: "01 / Input", status: "A question arrives" },
+    { live: ["input", "agent"], edges: ["input-agent"], step: "02 / Agent", status: "The agent takes the work" },
+    { live: ["agent", "memory", "tools"], edges: ["agent-memory", "agent-tools"], step: "03 / Memory & tools", status: "It checks knowledge and approved systems" },
+    { live: ["decision"], edges: ["memory-decision", "tools-decision"], step: "04 / Decision", status: "It chooses the next step" },
+    { live: ["action", "human"], edges: ["decision-action", "decision-human"], step: "05 / Action", status: "It acts, and a person can step in" },
+    { live: ["outcome"], edges: ["action-outcome", "human-outcome"], step: "06 / Outcome", status: "The result lands" }
+  ];
+
+  const seen = new Set();
+  let index = 0;
+  let timer = 0;
+  let drawTimer = 0;
+
+  const point = id => {
+    const el = nodes[id];
+    const box = canvas.getBoundingClientRect();
+    const node = el.getBoundingClientRect();
+    return {
+      x: node.left + node.width / 2 - box.left,
+      y: node.top + node.height / 2 - box.top
+    };
+  };
+
+  const curve = (from, to) => {
+    const a = point(from);
+    const b = point(to);
+    const mx = (a.x + b.x) / 2;
+    const my = (a.y + b.y) / 2;
+    const nx = (a.y - b.y) * 0.14;
+    const ny = (b.x - a.x) * 0.14;
+    return `M ${a.x.toFixed(1)} ${a.y.toFixed(1)} Q ${(mx + nx).toFixed(1)} ${(my + ny).toFixed(1)} ${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
+  };
+
+  const apply = (i, restartPackets = true) => {
+    const current = beats[i];
+    if (i === 0) seen.clear();
+    current.live.forEach(id => seen.add(id));
+    Object.values(nodes).forEach(node => {
+      const id = node.dataset.id;
+      node.classList.toggle("is-live", current.live.includes(id));
+      node.classList.toggle("is-done", seen.has(id) && !current.live.includes(id));
+    });
+    svg.querySelectorAll("[data-edge]").forEach(path => {
+      const on = current.edges.includes(path.dataset.edge);
+      path.classList.remove("is-on");
+      if (on && restartPackets) {
+        void path.getBoundingClientRect();
+        path.classList.add("is-on");
+      } else if (on) {
+        path.classList.add("is-on");
+      }
+    });
+    if (stepEl) stepEl.textContent = current.step;
+    if (statusEl) statusEl.textContent = current.status;
+  };
+
+  const draw = () => {
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    if (!width || !height) return;
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    svg.innerHTML = edges.map(([from, to]) => {
+      const id = `${from}-${to}`;
+      const d = curve(from, to);
+      return `<path class="flow" data-edge="${id}" d="${d}"></path><path class="signal" data-edge="${id}" pathLength="100" d="${d}"></path>`;
+    }).join("");
+    apply(index, false);
+  };
+
+  const scheduleDraw = () => {
+    window.clearTimeout(drawTimer);
+    drawTimer = window.setTimeout(draw, 50);
+  };
+
+  const tick = () => {
+    apply(index, true);
+    index = (index + 1) % beats.length;
+  };
+
+  const start = () => {
+    if (timer || reducedMotion()) return;
+    tick();
+    timer = window.setInterval(tick, 1300);
+  };
+
+  const stop = () => {
+    window.clearInterval(timer);
+    timer = 0;
+  };
+
+  draw();
+  window.addEventListener("resize", scheduleDraw);
+  if ("ResizeObserver" in window) new ResizeObserver(scheduleDraw).observe(canvas);
+
+  if (reducedMotion()) return;
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting ? start() : stop());
+    }, { threshold: .35 });
+    observer.observe(system);
+  } else {
+    start();
+  }
 }
 
 function initChapters() {

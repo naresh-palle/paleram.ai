@@ -4,13 +4,13 @@
   --ink: #eef4ff;
   --muted: #9eb0d4;
   --dim: #7b8db3;
-  --base: #121a33;
-  --base-2: #182444;
-  --panel: #1c2b52;
-  --line: rgba(170, 198, 255, 0.16);
-  --line-strong: rgba(120, 190, 255, 0.34);
+  --base: #152246;
+  --base-2: #1c2d58;
+  --panel: #24366a;
+  --line: rgba(186, 214, 255, 0.2);
+  --line-strong: rgba(94, 231, 255, 0.45);
   --signal: #5ee7ff;
-  --glow: rgba(82, 120, 255, 0.28);
+  --glow: rgba(94, 180, 255, 0.42);
   --display: "Space Grotesk", sans-serif;
   --body: "IBM Plex Sans", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -48,9 +48,9 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   background:
-    radial-gradient(ellipse 70% 46% at 82% -8%, var(--glow), transparent 52%),
-    radial-gradient(ellipse 48% 36% at 6% 18%, rgba(94, 231, 255, 0.12), transparent 46%),
-    radial-gradient(ellipse 42% 32% at 70% 108%, rgba(124, 92, 255, 0.14), transparent 48%),
+    radial-gradient(ellipse 80% 50% at 88% -6%, var(--glow), transparent 54%),
+    radial-gradient(ellipse 52% 40% at 0% 12%, rgba(94, 231, 255, 0.2), transparent 48%),
+    radial-gradient(ellipse 46% 36% at 60% 110%, rgba(140, 110, 255, 0.22), transparent 50%),
     var(--base);
   color: var(--ink);
   font: 400 16px/1.6 var(--body);
@@ -181,7 +181,7 @@ h1, h2, h3, h4, p { margin-top: 0; }
 h1, h2, h3, h4 {
   max-width: 100%;
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -.04em;
   overflow-wrap: break-word;
 }
@@ -265,6 +265,10 @@ p { color: var(--muted); }
   z-index: 3;
   color: var(--dim);
   font-size: 10px;
+}
+
+body[data-page="home"] .chapter-index {
+  display: none;
 }
 
 /* Loader */
@@ -417,17 +421,15 @@ p { color: var(--muted); }
   transition: background .2s, border-color .2s, color .2s;
 }
 
-.nav-cta {
-  border-color: var(--signal);
-}
-
+.nav-cta,
 .button-primary {
   background: var(--signal);
   border-color: var(--signal);
   color: #121a33;
 }
 
-html[data-theme="light"] .button-primary {
+html[data-theme="light"] .button-primary,
+html[data-theme="light"] .nav-cta {
   color: #f7f9ff;
 }
 
@@ -541,16 +543,89 @@ h1 .line {
 
 .hero-note {
   margin-top: 28px;
-  color: var(--dim);
+  color: var(--muted);
+  font: 500 13px/1.4 var(--body);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.path-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  min-width: 0;
+}
+
+.path-card {
+  display: grid;
+  gap: 8px;
+  min-height: 148px;
+  padding: 16px 16px 18px;
+  border: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  transition: border-color .2s, transform .2s, background .2s;
+}
+
+.path-card:hover {
+  border-color: var(--signal);
+  background: var(--panel);
+  transform: translateY(-3px);
+}
+
+.path-card small {
+  color: var(--signal);
   font: 500 11px/1 var(--mono);
   letter-spacing: .16em;
+}
+
+.path-card strong {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+
+.path-card span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.path-card::after {
+  color: var(--signal);
+  content: "Open →";
+  font: 500 11px/1 var(--mono);
+  letter-spacing: .12em;
   text-transform: uppercase;
+}
+
+.path-more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: 28px;
+  color: var(--dim);
+  font: 500 13px/1 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.path-more a {
+  color: var(--ink);
+  letter-spacing: .04em;
+  text-transform: none;
+  border-bottom: 1px solid var(--signal);
+}
+
+.path-more a:hover {
+  color: var(--signal);
 }
 
 .living-system {
   position: relative;
-  min-height: 560px;
-  border: 1px solid var(--line);
+  min-height: 420px;
+  border: 1px solid var(--line-strong);
   background:
     linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 70px,
     linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 70px 100%;
@@ -662,8 +737,13 @@ h1 .line {
   grid-template-columns: 72px minmax(0, 1fr) auto;
   gap: 12px 32px;
   align-items: start;
-  padding: 28px 0;
+  padding: 28px 12px;
   border-bottom: 1px solid var(--line);
+  transition: background .2s;
+}
+
+.capability:hover {
+  background: color-mix(in srgb, var(--signal) 10%, transparent);
 }
 
 .capability p {
@@ -1402,6 +1482,8 @@ body.has-roaming-agent .assistant-launcher {
   .section { padding: 72px 0; }
   .hero,
   .page-hero { padding: 116px 0 48px; }
+  .path-grid { grid-template-columns: 1fr; }
+  .path-card { min-height: 0; }
   .outcome-flow,
   .form-grid,
   .choice-grid,

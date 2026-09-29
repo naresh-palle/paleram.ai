@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">PALRAM Spectrum</title>
+  <defs>
+    <linearGradient id="spectrum" x1="6" y1="4" x2="60" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE27A"/>
+      <stop offset=".38" stop-color="#FF8A3D"/>
+      <stop offset=".72" stop-color="#FF4D8D"/>
+      <stop offset="1" stop-color="#B44BFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#spectrum)"/>
+  <path fill="#100C16" fill-rule="evenodd" d="M18 12h19c9.4 0 15.2 5.8 15.2 14.4S46.4 41 37 41H30v11H18V12Zm12 9h6.4c4.2 0 6.6 2.2 6.6 5.5S40.6 32 36.4 32H30V21Z"/>
+</svg>

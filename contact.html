@@ -15,9 +15,10 @@
   <meta name="twitter:title" content="Start a Project — PALRAM AI">
   <meta name="twitter:description" content="Tell us what you want to build.">
   <link rel="icon" href="assets/img/palram-mark.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#100c16">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=4">
+  <link rel="stylesheet" href="assets/css/site.css?v=6">
 </head>
 <body data-page="contact">
   <main>
@@ -25,7 +26,7 @@
       <div class="wrap">
         <div class="eyebrow">Start a project</div>
         <h1><span class="line">Let’s build the system</span><span class="line">your business needs.</span></h1>
-        <p class="lead">Four focused questions. Your answers open a prepared enquiry to <a class="text-link" href="mailto:admin@palramai.in">admin@palramai.in</a>.</p>
+        <p class="lead">Four short steps. Pick every option that fits — then send a prepared enquiry to <a class="text-link" href="mailto:admin@palramai.in">admin@palramai.in</a>.</p>
         <img class="page-visual" src="assets/img/palram-mark.svg" alt="">
       </div>
     </section>
@@ -48,10 +49,11 @@
               <div>
                 <div class="eyebrow">01 · Direction</div>
                 <h2 id="step-one-title">What are you trying to build?</h2>
-                <p>Choose the closest starting point. We can refine it together.</p>
+                <p>Select every path that applies. Most briefs mix more than one.</p>
               </div>
               <input type="hidden" name="projectType" required>
-              <div class="choice-grid">
+              <p class="choice-hint">Select all that apply</p>
+              <div class="choice-grid" data-multi="true">
                 <button class="choice" type="button" data-choice="AI Agent" data-group="projectType" aria-pressed="false">AI Agent</button>
                 <button class="choice" type="button" data-choice="Automation" data-group="projectType" aria-pressed="false">Automation</button>
                 <button class="choice" type="button" data-choice="Web App" data-group="projectType" aria-pressed="false">Web App</button>
@@ -68,11 +70,25 @@
               <div>
                 <div class="eyebrow">02 · Problem</div>
                 <h2 id="step-two-title">What problem are you solving?</h2>
-                <p>Describe the current workflow, where it slows down and what a better outcome looks like.</p>
+                <p>Pick the bottlenecks. You can choose more than one, then add a short note if you want.</p>
+              </div>
+              <input type="hidden" name="problem" required>
+              <p class="choice-hint">Select all that apply</p>
+              <div class="choice-grid" data-multi="true">
+                <button class="choice" type="button" data-choice="Repeat customer questions" data-group="problem" aria-pressed="false">Repeat customer questions</button>
+                <button class="choice" type="button" data-choice="Slow lead follow-up" data-group="problem" aria-pressed="false">Slow lead follow-up</button>
+                <button class="choice" type="button" data-choice="Manual handoffs between systems" data-group="problem" aria-pressed="false">Manual handoffs between systems</button>
+                <button class="choice" type="button" data-choice="Documents we cannot search" data-group="problem" aria-pressed="false">Documents we cannot search</button>
+                <button class="choice" type="button" data-choice="Approvals stuck in email" data-group="problem" aria-pressed="false">Approvals stuck in email</button>
+                <button class="choice" type="button" data-choice="Reporting takes too long" data-group="problem" aria-pressed="false">Reporting takes too long</button>
+                <button class="choice" type="button" data-choice="Field teams need a mobile app" data-group="problem" aria-pressed="false">Field teams need a mobile app</button>
+                <button class="choice" type="button" data-choice="Internal knowledge is scattered" data-group="problem" aria-pressed="false">Internal knowledge is scattered</button>
+                <button class="choice" type="button" data-choice="We need a new product or portal" data-group="problem" aria-pressed="false">We need a new product or portal</button>
+                <button class="choice" type="button" data-choice="Other" data-group="problem" aria-pressed="false">Other</button>
               </div>
               <div class="field">
-                <label for="problem">Project context</label>
-                <textarea id="problem" name="problem" required placeholder="Today our team…"></textarea>
+                <label for="problemNotes">Anything else to add? <span class="field-optional">Optional</span></label>
+                <textarea id="problemNotes" name="problemNotes" placeholder="Names of tools, the workflow, or what a better week would look like."></textarea>
               </div>
               <div class="form-status" aria-live="polite"></div>
               <div class="intake-actions"><button class="button button-secondary" type="button" data-back>← Back</button><button class="button button-primary" type="button" data-next>Continue →</button></div>
@@ -82,14 +98,30 @@
               <div>
                 <div class="eyebrow">03 · Scale</div>
                 <h2 id="step-three-title">How large is the project?</h2>
-                <p>This helps us shape the right architecture and engagement.</p>
+                <p>Pick the organisation size, then every delivery option that fits.</p>
               </div>
+              <p class="choice-label">Organisation</p>
               <input type="hidden" name="companyStage" required>
               <div class="choice-grid">
                 <button class="choice" type="button" data-choice="Startup" data-group="companyStage" aria-pressed="false">Startup</button>
-                <button class="choice" type="button" data-choice="Small Business" data-group="companyStage" aria-pressed="false">Small Business</button>
-                <button class="choice" type="button" data-choice="Growing Business" data-group="companyStage" aria-pressed="false">Growing Business</button>
+                <button class="choice" type="button" data-choice="Small business" data-group="companyStage" aria-pressed="false">Small business</button>
+                <button class="choice" type="button" data-choice="Growing business" data-group="companyStage" aria-pressed="false">Growing business</button>
                 <button class="choice" type="button" data-choice="Enterprise" data-group="companyStage" aria-pressed="false">Enterprise</button>
+              </div>
+              <p class="choice-label">First delivery</p>
+              <input type="hidden" name="deliveryScale" required>
+              <p class="choice-hint">Select all that apply</p>
+              <div class="choice-grid" data-multi="true">
+                <button class="choice" type="button" data-choice="Pilot" data-group="deliveryScale" aria-pressed="false">Pilot</button>
+                <button class="choice" type="button" data-choice="MVP" data-group="deliveryScale" aria-pressed="false">MVP</button>
+                <button class="choice" type="button" data-choice="Department rollout" data-group="deliveryScale" aria-pressed="false">Department rollout</button>
+                <button class="choice" type="button" data-choice="Company-wide" data-group="deliveryScale" aria-pressed="false">Company-wide</button>
+                <button class="choice" type="button" data-choice="Internal tool" data-group="deliveryScale" aria-pressed="false">Internal tool</button>
+                <button class="choice" type="button" data-choice="Customer-facing" data-group="deliveryScale" aria-pressed="false">Customer-facing</button>
+                <button class="choice" type="button" data-choice="Connect existing systems" data-group="deliveryScale" aria-pressed="false">Connect existing systems</button>
+                <button class="choice" type="button" data-choice="New product" data-group="deliveryScale" aria-pressed="false">New product</button>
+                <button class="choice" type="button" data-choice="This quarter" data-group="deliveryScale" aria-pressed="false">This quarter</button>
+                <button class="choice" type="button" data-choice="Exploring" data-group="deliveryScale" aria-pressed="false">Exploring</button>
               </div>
               <div class="form-status" aria-live="polite"></div>
               <div class="intake-actions"><button class="button button-secondary" type="button" data-back>← Back</button><button class="button button-primary" type="button" data-next>Continue →</button></div>
@@ -116,6 +148,6 @@
       </div>
     </section>
   </main>
-  <script src="assets/js/site.js?v=4" defer></script>
+  <script src="assets/js/site.js?v=6" defer></script>
 </body>
 </html>

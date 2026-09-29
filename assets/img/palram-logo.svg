@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 72" role="img" aria-labelledby="title">
   <title id="title">PALRAM AI</title>
   <g transform="translate(4 4)">
-    <circle cx="32" cy="32" r="27" fill="none" stroke="#EEF4FF" stroke-width="1.2" opacity=".28"/>
-    <circle cx="32" cy="32" r="27" fill="none" stroke="#5EE7FF" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
-    <path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="#EEF4FF" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M33 38 L47 51" fill="none" stroke="#EEF4FF" stroke-width="3.1" stroke-linecap="round"/>
-    <circle cx="33.5" cy="26.5" r="3.6" fill="#5EE7FF"/>
+    <circle cx="32" cy="32" r="27" fill="none" stroke="#F6F2FF" stroke-width="1.2" opacity=".28"/>
+    <circle cx="32" cy="32" r="27" fill="none" stroke="#FF4D8D" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
+    <path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="#F6F2FF" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M33 38 L47 51" fill="none" stroke="#F6F2FF" stroke-width="3.1" stroke-linecap="round"/>
+    <circle cx="33.5" cy="26.5" r="3.6" fill="#FF4D8D"/>
   </g>
-  <text x="86" y="46" fill="#EEF4FF" font-family="Space Grotesk, IBM Plex Sans, Arial, sans-serif" font-size="34" font-weight="500" letter-spacing="8">PALRAM</text>
-  <text x="392" y="46" fill="#5EE7FF" font-family="Space Grotesk, IBM Plex Sans, Arial, sans-serif" font-size="22" font-weight="500" letter-spacing="4">AI</text>
+  <text x="86" y="46" fill="#F6F2FF" font-family="Syne, Outfit, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="8">PALRAM</text>
+  <text x="392" y="46" fill="#FF4D8D" font-family="Syne, Outfit, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">AI</text>
 </svg>

@@ -158,9 +158,9 @@ const PALRAM = {
   }
 };
 
-const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".28"/><circle class="orbit-signal" cx="32" cy="32" r="27" fill="none" stroke="#5EE7FF" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/><path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 38 L47 51" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round"/><circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#5EE7FF"/></svg>`;
+const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".28"/><circle class="orbit-signal" cx="32" cy="32" r="27" fill="none" stroke="#FF4D8D" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/><path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 38 L47 51" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round"/><circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#FF4D8D"/></svg>`;
 
-const AGENT = `<svg class="palram-agent-mark" viewBox="0 0 72 72" aria-hidden="true"><circle class="agent-ring" cx="36" cy="30" r="18" fill="none" stroke="currentColor" stroke-width="1.15" opacity=".28"/><circle class="orbit-signal" cx="36" cy="30" r="18" fill="none" stroke="#5EE7FF" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="12 102"/><ellipse cx="36" cy="44" rx="12" ry="16" fill="currentColor" opacity=".14"/><rect class="agent-shell" x="27" y="36" width="18" height="22" rx="9"/><circle class="agent-head" cx="36" cy="28" r="11"/><circle class="signal-core" cx="36" cy="28" r="5" fill="#5EE7FF"/><circle cx="34.2" cy="26.4" r="1.5" fill="#eef4ff"/></svg>`;
+const AGENT = `<svg class="palram-agent-mark" viewBox="0 0 72 72" aria-hidden="true"><circle class="agent-ring" cx="36" cy="30" r="18" fill="none" stroke="currentColor" stroke-width="1.15" opacity=".28"/><circle class="orbit-signal" cx="36" cy="30" r="18" fill="none" stroke="#FF4D8D" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="12 102"/><ellipse cx="36" cy="44" rx="12" ry="16" fill="currentColor" opacity=".14"/><rect class="agent-shell" x="27" y="36" width="18" height="22" rx="9"/><circle class="agent-head" cx="36" cy="28" r="11"/><circle class="signal-core" cx="36" cy="28" r="5" fill="#FF4D8D"/><circle cx="34.2" cy="26.4" r="1.5" fill="#f6f2ff"/></svg>`;
 
 document.addEventListener("DOMContentLoaded", () => {
   mountColorField();
@@ -203,9 +203,9 @@ function mountLoader() {
       <div class="loader-core">
         <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="27" stroke="currentColor" stroke-width="1.2" opacity=".28"/>
-          <circle class="orbit-signal" cx="32" cy="32" r="27" stroke="#5EE7FF" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
+          <circle class="orbit-signal" cx="32" cy="32" r="27" stroke="#FF4D8D" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
           <path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20 M33 38 L47 51" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#5EE7FF"/>
+          <circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#FF4D8D"/>
         </svg>
         <span class="loader-word">PALRAM</span>
       </div>
@@ -501,8 +501,8 @@ function initIntake() {
   if (!form) return;
   const panels = [...form.querySelectorAll(".intake-panel")];
   const progress = [...document.querySelectorAll("[data-progress-step]")];
-  const status = form.querySelector(".form-status");
   let step = 0;
+  const statusFor = () => panels[step]?.querySelector(".form-status");
   const show = next => {
     step = Math.max(0, Math.min(next, panels.length - 1));
     panels.forEach((panel, index) => panel.classList.toggle("is-active", index === step));
@@ -511,14 +511,23 @@ function initIntake() {
       item.classList.toggle("is-done", index < step);
     });
     panels[step].querySelector("button, input, textarea")?.focus();
-    if (status) status.textContent = "";
+    const live = statusFor();
+    if (live) live.textContent = "";
   };
   form.querySelectorAll("[data-choice]").forEach(button => {
     button.addEventListener("click", () => {
       const group = button.dataset.group;
-      form.querySelectorAll(`[data-group="${group}"]`).forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+      const multi = button.closest("[data-multi]") !== null;
+      if (multi) {
+        const next = button.getAttribute("aria-pressed") !== "true";
+        button.setAttribute("aria-pressed", String(next));
+      } else {
+        form.querySelectorAll(`[data-group="${group}"]`).forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+      }
+      const selected = [...form.querySelectorAll(`[data-group="${group}"][aria-pressed="true"]`)]
+        .map(item => item.dataset.choice);
       const target = form.elements.namedItem(group);
-      if (target) target.value = button.dataset.choice;
+      if (target) target.value = selected.join(", ");
     });
   });
   form.addEventListener("click", event => {
@@ -531,7 +540,8 @@ function initIntake() {
     const valid = required.every(field => field.value.trim() && field.checkValidity()) &&
       [...hidden].every(field => field.value.trim());
     if (!valid) {
-      status.textContent = "Choose an option or complete the required field.";
+      const live = statusFor();
+      if (live) live.textContent = "Select an option to continue.";
       required.find(field => !field.checkValidity() || !field.value.trim())?.focus();
       return;
     }
@@ -547,7 +557,9 @@ function initIntake() {
     const body = [
       `Project type: ${data.get("projectType")}`,
       `Problem: ${data.get("problem")}`,
-      `Company stage: ${data.get("companyStage")}`,
+      `Problem notes: ${data.get("problemNotes") || "None"}`,
+      `Organisation: ${data.get("companyStage")}`,
+      `First delivery: ${data.get("deliveryScale")}`,
       "",
       `Name: ${data.get("name")}`,
       `Email: ${data.get("email")}`,

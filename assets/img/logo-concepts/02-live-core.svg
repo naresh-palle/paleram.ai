@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">PALRAM Live Core</title>
+  <rect width="64" height="64" rx="16" fill="#221B30" stroke="#F6F2FF" stroke-opacity=".16"/>
+  <path fill="#F6F2FF" fill-rule="evenodd" d="M18 12h19c9.4 0 15.2 5.8 15.2 14.4S46.4 41 37 41H30v11H18V12Zm12 9h6.4c4.2 0 6.6 2.2 6.6 5.5S40.6 32 36.4 32H30V21Z"/>
+  <circle cx="33.4" cy="26.6" r="3.4" fill="#FF4D8D"/>
+</svg>

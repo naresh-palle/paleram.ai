@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">PALRAM Keystone</title>
+  <path fill="#F6F2FF" fill-rule="evenodd" d="M18 8h20c10.5 0 17 6.8 17 16.5S48.5 41 38 41H30v15H18V8Zm12 10h7.2c4.7 0 7.3 2.6 7.3 6.5S41.9 31 37.2 31H30V18Z"/>
+  <path fill="#FF4D8D" d="M33.5 21.2 38 30.8h-9l4.5-9.6Z"/>
+</svg>

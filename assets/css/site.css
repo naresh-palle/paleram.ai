@@ -119,8 +119,8 @@ html[data-theme="light"] .button-secondary {
 }
 
 @keyframes igDrift {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(10vw, 8vh, 0) scale(1.18); }
+  from { transform: translate3d(0, 10vh, 0) scale(1); }
+  to { transform: translate3d(8vw, -8vh, 0) scale(1.16); }
 }
 
 a,
@@ -380,15 +380,45 @@ body[data-page="home"] .chapter-index {
 .loader-mark .stack-signal {
   transform-box: fill-box;
   transform-origin: bottom center;
-  animation: stackRise .55s var(--ease) both;
+  animation: stackRise .7s var(--ease) both;
 }
 
-.loader-mark .stack-bar:nth-of-type(2) { animation-delay: .08s; }
-.loader-mark .stack-signal { animation-delay: .16s; }
+.loader-mark .stack-bar:nth-of-type(2) { animation-delay: .12s; }
+.loader-mark .stack-signal { animation-delay: .24s; }
 
 @keyframes stackRise {
-  from { transform: scaleY(.18); opacity: 0; }
-  to { transform: scaleY(1); opacity: 1; }
+  0% { transform: scaleY(.06); opacity: 0; }
+  62% { transform: scaleY(1.12); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+.brand-mark .stack-bar,
+.brand-mark .stack-signal,
+.page-visual .stack-bar,
+.page-visual .stack-signal {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: stackLive 2.8s var(--ease) infinite;
+}
+
+.brand-mark .stack-bar:nth-of-type(2),
+.page-visual .stack-bar:nth-of-type(2) { animation-delay: .2s; }
+
+.brand-mark .stack-signal,
+.page-visual .stack-signal {
+  animation: stackLive 2.8s var(--ease) infinite, signalGlow 2.8s var(--ease) infinite;
+  animation-delay: .4s, .4s;
+}
+
+@keyframes stackLive {
+  0%, 70%, 100% { transform: scaleY(1); }
+  32% { transform: scaleY(.78); }
+  48% { transform: scaleY(1.08); }
+}
+
+@keyframes signalGlow {
+  0%, 70%, 100% { filter: drop-shadow(0 0 4px var(--signal)); }
+  48% { filter: drop-shadow(0 0 12px var(--signal)); }
 }
 
 .loader-word {
@@ -448,6 +478,10 @@ body[data-page="home"] .chapter-index {
 .loader-mark .stack-signal,
 .palram-agent-mark .signal-core {
   fill: var(--signal);
+}
+
+.loader-mark .stack-signal,
+.palram-agent-mark .signal-core {
   filter: drop-shadow(0 0 5px var(--signal));
 }
 
@@ -1218,6 +1252,7 @@ h1 .line {
   right: 0;
   bottom: 10%;
   width: 88px;
+  overflow: visible;
   opacity: .7;
   pointer-events: none;
 }

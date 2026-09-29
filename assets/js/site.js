@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initIntake();
   initAssistant();
   initRoamingAgent();
-  window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 420);
+  window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 780);
 });
 
 function reducedMotion() {
@@ -209,7 +209,7 @@ function mountLoader() {
         <span class="loader-word">PALRAM</span>
       </div>
     </div>`);
-  window.setTimeout(() => document.querySelector(".site-loader")?.remove(), 900);
+  window.setTimeout(() => document.querySelector(".site-loader")?.remove(), 1200);
 }
 
 function mountField() {

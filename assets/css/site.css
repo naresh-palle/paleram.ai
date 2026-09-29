@@ -376,10 +376,19 @@ body[data-page="home"] .chapter-index {
   overflow: visible;
 }
 
-.loader-mark path {
-  stroke-dasharray: 160;
-  stroke-dashoffset: 160;
-  animation: drawPath .7s var(--ease) forwards;
+.loader-mark .stack-bar,
+.loader-mark .stack-signal {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: stackRise .55s var(--ease) both;
+}
+
+.loader-mark .stack-bar:nth-of-type(2) { animation-delay: .08s; }
+.loader-mark .stack-signal { animation-delay: .16s; }
+
+@keyframes stackRise {
+  from { transform: scaleY(.18); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
 }
 
 .loader-word {
@@ -435,9 +444,9 @@ body[data-page="home"] .chapter-index {
   overflow: visible;
 }
 
-.brand-mark .signal-core,
-.palram-agent-mark .signal-core,
-.loader-mark .signal-core {
+.brand-mark .stack-signal,
+.loader-mark .stack-signal,
+.palram-agent-mark .signal-core {
   fill: var(--signal);
   filter: drop-shadow(0 0 5px var(--signal));
 }

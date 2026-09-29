@@ -6,11 +6,9 @@
   <circle cx="520" cy="-40" r="180" fill="#FFE27A" opacity=".1"/>
   <text x="80" y="118" fill="#FF4D8D" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="6">PALRAM / AI-001</text>
   <g transform="translate(80 146) scale(1.45)">
-    <circle cx="32" cy="32" r="27" fill="none" stroke="#F6F2FF" stroke-width="1.2" opacity=".28"/>
-    <circle cx="32" cy="32" r="27" fill="none" stroke="#FF4D8D" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
-    <path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="#F6F2FF" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M33 38 L47 51" fill="none" stroke="#F6F2FF" stroke-width="3.1" stroke-linecap="round"/>
-    <circle cx="33.5" cy="26.5" r="3.6" fill="#FF4D8D"/>
+    <rect x="12" y="10" width="13" height="44" rx="6.5" fill="#F6F2FF"/>
+    <rect x="28.5" y="18" width="13" height="36" rx="6.5" fill="#F6F2FF"/>
+    <rect x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/>
   </g>
   <text x="198" y="212" fill="#F6F2FF" font-family="Syne, Outfit, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="10">PALRAM</text>
   <text x="448" y="212" fill="#FF4D8D" font-family="Syne, Outfit, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="6">AI</text>

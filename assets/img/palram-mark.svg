@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">PALRAM</title>
-  <desc id="desc">P and A as an orbital signal with a pink intelligence core.</desc>
-  <circle cx="32" cy="32" r="27" fill="none" stroke="#F6F2FF" stroke-width="1.2" opacity=".28"/>
-  <circle cx="32" cy="32" r="27" fill="none" stroke="#FF4D8D" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
-  <path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="#F6F2FF" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M33 38 L47 51" fill="none" stroke="#F6F2FF" stroke-width="3.1" stroke-linecap="round"/>
-  <circle cx="33.5" cy="26.5" r="3.6" fill="#FF4D8D"/>
+  <desc id="desc">Three rising bars: agent, automation, product.</desc>
+  <rect x="12" y="10" width="13" height="44" rx="6.5" fill="#F6F2FF"/>
+  <rect x="28.5" y="18" width="13" height="36" rx="6.5" fill="#F6F2FF"/>
+  <rect x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/>
 </svg>

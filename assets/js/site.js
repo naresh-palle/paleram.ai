@@ -158,7 +158,7 @@ const PALRAM = {
   }
 };
 
-const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".28"/><circle class="orbit-signal" cx="32" cy="32" r="27" fill="none" stroke="#FF4D8D" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/><path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 38 L47 51" fill="none" stroke="currentColor" stroke-width="3.1" stroke-linecap="round"/><circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#FF4D8D"/></svg>`;
+const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect class="stack-bar" x="12" y="10" width="13" height="44" rx="6.5" fill="currentColor"/><rect class="stack-bar" x="28.5" y="18" width="13" height="36" rx="6.5" fill="currentColor"/><rect class="stack-signal" x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/></svg>`;
 
 const AGENT = `<svg class="palram-agent-mark" viewBox="0 0 72 72" aria-hidden="true"><circle class="agent-ring" cx="36" cy="30" r="18" fill="none" stroke="currentColor" stroke-width="1.15" opacity=".28"/><circle class="orbit-signal" cx="36" cy="30" r="18" fill="none" stroke="#FF4D8D" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="12 102"/><ellipse cx="36" cy="44" rx="12" ry="16" fill="currentColor" opacity=".14"/><rect class="agent-shell" x="27" y="36" width="18" height="22" rx="9"/><circle class="agent-head" cx="36" cy="28" r="11"/><circle class="signal-core" cx="36" cy="28" r="5" fill="#FF4D8D"/><circle cx="34.2" cy="26.4" r="1.5" fill="#f6f2ff"/></svg>`;
 
@@ -201,11 +201,10 @@ function mountLoader() {
   document.body.insertAdjacentHTML("afterbegin", `
     <div class="site-loader" aria-hidden="true">
       <div class="loader-core">
-        <svg class="loader-mark" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="27" stroke="currentColor" stroke-width="1.2" opacity=".28"/>
-          <circle class="orbit-signal" cx="32" cy="32" r="27" stroke="#FF4D8D" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="20 150"/>
-          <path d="M20 15 V49 M20 15 H36.5 A11.5 11.5 0 0 1 36.5 38 H20 M33 38 L47 51" stroke="currentColor" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle class="signal-core" cx="33.5" cy="26.5" r="3.6" fill="#FF4D8D"/>
+        <svg class="loader-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect class="stack-bar" x="12" y="10" width="13" height="44" rx="6.5" fill="currentColor"/>
+          <rect class="stack-bar" x="28.5" y="18" width="13" height="36" rx="6.5" fill="currentColor"/>
+          <rect class="stack-signal" x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/>
         </svg>
         <span class="loader-word">PALRAM</span>
       </div>

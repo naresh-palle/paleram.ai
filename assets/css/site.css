@@ -1818,7 +1818,39 @@ body[data-page="logos"] .agent-chat {
   font-size: 15px;
 }
 
+.logo-board.is-portrait {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.logo-card.is-photo .photo-stage {
+  margin: 18px 20px;
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  background: #100c16;
+  border: 1px solid var(--line);
+  padding: 22px;
+}
+
+.logo-card.is-photo .photo-stage img {
+  width: min(280px, 100%);
+  height: auto;
+  display: block;
+}
+
+.logo-card.is-photo .logo-lockup img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-card.is-photo .logo-lockup img.is-tile {
+  border-radius: 14px;
+}
+
 @media (max-width: 800px) {
   .logo-stages { grid-template-columns: 1fr; }
   .mark-stage { min-height: 140px; }
+  .logo-board.is-portrait { grid-template-columns: 1fr; }
 }

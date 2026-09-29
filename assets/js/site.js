@@ -160,8 +160,6 @@ const PALRAM = {
 
 const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect class="stack-bar" x="12" y="10" width="13" height="44" rx="6.5" fill="currentColor"/><rect class="stack-bar" x="28.5" y="18" width="13" height="36" rx="6.5" fill="currentColor"/><rect class="stack-signal" x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/></svg>`;
 
-const AGENT = `<svg class="palram-agent-mark" viewBox="0 0 72 72" aria-hidden="true"><circle class="agent-ring" cx="36" cy="30" r="18" fill="none" stroke="currentColor" stroke-width="1.15" opacity=".28"/><circle class="orbit-signal" cx="36" cy="30" r="18" fill="none" stroke="#FF4D8D" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="12 102"/><ellipse cx="36" cy="44" rx="12" ry="16" fill="currentColor" opacity=".14"/><rect class="agent-shell" x="27" y="36" width="18" height="22" rx="9"/><circle class="agent-head" cx="36" cy="28" r="11"/><circle class="signal-core" cx="36" cy="28" r="5" fill="#FF4D8D"/><circle cx="34.2" cy="26.4" r="1.5" fill="#f6f2ff"/></svg>`;
-
 document.addEventListener("DOMContentLoaded", () => {
   mountColorField();
   mountLoader();
@@ -178,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initIndustries();
   initIntake();
   initAssistant();
-  initRoamingAgent();
   window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 780);
 });
 
@@ -283,27 +280,22 @@ function mountSiteShell() {
         <span>Signal → Intelligence → Action</span>
       </div>
     </footer>
-    <button class="assistant-launcher" id="assistantLauncher" type="button" aria-expanded="false" aria-controls="assistantPanel">
-      ${MARK}<span>Guide</span>
+    <button class="agent-fab" id="agentFab" type="button" aria-expanded="false" aria-controls="agentChat">
+      ${MARK}<span>Ask PALRAM</span>
     </button>
-    <section class="assistant-panel" id="assistantPanel" aria-label="PALRAM guide">
-      <div class="assistant-head">
-        <div>${MARK}<span><strong>PALRAM guide</strong><small>Website index</small></span></div>
-        <button class="assistant-close" id="assistantClose" type="button" aria-label="Close guide">×</button>
+    <section class="agent-chat" id="agentChat" aria-label="PALRAM chat">
+      <div class="agent-chat-head">
+        <div>${MARK}<span><strong>PALRAM</strong><small>Here to help you find a path</small></span></div>
+        <button class="agent-chat-close" id="agentChatClose" type="button" aria-label="Close chat">×</button>
       </div>
-      <div class="assistant-body">
-        <p class="assistant-disclosure">This is a guided interface, not a live AI model.</p>
-        <div class="assistant-options">
-          ${Object.keys(PALRAM.assistant).map(question => `<button class="assistant-option" type="button" data-question="${escapeHTML(question)}">${question}</button>`).join("")}
-        </div>
-        <div class="assistant-answer" id="assistantAnswer" aria-live="polite">Choose a question to see how we can help.</div>
-      </div>
+      <div class="agent-chat-thread" id="agentChatThread" aria-live="polite"></div>
+      <div class="agent-chat-chips" id="agentChatChips"></div>
+      <form class="agent-chat-form" id="agentChatForm">
+        <label class="sr-only" for="agentChatInput">Your question</label>
+        <input id="agentChatInput" name="question" autocomplete="off" placeholder="Ask about agents, apps, or how to start">
+        <button class="button button-primary" type="submit">Send</button>
+      </form>
     </section>
-    <button class="palram-agent" id="palramAgent" type="button" hidden aria-expanded="false" aria-controls="assistantPanel" aria-label="PALRAM agent, open guide">
-      <span class="palram-agent-aura"></span>
-      <span class="palram-agent-core">${AGENT}</span>
-      <span class="palram-agent-status">SCANNING</span>
-    </button>
   `);
 
   const main = document.querySelector("main");
@@ -570,118 +562,85 @@ function initIntake() {
 }
 
 function initAssistant() {
-  const launcher = document.getElementById("assistantLauncher");
-  const agent = document.getElementById("palramAgent");
-  const panel = document.getElementById("assistantPanel");
-  const close = document.getElementById("assistantClose");
-  const answer = document.getElementById("assistantAnswer");
-  if (!panel || !close || !answer) return;
-  const toggles = [launcher, agent].filter(Boolean);
+  const fab = document.getElementById("agentFab");
+  const chat = document.getElementById("agentChat");
+  const close = document.getElementById("agentChatClose");
+  const thread = document.getElementById("agentChatThread");
+  const chips = document.getElementById("agentChatChips");
+  const form = document.getElementById("agentChatForm");
+  const input = document.getElementById("agentChatInput");
+  if (!fab || !chat || !close || !thread || !chips || !form || !input) return;
+
+  const suggestions = [
+    ["What can PALRAM AI build?", "What you build"],
+    ["Can you automate my business?", "Automation"],
+    ["Can you build an AI agent?", "AI agents"],
+    ["How much does an AI project cost?", "Pricing"],
+    ["Can you build a mobile app?", "Mobile apps"],
+    ["How do I start?", "How to start"]
+  ];
+
+  const fallback = "I can help with agents, automation, software, mobile, pricing, or how to start. Or open Start a Project and send a brief to admin@palramai.in.";
+
+  const addMessage = (role, text) => {
+    const row = document.createElement("div");
+    row.className = `chat-row is-${role}`;
+    const bubble = document.createElement("p");
+    bubble.textContent = text;
+    row.appendChild(bubble);
+    thread.appendChild(row);
+    thread.scrollTop = thread.scrollHeight;
+  };
+
+  const replyTo = question => {
+    const answer = PALRAM.assistant[question] || fallback;
+    addMessage("agent", answer);
+  };
+
+  const matchQuestion = text => {
+    const q = text.toLowerCase();
+    if (/(automat|workflow|handoff)/.test(q)) return "Can you automate my business?";
+    if (/(agent|digital worker)/.test(q)) return "Can you build an AI agent?";
+    if (/(cost|price|pricing|budget)/.test(q)) return "How much does an AI project cost?";
+    if (/(mobile|ios|android|app)/.test(q)) return "Can you build a mobile app?";
+    if (/(start|contact|begin|enquiry|email)/.test(q)) return "How do I start?";
+    if (/(build|software|what can|services)/.test(q)) return "What can PALRAM AI build?";
+    return "";
+  };
+
+  chips.innerHTML = suggestions.map(([question, label]) =>
+    `<button class="agent-chip" type="button" data-question="${escapeHTML(question)}">${escapeHTML(label)}</button>`
+  ).join("");
+
   const setOpen = open => {
-    panel.classList.toggle("is-open", open);
-    toggles.forEach(el => el.setAttribute("aria-expanded", String(open)));
+    chat.classList.toggle("is-open", open);
+    fab.hidden = open;
+    fab.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("agent-open", open);
+    if (open && !thread.childElementCount) {
+      addMessage("agent", "Hi. Ask what you want to build — agents, automation, software, mobile, or how to start.");
+    }
+    if (open) input.focus();
   };
-  toggles.forEach(el => el.addEventListener("click", () => setOpen(el.getAttribute("aria-expanded") !== "true")));
+
+  fab.addEventListener("click", () => setOpen(true));
   close.addEventListener("click", () => setOpen(false));
-  panel.addEventListener("click", event => {
-    const button = event.target.closest("[data-question]");
-    if (button) answer.textContent = PALRAM.assistant[button.dataset.question];
-  });
   document.addEventListener("keydown", event => { if (event.key === "Escape") setOpen(false); });
-}
-
-function initRoamingAgent() {
-  const agent = document.getElementById("palramAgent");
-  if (!agent) return;
-  if (reducedMotion()) return;
-  const core = agent.querySelector(".palram-agent-core");
-  const status = agent.querySelector(".palram-agent-status");
-  const states = ["SCANNING", "THINKING", "SIGNAL", "MAPPING"];
-  agent.hidden = false;
-  document.body.classList.add("has-roaming-agent");
-
-  let x = Math.max(24, window.innerWidth - 96);
-  let y = Math.max(96, window.innerHeight * 0.42);
-  let tx = x;
-  let ty = y;
-  let angle = 0;
-  let pauseUntil = 0;
-  let held = false;
-
-  const bounds = () => ({
-    left: 16,
-    top: 92,
-    right: window.innerWidth - 84,
-    bottom: window.innerHeight - 96
+  chips.addEventListener("click", event => {
+    const button = event.target.closest("[data-question]");
+    if (!button) return;
+    addMessage("user", button.dataset.question);
+    replyTo(button.dataset.question);
   });
-
-  const pick = () => {
-    const box = bounds();
-    const width = Math.max(40, box.right - box.left);
-    const height = Math.max(40, box.bottom - box.top);
-    const edge = Math.random() < 0.78;
-    if (edge) {
-      const side = Math.floor(Math.random() * 4);
-      const band = 0.24;
-      if (side === 0) { tx = box.left + Math.random() * width; ty = box.top + Math.random() * height * band; }
-      else if (side === 1) { tx = box.left + Math.random() * width; ty = box.bottom - Math.random() * height * band; }
-      else if (side === 2) { tx = box.left + Math.random() * width * band; ty = box.top + Math.random() * height; }
-      else { tx = box.right - Math.random() * width * band; ty = box.top + Math.random() * height; }
-    } else {
-      tx = box.left + Math.random() * width;
-      ty = box.top + Math.random() * height;
-    }
-    if (status) status.textContent = states[Math.floor(Math.random() * states.length)];
-  };
-
-  const place = (now, heading) => {
-    const bob = Math.sin((now || 0) / 430) * 4;
-    agent.style.transform = `translate(${x}px, ${y + bob}px)`;
-    if (core) core.style.transform = `rotate(${heading}deg)`;
-  };
-
-  pick();
-  place(0, 0);
-  agent.addEventListener("pointerenter", () => { held = true; });
-  agent.addEventListener("pointerleave", () => { held = false; });
-  window.addEventListener("resize", () => {
-    const box = bounds();
-    x = Math.min(Math.max(x, box.left), box.right);
-    y = Math.min(Math.max(y, box.top), box.bottom);
-  }, { passive: true });
-
-  const tick = now => {
-    if (held) {
-      place(now, angle);
-      requestAnimationFrame(tick);
-      return;
-    }
-    if (document.getElementById("assistantPanel")?.classList.contains("is-open")) {
-      tx = Math.max(24, window.innerWidth - 430);
-      ty = Math.max(96, window.innerHeight - 210);
-    }
-    if (now < pauseUntil) {
-      place(now, angle);
-      requestAnimationFrame(tick);
-      return;
-    }
-    const dx = tx - x;
-    const dy = ty - y;
-    const dist = Math.hypot(dx, dy);
-    if (dist < 5) {
-      pauseUntil = now + 800 + Math.random() * 2400;
-      pick();
-    } else {
-      const speed = window.matchMedia("(pointer: coarse)").matches ? 0.9 : 1.45;
-      x += (dx / dist) * speed;
-      y += (dy / dist) * speed;
-      const next = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
-      angle = angle + (next - angle) * 0.08;
-    }
-    place(now, angle);
-    requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+    addMessage("user", text);
+    input.value = "";
+    const key = matchQuestion(text);
+    replyTo(key || "");
+  });
 }
 
 function escapeHTML(value) {

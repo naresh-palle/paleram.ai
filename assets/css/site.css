@@ -47,16 +47,64 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background:
-    radial-gradient(ellipse 80% 50% at 88% -6%, var(--glow), transparent 54%),
-    radial-gradient(ellipse 52% 40% at 0% 12%, rgba(94, 231, 255, 0.2), transparent 48%),
-    radial-gradient(ellipse 46% 36% at 60% 110%, rgba(140, 110, 255, 0.22), transparent 50%),
-    var(--base);
+  background: transparent;
   color: var(--ink);
   font: 400 16px/1.6 var(--body);
   cursor: auto;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+.color-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(120deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75, #4f5bd5);
+  background-size: 320% 320%;
+  animation: igShift 18s ease-in-out infinite;
+}
+
+.color-field span {
+  position: absolute;
+  width: 48vw;
+  height: 48vw;
+  min-width: 280px;
+  min-height: 280px;
+  border-radius: 50%;
+  filter: blur(28px);
+  opacity: .9;
+  mix-blend-mode: screen;
+  animation: igDrift 14s ease-in-out infinite alternate;
+}
+
+.color-field span:nth-child(1) { background: #feda75; top: -18%; left: -10%; }
+.color-field span:nth-child(2) { background: #fa7e1e; top: 8%; right: -16%; animation-duration: 17s; }
+.color-field span:nth-child(3) { background: #d62976; bottom: -20%; left: 18%; animation-duration: 20s; }
+.color-field span:nth-child(4) { background: #962fbf; top: 36%; left: 28%; animation-duration: 16s; }
+.color-field span:nth-child(5) { background: #4f5bd5; right: 6%; bottom: 8%; animation-duration: 19s; }
+
+.color-field::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 10, 28, 0.18), rgba(8, 10, 28, 0.38));
+  content: "";
+}
+
+html[data-theme="light"] .color-field::after {
+  background: linear-gradient(180deg, rgba(255, 248, 252, 0.62), rgba(238, 242, 251, 0.78));
+}
+
+@keyframes igShift {
+  0% { background-position: 0% 40%; }
+  50% { background-position: 100% 60%; }
+  100% { background-position: 0% 40%; }
+}
+
+@keyframes igDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(10vw, 8vh, 0) scale(1.18); }
 }
 
 a,
@@ -329,7 +377,7 @@ body[data-page="home"] .chapter-index {
   inset: 0 0 auto;
   z-index: 100;
   padding: 18px 0;
-  background: color-mix(in srgb, var(--base) 88%, transparent);
+  background: color-mix(in srgb, var(--base) 62%, transparent);
   backdrop-filter: blur(10px);
   transition: border-color .3s, padding .3s;
 }
@@ -557,14 +605,22 @@ h1 .line {
 }
 
 .path-card {
+  --accent: #5ee7ff;
   display: grid;
   gap: 8px;
   min-height: 148px;
   padding: 16px 16px 18px;
-  border: 1px solid var(--line-strong);
-  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, white);
+  background: color-mix(in srgb, var(--base) 72%, transparent);
   transition: border-color .2s, transform .2s, background .2s;
 }
+
+.path-card:nth-child(1) { --accent: #feda75; }
+.path-card:nth-child(2) { --accent: #fa7e1e; }
+.path-card:nth-child(3) { --accent: #d62976; }
+.path-card:nth-child(4) { --accent: #c13584; }
+.path-card:nth-child(5) { --accent: #962fbf; }
+.path-card:nth-child(6) { --accent: #4f5bd5; }
 
 .path-card:hover {
   border-color: var(--signal);
@@ -573,7 +629,7 @@ h1 .line {
 }
 
 .path-card small {
-  color: var(--signal);
+  color: var(--accent);
   font: 500 11px/1 var(--mono);
   letter-spacing: .16em;
 }
@@ -592,7 +648,7 @@ h1 .line {
 }
 
 .path-card::after {
-  color: var(--signal);
+  color: var(--accent);
   content: "Open →";
   font: 500 11px/1 var(--mono);
   letter-spacing: .12em;

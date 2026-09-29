@@ -163,6 +163,7 @@ const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><ci
 const AGENT = `<svg class="palram-agent-mark" viewBox="0 0 72 72" aria-hidden="true"><circle class="agent-ring" cx="36" cy="30" r="18" fill="none" stroke="currentColor" stroke-width="1.15" opacity=".28"/><circle class="orbit-signal" cx="36" cy="30" r="18" fill="none" stroke="#5EE7FF" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="12 102"/><ellipse cx="36" cy="44" rx="12" ry="16" fill="currentColor" opacity=".14"/><rect class="agent-shell" x="27" y="36" width="18" height="22" rx="9"/><circle class="agent-head" cx="36" cy="28" r="11"/><circle class="signal-core" cx="36" cy="28" r="5" fill="#5EE7FF"/><circle cx="34.2" cy="26.4" r="1.5" fill="#eef4ff"/></svg>`;
 
 document.addEventListener("DOMContentLoaded", () => {
+  mountColorField();
   mountLoader();
   mountSiteShell();
   mountField();
@@ -187,6 +188,13 @@ function reducedMotion() {
 
 function brandHTML(subtitle) {
   return `${MARK}<span class="brand-lockup"><span class="brand-name">PALRAM</span><small>${subtitle}</small></span>`;
+}
+
+function mountColorField() {
+  document.body.insertAdjacentHTML("afterbegin", `
+    <div class="color-field" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>`);
 }
 
 function mountLoader() {

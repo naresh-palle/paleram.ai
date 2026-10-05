@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">PALRAM Apex</title>
+  <path fill="#F6F2FF" fill-rule="evenodd" d="M14 7h18.2c12.6 0 20.3 6.8 20.3 16.6S44.8 40.2 32.2 40.2H26v16.8H14V7zm12 9.4h5.6c5.4 0 8.4 2.7 8.4 7.1s-3 7.1-8.4 7.1H26V16.4z"/>
+  <path fill="#FF4D8D" d="M28.2 22.4h11.2v4.4H28.2z"/>
+</svg>

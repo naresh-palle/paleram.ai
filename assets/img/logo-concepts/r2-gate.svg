@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">PALRAM Gate</title>
+  <path fill="#F6F2FF" fill-rule="evenodd" d="M13 58V34C13 20.2 21.4 11 32 11s19 9.2 19 23v24H41.2V34c0-6.1-4.1-10.4-9.2-10.4S22.8 27.9 22.8 34v24H13z"/>
+  <path fill="#FF4D8D" d="M27.4 5h9.2L34.4 17h-4.8z"/>
+</svg>

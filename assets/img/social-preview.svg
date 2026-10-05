@@ -5,13 +5,9 @@
   <circle cx="180" cy="560" r="240" fill="#FF8A3D" opacity=".12"/>
   <circle cx="520" cy="-40" r="180" fill="#FFE27A" opacity=".1"/>
   <text x="80" y="118" fill="#FF4D8D" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="6">PALRAM / AI-001</text>
-  <g transform="translate(80 146) scale(1.45)">
-    <rect x="12" y="10" width="13" height="44" rx="6.5" fill="#F6F2FF"/>
-    <rect x="28.5" y="18" width="13" height="36" rx="6.5" fill="#F6F2FF"/>
-    <rect x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/>
-  </g>
-  <text x="198" y="212" fill="#F6F2FF" font-family="Syne, Outfit, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="10">PALRAM</text>
-  <text x="448" y="212" fill="#FF4D8D" font-family="Syne, Outfit, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="6">AI</text>
+  <text x="80" y="200" fill="#F6F2FF" font-family="Syne, Outfit, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="8">PALRAM</text>
+  <rect x="84" y="218" width="150" height="8" fill="#FF4D8D"/>
+  <text x="500" y="196" fill="#FF4D8D" font-family="Syne, Outfit, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="6">AI</text>
   <text x="80" y="360" fill="#F6F2FF" font-family="Syne, Outfit, Arial, sans-serif" font-size="64" font-weight="800">BUILD SOFTWARE</text>
   <text x="80" y="436" fill="#F6F2FF" font-family="Syne, Outfit, Arial, sans-serif" font-size="64" font-weight="800">THAT THINKS, ACTS &amp; SCALES.</text>
   <text x="80" y="530" fill="#B9AED0" font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="4">AGENT · AUTOMATION · SOFTWARE</text>

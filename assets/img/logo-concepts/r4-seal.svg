@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">PALRAM Seal</title>
+  <circle cx="31" cy="34" r="19" fill="none" stroke="#F6F2FF" stroke-width="6.5"/>
+  <path fill="#F6F2FF" fill-rule="evenodd" d="M23.4 22.4h8.2c5 0 8.1 2.9 8.1 7.2s-3.1 7.2-8.1 7.2h-3.4v6.6h-4.8V22.4zm4.8 4.3h2.8c2.1 0 3.3 1.1 3.3 2.9s-1.2 2.9-3.3 2.9h-2.8v-5.8z"/>
+  <circle cx="46.2" cy="18.2" r="4.3" fill="#FF4D8D"/>
+</svg>

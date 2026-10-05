@@ -158,7 +158,8 @@ const PALRAM = {
   }
 };
 
-const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect class="stack-bar" x="12" y="10" width="13" height="44" rx="6.5" fill="currentColor"/><rect class="stack-bar" x="28.5" y="18" width="13" height="36" rx="6.5" fill="currentColor"/><rect class="stack-signal" x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/></svg>`;
+const MARK = `<svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><text x="8" y="42" fill="currentColor" font-family="Syne, Arial Black, sans-serif" font-size="40" font-weight="700">P</text><rect x="8" y="48" width="22" height="5" fill="#FF4D8D"/></svg>`;
+const WORDMARK = `<span class="wordmark"><span class="wordmark-name">PALRAM</span><span class="wordmark-ai">AI</span><span class="wordmark-rule" aria-hidden="true"></span></span>`;
 
 document.addEventListener("DOMContentLoaded", () => {
   mountColorField();
@@ -183,8 +184,8 @@ function reducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function brandHTML(subtitle) {
-  return `${MARK}<span class="brand-lockup"><span class="brand-name">PALRAM</span><small>${subtitle}</small></span>`;
+function brandHTML() {
+  return WORDMARK;
 }
 
 function mountColorField() {
@@ -198,12 +199,7 @@ function mountLoader() {
   document.body.insertAdjacentHTML("afterbegin", `
     <div class="site-loader" aria-hidden="true">
       <div class="loader-core">
-        <svg class="loader-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <rect class="stack-bar" x="12" y="10" width="13" height="44" rx="6.5" fill="currentColor"/>
-          <rect class="stack-bar" x="28.5" y="18" width="13" height="36" rx="6.5" fill="currentColor"/>
-          <rect class="stack-signal" x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/>
-        </svg>
-        <span class="loader-word">PALRAM</span>
+        <span class="wordmark wordmark-loader"><span class="wordmark-name">PALRAM</span><span class="wordmark-ai">AI</span><span class="wordmark-rule" aria-hidden="true"></span></span>
       </div>
     </div>`);
   window.setTimeout(() => document.querySelector(".site-loader")?.remove(), 1200);
@@ -218,10 +214,9 @@ function mountField() {
   hero.insertAdjacentHTML("afterbegin", `<div class="field-word" aria-hidden="true">${word}</div>`);
   document.querySelectorAll("img.page-visual").forEach(image => {
     const holder = document.createElement("div");
-    holder.innerHTML = MARK;
+    holder.innerHTML = WORDMARK;
     const mark = holder.firstElementChild;
     mark.classList.add("page-visual");
-    mark.classList.remove("brand-mark");
     image.replaceWith(mark);
   });
 }
@@ -237,7 +232,7 @@ function mountSiteShell() {
     <div class="spine" aria-hidden="true">P A L R A M</div>
     <header class="site-header" id="siteHeader">
       <div class="wrap nav-shell">
-        <a class="brand" href="index.html" aria-label="PALRAM home">${brandHTML("AI · AGENTS · SOFTWARE")}</a>
+        <a class="brand" href="index.html" aria-label="PALRAM AI home">${brandHTML()}</a>
         <nav class="desktop-nav" aria-label="Primary navigation">${nav}</nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">◐</button>
         <a class="nav-cta" href="contact.html" data-cursor="START">Start a Project →</a>
@@ -251,7 +246,7 @@ function mountSiteShell() {
     <footer class="site-footer">
       <div class="wrap footer-main">
         <div class="footer-brand">
-          <a class="brand" href="index.html">${brandHTML("AI · AUTOMATION · SOFTWARE")}</a>
+          <a class="brand" href="index.html" aria-label="PALRAM AI home">${brandHTML()}</a>
           <p>We turn business problems into intelligent software.</p>
         </div>
         <div class="footer-column">

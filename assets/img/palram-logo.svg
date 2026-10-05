@@ -1,10 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 72" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120" role="img" aria-labelledby="title">
   <title id="title">PALRAM AI</title>
-  <g transform="translate(4 4)">
-    <rect x="12" y="10" width="13" height="44" rx="6.5" fill="#F6F2FF"/>
-    <rect x="28.5" y="18" width="13" height="36" rx="6.5" fill="#F6F2FF"/>
-    <rect x="45" y="28" width="13" height="26" rx="6.5" fill="#FF4D8D"/>
-  </g>
-  <text x="86" y="46" fill="#F6F2FF" font-family="Syne, Outfit, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="8">PALRAM</text>
-  <text x="392" y="46" fill="#FF4D8D" font-family="Syne, Outfit, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">AI</text>
+  <text x="0" y="74" fill="#F6F2FF" font-family="Syne, Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="6">PALRAM</text>
+  <rect x="2" y="90" width="168" height="8" fill="#FF4D8D"/>
+  <text x="500" y="70" fill="#FF4D8D" font-family="Syne, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="4">AI</text>
 </svg>

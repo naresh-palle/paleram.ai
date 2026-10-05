@@ -1,5 +1,5 @@
 ---
-description: After every code change, commit, git push origin main, and deploy GitHub Pages.
+description: After every code change, commit on a cursor/ branch, push origin main, and deploy GitHub Pages.
 alwaysApply: true
 ---
 
@@ -9,4 +9,6 @@ After you finish editing this repo, follow `.cursor/skills/git-push-and-deploy/S
 
 every time change of code do a git push and deploy
 
-Pushing `main` to `origin` deploys https://palramai.in (GitHub Pages). Do it in the same turn as the code change. Skip only when there is nothing to commit.
+PUSH AND deploy gh pages
+
+Create a `cursor/<short-description>` branch, commit only the related files, fast-forward `main`, and `git push origin main` in the same turn. Pushing `main` deploys https://palramai.in (GitHub Pages). Skip only when there is nothing to commit. Do not force-push `main`.

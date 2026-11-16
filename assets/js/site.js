@@ -2,8 +2,14 @@ document.documentElement.classList.add("js");
 document.documentElement.dataset.theme = localStorage.getItem("palram-theme") || localStorage.getItem("palram_theme") || "dark";
 
 const PALRAM = {
+  studio: {
+    appUrl: "https://app.palramai.in",
+    apiUrl: "https://api.palramai.in",
+    softLaunch: true
+  },
   nav: [
     ["solutions", "services.html", "Solutions"],
+    ["studio", "ai-studio.html", "AI Studio"],
     ["agents", "ai-agents.html", "AI Agents"],
     ["automation", "automation.html", "Automation"],
     ["software", "software-development.html", "Software"],
@@ -14,6 +20,8 @@ const PALRAM = {
   fields: {
     home: "INTELLIGENCE",
     solutions: "SYSTEMS",
+    studio: "FACTORY",
+    "studio-access": "ACCESS",
     agents: "AGENTS",
     automation: "AUTOMATION",
     software: "SOFTWARE",
@@ -154,7 +162,9 @@ const PALRAM = {
     "Can you build an AI agent?": "Yes. We design agents that retrieve context, use approved tools, take actions and escalate exceptions to a person.",
     "How much does an AI project cost?": "Scope depends on data, integrations and risk. The pricing page shows engagement starting points; a short discovery call produces a specific estimate.",
     "Can you build a mobile app?": "Yes. PALRAM AI builds iOS and Android applications with Flutter or React Native, connected to production APIs.",
-    "How do I start?": "Open Start a Project, choose what you are building, describe the workflow and send the brief to admin@palramai.in."
+    "How do I start?": "Open Start a Project, choose what you are building, describe the workflow and send the brief to admin@palramai.in.",
+    "What is PALRAM AI Studio?": "Studio is our invite-only self-serve AI software development platform. Request access on the Studio Access page; administrator approval is required during soft launch.",
+    "How do I get Studio access?": "Use Studio Access to request registration or a demo. Accounts stay pending until an administrator approves them."
   }
 };
 
@@ -177,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initIndustries();
   initIntake();
   initAssistant();
+  initStudioAccess();
   window.setTimeout(() => document.querySelector(".site-loader")?.classList.add("is-done"), 780);
 });
 
@@ -235,11 +246,11 @@ function mountSiteShell() {
         <a class="brand" href="index.html" aria-label="PALRAM AI home">${brandHTML()}</a>
         <nav class="desktop-nav" aria-label="Primary navigation">${nav}</nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">◐</button>
-        <a class="nav-cta" href="contact.html" data-cursor="START">Start a Project →</a>
+        <a class="nav-cta" href="studio-access.html" data-cursor="STUDIO">Studio Access →</a>
         <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation"><span></span></button>
       </div>
     </header>
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">${nav}<a href="contact.html">Start a Project →</a></nav>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">${nav}<a href="studio-access.html">Studio Access →</a><a href="contact.html">Start a Project →</a></nav>
   `);
 
   document.body.insertAdjacentHTML("beforeend", `
@@ -251,6 +262,7 @@ function mountSiteShell() {
         </div>
         <div class="footer-column">
           <h3>Solutions</h3>
+          <a href="ai-studio.html">AI Studio</a>
           <a href="ai-agents.html">AI Agents</a>
           <a href="automation.html">Automation</a>
           <a href="ai-development.html">AI & RAG</a>
@@ -265,7 +277,9 @@ function mountSiteShell() {
           <a href="pricing.html">Pricing</a>
         </div>
         <div class="footer-column">
-          <h3>Contact</h3>
+          <h3>Studio &amp; Contact</h3>
+          <a href="studio-access.html">Register / Login</a>
+          <a href="studio-access.html#demo">Request a demo</a>
           <a href="mailto:admin@palramai.in">admin@palramai.in</a>
           <a href="https://palramai.in/">palramai.in</a>
         </div>
@@ -596,6 +610,16 @@ function initIndustries() {
     if (!button) return;
     list.querySelectorAll("[data-industry]").forEach(item => item.setAttribute("aria-selected", String(item === button)));
     render(button.dataset.industry);
+  });
+}
+
+function initStudioAccess() {
+  const appUrl = PALRAM.studio?.appUrl || "https://app.palramai.in";
+  document.querySelectorAll("[data-studio-login]").forEach(link => {
+    link.setAttribute("href", appUrl);
+  });
+  document.querySelectorAll("[data-studio-register]").forEach(link => {
+    link.setAttribute("href", `${appUrl.replace(/\/$/, "")}/`);
   });
 }
 

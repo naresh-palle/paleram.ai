@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Access — Register, Login &amp; Demo — PALRAM AI</title>
+  <meta name="description" content="Request invite-only PALRAM AI Studio access, sign in when approved, or book a product demo. Soft launch requires administrator approval.">
+  <link rel="canonical" href="https://palramai.in/studio-access.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PALRAM AI">
+  <meta property="og:title" content="Studio Access — PALRAM AI">
+  <meta property="og:description" content="Invite-only soft launch for PALRAM AI Studio. Register, sign in after approval, or request a demo.">
+  <meta property="og:url" content="https://palramai.in/studio-access.html">
+  <meta property="og:image" content="https://palramai.in/assets/img/palram-mark.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Studio Access — PALRAM AI">
+  <meta name="twitter:description" content="Invite-only registration, login after approval, and demo requests.">
+  <meta name="twitter:image" content="https://palramai.in/assets/img/palram-mark.svg">
+  <meta name="theme-color" content="#100c16">
+  <link rel="icon" href="assets/img/palram-mark.svg?v=9" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css?v=15">
+</head>
+<body data-page="studio-access">
+  <main>
+    <section class="page-hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="eyebrow">Studio access · Invite only</div>
+        <h1 id="hero-title"><span class="line">Register.</span><span class="line">Get approved.</span><span class="line">Build.</span></h1>
+        <p class="lead">During soft launch, new Studio accounts wait for administrator approval before sign-in works. The live Studio host is <strong>app.palramai.in</strong> (provisioning in progress). Until DNS is live, use the request forms below — we will activate your invite.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="#register">Request access</a>
+          <a class="button button-secondary" href="#login">Sign in</a>
+          <a class="button button-secondary" href="#demo">Request a demo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-line" id="register">
+      <div class="wrap split">
+        <div class="sticky-copy" data-reveal>
+          <div class="eyebrow">Customer registration</div>
+          <h2>Request Studio access</h2>
+          <p>We create your tenant in pending state. After approval you can sign in at the Studio app and create projects against the factory API.</p>
+        </div>
+        <form class="intake-panel" data-reveal id="studioRegisterForm" action="mailto:admin@palramai.in" method="post" enctype="text/plain">
+          <input type="hidden" name="intent" value="studio-register">
+          <label>Full name<input name="name" required autocomplete="name"></label>
+          <label>Work email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Organisation<input name="organization" required autocomplete="organization"></label>
+          <label>What do you want to build first?<textarea name="requirement" rows="4" required placeholder="One sentence software requirement"></textarea></label>
+          <p class="hero-note">Submitting opens your email client to <strong>admin@palramai.in</strong>. When <code>app.palramai.in</code> is live, the same flow will post to the factory <code>/api/v1/saas/auth/register</code> endpoint (invite-only).</p>
+          <div class="button-row">
+            <button class="button button-primary" type="submit">Send access request →</button>
+            <a class="button button-secondary" data-studio-register href="https://app.palramai.in">Open Studio register</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="login">
+      <div class="wrap split">
+        <div class="sticky-copy" data-reveal>
+          <div class="eyebrow">Customer login</div>
+          <h2>Sign in after approval</h2>
+          <p>Approved customers authenticate against the existing factory SaaS API. No second customer database.</p>
+        </div>
+        <div class="intake-panel" data-reveal>
+          <p>Once your tenant is approved, sign in on the Studio host:</p>
+          <div class="button-row">
+            <a class="button button-primary" data-studio-login href="https://app.palramai.in">Open Studio login →</a>
+            <a class="button button-secondary" href="ai-studio.html">About Studio</a>
+          </div>
+          <p class="hero-note">If login fails with “pending administrator approval”, your invite is still in the queue.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-line" id="demo">
+      <div class="wrap split">
+        <div class="sticky-copy" data-reveal>
+          <div class="eyebrow">Demo request</div>
+          <h2>See the factory with us</h2>
+          <p>Prefer a guided walkthrough before requesting access? Tell us your use case and we will schedule a demo.</p>
+        </div>
+        <form class="intake-panel" data-reveal id="studioDemoForm" action="mailto:admin@palramai.in" method="post" enctype="text/plain">
+          <input type="hidden" name="intent" value="studio-demo">
+          <label>Name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Company<input name="company" autocomplete="organization"></label>
+          <label>Use case<textarea name="use_case" rows="4" required placeholder="What should Studio build or demonstrate?"></textarea></label>
+          <div class="button-row">
+            <button class="button button-primary" type="submit">Request demo →</button>
+            <a class="button button-secondary" href="contact.html">General contact</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap" data-reveal>
+        <div class="eyebrow">Still deciding?</div>
+        <h2>Services remain available without Studio access.</h2>
+        <p>Engage PALRAM AI for agent, automation or product builds while Studio soft launch continues.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="contact.html">Start a services project</a>
+          <a class="button button-secondary" href="pricing.html">View pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/site.js?v=14" defer></script>
+</body>
+</html>
